@@ -1,7 +1,12 @@
-import { generateColors, SIZE } from "./avatar-bauhaus.utils";
+import { useStore, onMount, useState } from "@builder.io/mitosis";
+import { Color, generateColors, SIZE } from "./avatar-bauhaus.utils";
 
 export default function AvatarBauhaus(props) {
-  const properties = generateColors(props.name, props.colors);
+  const state: any = useStore<any>({
+    get properties() {
+      return generateColors(props.name, props.colors);
+    },
+  });
 
   return (
     <svg
@@ -29,20 +34,20 @@ export default function AvatarBauhaus(props) {
         />
       </mask>
       <g mask="url(#mask__bauhaus)">
-        <rect width={SIZE} height={SIZE} fill={properties[0].color} />
+        <rect width={SIZE} height={SIZE} fill={state.properties?.[0]?.color} />
         <rect
           x={(SIZE - 60) / 2}
           y={(SIZE - 20) / 2}
           width={SIZE}
-          height={properties[1].isSquare ? SIZE : SIZE / 8}
-          fill={properties[1].color}
+          height={state.properties?.[1]?.isSquare ? SIZE : SIZE / 8}
+          fill={state.properties?.[1]?.color}
           transform={
             "translate(" +
-            properties[1].translateX +
+            state.properties?.[1]?.translateX +
             " " +
-            properties[1].translateY +
+            state.properties?.[1]?.translateY +
             ") rotate(" +
-            properties[1].rotate +
+            state.properties?.[1]?.rotate +
             " " +
             SIZE / 2 +
             " " +
@@ -53,13 +58,13 @@ export default function AvatarBauhaus(props) {
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          fill={properties[2].color}
+          fill={state.properties?.[2]?.color}
           r={SIZE / 5}
           transform={
             "translate(" +
-            properties[2].translateX +
+            state.properties?.[2]?.translateX +
             " " +
-            properties[2].translateY +
+            state.properties?.[2]?.translateY +
             ")"
           }
         />
@@ -69,14 +74,14 @@ export default function AvatarBauhaus(props) {
           x2={SIZE}
           y2={SIZE / 2}
           strokeWidth={2}
-          stroke={properties[3].color}
+          stroke={state.properties?.[3]?.color}
           transform={
             "translate(" +
-            properties[3].translateX +
+            state.properties?.[3]?.translateX +
             " " +
-            properties[3].translateY +
+            state.properties?.[3]?.translateY +
             ") rotate(" +
-            properties[3].rotate +
+            state.properties?.[3]?.rotate +
             " " +
             SIZE / 2 +
             " " +

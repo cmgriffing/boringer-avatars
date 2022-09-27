@@ -5,6 +5,7 @@
     "jsxImportSource": "@builder.io/mitosis",
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "target": "ES5"
   }
 }

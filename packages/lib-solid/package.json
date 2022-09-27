@@ -1,0 +1,34 @@
+{
+  "name": "@boringer-avatars/solid",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": false,
+  "description": "",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/boringer-avatars.solid.umd.cjs",
+  "module": "./dist/boringer-avatars.solid.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/boringer-avatars.solid.js",
+      "require": "./dist/boringer-avatars.solid.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2",
+    "vite": "^3.0.9",
+    "vite-plugin-solid": "^2.3.0",
+    "vite-plugin-dts": "^1.5.0"
+  },
+  "dependencies": {
+    "solid-js": "^1.5.1"
+  }
+}
