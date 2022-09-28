@@ -8,37 +8,37 @@ try {
   const mitosisFiles = [
     "avatar",
     "avatars/avatar-bauhaus",
-    // "avatars/avatar-marble",
-    // "avatars/avatar-beam",
-    // "avatars/avatar-pixel",
-    // "avatars/avatar-sunset",
-    // "avatars/avatar-ring",
+    "avatars/avatar-beam",
+    "avatars/avatar-marble",
+    "avatars/avatar-pixel",
+    "avatars/avatar-sunset",
+    "avatars/avatar-ring",
   ];
 
   enum Target {
-    Angular = "angular",
+    // Angular = "angular",
     React = "react",
-    Svelte = "svelte",
-    Vue3 = "vue3",
-    Solid = "solid",
+    // Svelte = "svelte",
+    // Vue3 = "vue3",
+    // Solid = "solid",
   }
 
   const extensionMap: Record<Target, string> = {
-    [Target.Angular]: "component.ts",
+    // [Target.Angular]: "component.ts",
     [Target.React]: "tsx",
-    [Target.Svelte]: "svelte",
-    [Target.Vue3]: "vue",
-    [Target.Solid]: "tsx",
+    // [Target.Svelte]: "svelte",
+    // [Target.Vue3]: "vue",
+    // [Target.Solid]: "tsx",
   };
 
   Object.values(Target).forEach((target) => {
     const outputDir = path.resolve(process.cwd(), "../", `lib-${target}`);
     let srcDir = path.resolve(outputDir, "src");
-    if (target === "svelte") {
-      srcDir = path.resolve(outputDir, "src/lib");
-    } else if (target === "angular") {
-      srcDir = path.resolve(outputDir, "projects/avatars/src/lib");
-    }
+    // if (target === "svelte") {
+    //   srcDir = path.resolve(outputDir, "src/lib");
+    // } else if (target === "angular") {
+    //   srcDir = path.resolve(outputDir, "projects/avatars/src/lib");
+    // }
     const componentExtension = extensionMap[target];
 
     const boilerplatePath = path.resolve(__dirname, `boilerplate/${target}`);
@@ -97,6 +97,14 @@ try {
       fs.outputFileSync(path.resolve(outputDir, relativeFileName), rendered);
 
       fs.removeSync(templateFilePath);
+    });
+
+    execSync("pnpm install", {
+      cwd: outputDir,
+    });
+
+    execSync("pnpm build", {
+      cwd: outputDir,
     });
   });
 } catch (e: any) {

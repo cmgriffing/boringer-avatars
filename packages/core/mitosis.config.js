@@ -1,6 +1,7 @@
 const { CustomAngularPlugin } = require("./mitosis/plugins/angular");
-const { CustomVuePlugin } = require("./mitosis/plugins/vue");
+const { CustomReactPlugin } = require("./mitosis/plugins/react");
 const { CustomSveltePlugin } = require("./mitosis/plugins/svelte");
+const { CustomVuePlugin } = require("./mitosis/plugins/vue");
 
 module.exports = {
   files: "src/**/*",
@@ -15,6 +16,9 @@ module.exports = {
     vue3: {
       plugins: [CustomVuePlugin],
     },
+    react: {
+      plugins: [CustomReactPlugin],
+    },
     svelte: {
       plugins: [CustomSveltePlugin],
     },
@@ -22,23 +26,28 @@ module.exports = {
       plugins: [
         CustomAngularPlugin({
           attributes: [
-            "fill",
-            "x",
-            "y",
-            "width",
-            "height",
-            "viewBox",
-            "rx",
-            "transform",
             "cx",
             "cy",
+            "d",
+            "fill",
+            "floodOpacity",
+            "height",
+            "offset",
             "r",
-            "x1",
-            "y1",
-            "x2",
-            "y2",
-            "strokeWidth",
+            "rx",
+            "stdDeviation",
+            "stop-color",
             "stroke",
+            "strokeWidth",
+            "transform",
+            "viewBox",
+            "width",
+            "x",
+            "x1",
+            "x2",
+            "y",
+            "y1",
+            "y2",
           ],
         }),
       ],

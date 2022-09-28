@@ -17,9 +17,6 @@
     "prettier": "latest",
     "turbo": "latest"
   },
-  "engines": {
-    "node": ">=18.0.0"
-  },
   "dependencies": {},
   "packageManager": "pnpm@7.2.1"
 }

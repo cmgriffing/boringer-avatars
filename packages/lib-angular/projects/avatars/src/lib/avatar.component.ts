@@ -1,11 +1,6 @@
 import { Component, Input } from "@angular/core";
 
 import type { Variant } from "./avatar.utils";
-// import AvatarRing from "./avatar-ring.lite";
-// import AvatarPixel from "./avatar-pixel.lite";
-// import AvatarBeam from "./avatar-beam.lite";
-// import AvatarSunset from "./avatar-sunset.lite";
-// import AvatarMarble from "./avatar-marble.lite";
 interface AvatarProps {
   variant: Variant;
   colors: string[];
@@ -15,21 +10,78 @@ interface AvatarProps {
   size: number;
 }
 
-import AvatarBauhaus from "./avatars/avatar-bauhaus.component";
 import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import AvatarBauhaus from "./avatars/avatar-bauhaus.component";
+import AvatarBeam from "./avatars/avatar-beam.component";
+import AvatarMarble from "./avatars/avatar-marble.component";
+import AvatarPixel from "./avatars/avatar-pixel.component";
+import AvatarRing from "./avatars/avatar-ring.component";
+import AvatarSunset from "./avatars/avatar-sunset.component";
 
 @Component({
   selector: "avatar, Avatar",
   template: `
-    <ng-container *ngIf="checkedVariant === \'bauhaus\'">
-      <avatar-bauhaus
-        [colors]="colors"
-        [name]="name"
-        [square]="square"
-        [title]="title"
-        [size]="size"
-      ></avatar-bauhaus>
-    </ng-container>
+    <div>
+      <ng-container *ngIf="checkedVariant === \'bauhaus\'">
+        <avatar-bauhaus
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-bauhaus>
+      </ng-container>
+
+      <ng-container *ngIf="checkedVariant === \'beam\'">
+        <avatar-beam
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-beam>
+      </ng-container>
+
+      <ng-container *ngIf="checkedVariant === \'marble\'">
+        <avatar-marble
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-marble>
+      </ng-container>
+
+      <ng-container *ngIf="checkedVariant === \'pixel\'">
+        <avatar-pixel
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-pixel>
+      </ng-container>
+
+      <ng-container *ngIf="checkedVariant === \'ring\'">
+        <avatar-ring
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-ring>
+      </ng-container>
+
+      <ng-container *ngIf="checkedVariant === \'sunset\'">
+        <avatar-sunset
+          [colors]="colors"
+          [name]="name"
+          [square]="square"
+          [title]="title"
+          [size]="size"
+        ></avatar-sunset>
+      </ng-container>
+    </div>
   `,
 })
 export default class Avatar {
@@ -42,13 +94,13 @@ export default class Avatar {
   @Input() size: Partial<AvatarProps>["size"];
   @Input() variant: Partial<AvatarProps>["variant"];
 
-  checkedVariant = "bauhaus";
+  checkedVariant = "beam";
 
   ngOnInit() {
-    this.checkedVariant = coerceVariant(this.variant) || "marble";
+    this.checkedVariant = coerceVariant(this.variant) || "beam";
   }
 
   ngAfterContentChecked() {
-    this.checkedVariant = coerceVariant(this.variant) || "marble";
+    this.checkedVariant = coerceVariant(this.variant) || "beam";
   }
 }

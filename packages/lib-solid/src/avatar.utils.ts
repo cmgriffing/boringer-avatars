@@ -1,3 +1,11 @@
+export interface Color {
+  color: string;
+  translateX: number;
+  translateY: number;
+  rotate: number;
+  isSquare: boolean;
+}
+
 export const hashCode = (name: string) => {
   var hash = 0;
   for (var i = 0; i < name.length; i++) {

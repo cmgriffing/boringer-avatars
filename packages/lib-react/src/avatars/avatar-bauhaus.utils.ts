@@ -3,15 +3,7 @@ import { hashCode, getUnit, getRandomColor, getBoolean } from "../avatar.utils";
 export const ELEMENTS = 4;
 export const SIZE = 80;
 
-export interface Color {
-  color: string;
-  translateX: number;
-  translateY: number;
-  rotate: number;
-  isSquare: boolean;
-}
-
-export function generateColors(name: string, colors: string[]): Color[] {
+export function generateColors(name: string, colors: string[]) {
   const numFromName = hashCode(name);
   const range = colors && colors.length;
 
