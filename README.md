@@ -14,11 +14,11 @@ In this repo, we rewrote the components into Mitosis components. This allows us 
 
 We currently support:
 
-- Angular
-- React
-- Solid
-- Svelte
-- Vue3
+- Angular: [source](./packages/lib-angular) [npm](https://www.npmjs.com/package/@boringer-avatars/angular)
+- React: [source](./packages/lib-react) [npm](https://www.npmjs.com/package/@boringer-avatars/react)
+- Solid: [source](./packages/lib-solid) [npm](https://www.npmjs.com/package/@boringer-avatars/solid)
+- Svelte: [source](./packages/lib-svelte) [npm](https://www.npmjs.com/package/@boringer-avatars/svelte)
+- Vue3: [source](./packages/lib-vue3) [npm](https://www.npmjs.com/package/@boringer-avatars/vue3)
 
 ## License
 
