@@ -22,6 +22,10 @@ import AvatarSunset from "./avatars/avatar-sunset";
 export default function Avatar(props: Partial<AvatarProps>) {
   const state = { checkedVariant: coerceVariant(props.variant) || "beam" };
 
+  
+
+  
+
   return (
     <>
       {state.checkedVariant === `bauhaus` ? (

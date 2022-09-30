@@ -12,6 +12,8 @@ In this repo, we rewrote the components into Mitosis components. This allows us 
 
 ## Frameworks/Packages
 
+For specific usage, please see the README for whichever framework you need.
+
 We currently support:
 
 - Angular: [source](./packages/lib-angular) [npm](https://www.npmjs.com/package/@boringer-avatars/angular)
@@ -20,11 +22,34 @@ We currently support:
 - Svelte: [source](./packages/lib-svelte) [npm](https://www.npmjs.com/package/@boringer-avatars/svelte)
 - Vue3: [source](./packages/lib-vue3) [npm](https://www.npmjs.com/package/@boringer-avatars/vue3)
 
+## Contributing
+
+Want to see another framework supported? Have a way of improving Typescript Types output? Feel free to create an Issue or Pull Request.
+
+## Development
+
+To develop and run the project locally, you will need:
+
+- Node: >= 18
+
+- pnpm: >= 7.4.0
+
+### Installation
+
+Installing the dependencies is done via pnpm:
+
+```
+pnpm install
+```
+
+This will install all depencies for the packages and apps within the workspace.
+
 ## License
 
 MIT License
 
 Copyright (c) 2021 boringdesigners
+
 Copyright (c) 2022 cmgriffing
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

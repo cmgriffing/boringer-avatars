@@ -108,11 +108,11 @@ export function coerceVariant(variant?: Variant): Variant {
 
 export interface AvatarProps {
   variant: Variant;
-  colors: ["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"];
-  name: "Clara Barton";
-  square: false;
-  title: false;
-  size: 40;
+  colors: string[];
+  name: string;
+  square: boolean;
+  title: boolean;
+  size: number;
 }
 
 export const defaultAvatarProps: AvatarProps = {

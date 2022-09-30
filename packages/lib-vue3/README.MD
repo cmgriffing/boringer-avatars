@@ -1,16 +1,63 @@
-# Warning: Generated Code
+<div style="background: rgba(255, 0, 0, 0.2); padding:1rem;">
+  <h2>Warning: Generated Code</h2>
 
-This library is generated using [Mitosis](https://github.com/BuilderIO/mitosis).
+  <p>This library is generated using [Mitosis](https://github.com/BuilderIO/mitosis).</p>
+</div>
 
 # @boringer-avatars/vue3
 
 This repo is forked from [boring-avatars](https://boringavatars.com). It aims to create cross-framework implementations for as many frameworks as possible. (Angular, React, Vue, Solid, Svelte, Qwik, etc).
+
+## Installation
+
+
+
+## Usage
+
+
+```
+<script setup lang="ts">
+  import { Avatar } from "@boringer-avatars/vue3";
+</script>
+
+<template>
+  <Avatar
+    :title="false"
+    :size="400"
+    variant="beam"
+    name="testing"
+    :square="false"
+    :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+  />
+</template>
+```
+
+## Props
+
+The options you can pass into the component are listed below.
+
+### Required
+
+- **name**: string. `name` is used to determine the exact drawing of each avatar. This is what makes it different for each user. You can also use ID values rather than names. This is the only required value.
+
+### Optional
+
+- **variant**: `Variant`. Determines the style of avatar. Valid values include: "pixel", "bauhaus", "ring", "beam", "sunset", "marble". Defaults to `"beam"`.
+
+- **colors**: `string[]`. An array of valid Hex colors. 5 different colors is the optimal amount. More or less will still work. Defaults to: `["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]`.
+
+- **square**: `boolean`. Decides whether Avatar is a Circle or Square. Defaults to: `false`
+
+- **title**: `boolean`. Decides whether Avatar displays a title value. Defaults to: `false`
+
+- **size**: `number`. Determines the width and height of the image. Defaults to: `42`
 
 ## License
 
 MIT License
 
 Copyright (c) 2021 boringdesigners
+
 Copyright (c) 2022 cmgriffing
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

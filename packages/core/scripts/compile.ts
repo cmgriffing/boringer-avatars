@@ -16,30 +16,110 @@ try {
   ];
 
   enum Target {
-    // Angular = "angular",
+    Angular = "angular",
     React = "react",
-    // Svelte = "svelte",
-    // Vue3 = "vue3",
-    // Solid = "solid",
+    Svelte = "svelte",
+    Vue3 = "vue3",
+    Solid = "solid",
   }
 
   const extensionMap: Record<Target, string> = {
-    // [Target.Angular]: "component.ts",
+    [Target.Angular]: "component.ts",
     [Target.React]: "tsx",
-    // [Target.Svelte]: "svelte",
-    // [Target.Vue3]: "vue",
-    // [Target.Solid]: "tsx",
+    [Target.Svelte]: "svelte",
+    [Target.Vue3]: "vue",
+    [Target.Solid]: "tsx",
+  };
+
+  const instructionsMap: Record<Target, string> = {
+    [Target.Angular]: ``,
+    [Target.React]: ``,
+    [Target.Svelte]: ``,
+    [Target.Vue3]: ``,
+    [Target.Solid]: ``,
+  };
+
+  const usageMap: Record<Target, string> = {
+    [Target.Angular]: `<avatar
+  variant="beam"
+  [title]="false"
+  [size]="400"
+  name="testing"
+  [square]="false"
+  [colors]="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+></avatar>`,
+    [Target.React]: `import { Avatar } from "@boringer-avatars/react";
+
+...
+
+<Avatar
+  title={false}
+  size={400}
+  variant="beam"
+  name="testing"
+  square={false}
+  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+/>`,
+    [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
+
+...
+
+<Avatar
+  title={false}
+  size={400}
+  variant="beam"
+  name="testing"
+  square={false}
+  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+/>`,
+    [Target.Svelte]: `<script lang="ts">
+  import { Avatar } from "@boringer-avatars/svelte/package";
+</script>
+
+<Avatar
+  title={false}
+  size={400}
+  variant="beam"
+  name="testing"
+  square={false}
+  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+/>`,
+    [Target.Vue3]: `<script setup lang="ts">
+  import { Avatar } from "@boringer-avatars/vue3";
+</script>
+
+<template>
+  <Avatar
+    :title="false"
+    :size="400"
+    variant="beam"
+    name="testing"
+    :square="false"
+    :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+  />
+</template>`,
+  };
+
+  const propsNameMap: Record<Target, string> = {
+    [Target.Angular]: `Inputs`,
+    [Target.React]: `Props`,
+    [Target.Svelte]: `Props`,
+    [Target.Vue3]: `Props`,
+    [Target.Solid]: `Props`,
   };
 
   Object.values(Target).forEach((target) => {
     const outputDir = path.resolve(process.cwd(), "../", `lib-${target}`);
     let srcDir = path.resolve(outputDir, "src");
-    // if (target === "svelte") {
-    //   srcDir = path.resolve(outputDir, "src/lib");
-    // } else if (target === "angular") {
-    //   srcDir = path.resolve(outputDir, "projects/avatars/src/lib");
-    // }
+    if (target === "svelte") {
+      srcDir = path.resolve(outputDir, "src/lib");
+    } else if (target === "angular") {
+      srcDir = path.resolve(outputDir, "projects/avatars/src/lib");
+    }
     const componentExtension = extensionMap[target];
+    const installationInstructions = instructionsMap[target];
+    const propsName = propsNameMap[target];
+    const usage = usageMap[target];
 
     const boilerplatePath = path.resolve(__dirname, `boilerplate/${target}`);
 
@@ -73,11 +153,25 @@ try {
       }
     });
 
+    const readmeTemplatePath = path.resolve(
+      __dirname,
+      "./templates/README.MD.mustache"
+    );
+
+    fs.copyFileSync(
+      readmeTemplatePath,
+      path.resolve(outputDir, "README.MD.mustache")
+    );
+
     const templateFiles = glob.sync(path.resolve(outputDir, "**/*.mustache"));
 
     const context = {
       target,
       version: packageJson.version,
+      installationInstructions,
+      propsName,
+      usage,
+      isAngular: target === "angular",
     };
 
     templateFiles.forEach((templateFilePath) => {
