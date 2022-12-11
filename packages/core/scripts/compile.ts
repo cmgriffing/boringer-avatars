@@ -17,26 +17,26 @@ try {
 
   enum Target {
     Angular = "angular",
-    React = "react",
-    Svelte = "svelte",
-    Vue3 = "vue3",
-    Solid = "solid",
+    // React = "react",
+    // Svelte = "svelte",
+    // Vue3 = "vue3",
+    // Solid = "solid",
   }
 
   const extensionMap: Record<Target, string> = {
     [Target.Angular]: "component.ts",
-    [Target.React]: "tsx",
-    [Target.Svelte]: "svelte",
-    [Target.Vue3]: "vue",
-    [Target.Solid]: "tsx",
+    // [Target.React]: "tsx",
+    // [Target.Svelte]: "svelte",
+    // [Target.Vue3]: "vue",
+    // [Target.Solid]: "tsx",
   };
 
   const instructionsMap: Record<Target, string> = {
     [Target.Angular]: ``,
-    [Target.React]: ``,
-    [Target.Svelte]: ``,
-    [Target.Vue3]: ``,
-    [Target.Solid]: ``,
+    // [Target.React]: ``,
+    // [Target.Svelte]: ``,
+    // [Target.Vue3]: ``,
+    // [Target.Solid]: ``,
   };
 
   const usageMap: Record<Target, string> = {
@@ -48,72 +48,73 @@ try {
   [square]="false"
   [colors]="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
 ></avatar>`,
-    [Target.React]: `import { Avatar } from "@boringer-avatars/react";
+    //     [Target.React]: `import { Avatar } from "@boringer-avatars/react";
 
-...
+    // ...
 
-<Avatar
-  title={false}
-  size={400}
-  variant="beam"
-  name="testing"
-  square={false}
-  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-/>`,
-    [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
+    // <Avatar
+    //   title={false}
+    //   size={400}
+    //   variant="beam"
+    //   name="testing"
+    //   square={false}
+    //   colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    // />`,
+    //     [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
 
-...
+    // ...
 
-<Avatar
-  title={false}
-  size={400}
-  variant="beam"
-  name="testing"
-  square={false}
-  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-/>`,
-    [Target.Svelte]: `<script lang="ts">
-  import { Avatar } from "@boringer-avatars/svelte/package";
-</script>
+    // <Avatar
+    //   title={false}
+    //   size={400}
+    //   variant="beam"
+    //   name="testing"
+    //   square={false}
+    //   colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    // />`,
+    //     [Target.Svelte]: `<script lang="ts">
+    //   import { Avatar } from "@boringer-avatars/svelte/package";
+    // </script>
 
-<Avatar
-  title={false}
-  size={400}
-  variant="beam"
-  name="testing"
-  square={false}
-  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-/>`,
-    [Target.Vue3]: `<script setup lang="ts">
-  import { Avatar } from "@boringer-avatars/vue3";
-</script>
+    // <Avatar
+    //   title={false}
+    //   size={400}
+    //   variant="beam"
+    //   name="testing"
+    //   square={false}
+    //   colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    // />`,
+    //     [Target.Vue3]: `<script setup lang="ts">
+    //   import { Avatar } from "@boringer-avatars/vue3";
+    // </script>
 
-<template>
-  <Avatar
-    :title="false"
-    :size="400"
-    variant="beam"
-    name="testing"
-    :square="false"
-    :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
-  />
-</template>`,
+    // <template>
+    //   <Avatar
+    //     :title="false"
+    //     :size="400"
+    //     variant="beam"
+    //     name="testing"
+    //     :square="false"
+    //     :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+    //   />
+    // </template>`,
   };
 
   const propsNameMap: Record<Target, string> = {
     [Target.Angular]: `Inputs`,
-    [Target.React]: `Props`,
-    [Target.Svelte]: `Props`,
-    [Target.Vue3]: `Props`,
-    [Target.Solid]: `Props`,
+    // [Target.React]: `Props`,
+    // [Target.Svelte]: `Props`,
+    // [Target.Vue3]: `Props`,
+    // [Target.Solid]: `Props`,
   };
 
   Object.values(Target).forEach((target) => {
     const outputDir = path.resolve(process.cwd(), "../", `lib-${target}`);
     let srcDir = path.resolve(outputDir, "src");
-    if (target === "svelte") {
-      srcDir = path.resolve(outputDir, "src/lib");
-    } else if (target === "angular") {
+    // if (target === "svelte") {
+    //   srcDir = path.resolve(outputDir, "src/lib");
+    // } else
+    if (target === "angular") {
       srcDir = path.resolve(outputDir, "projects/avatars/src/lib");
     }
     const componentExtension = extensionMap[target];

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { generateData, SIZE } from "./avatar-beam.utils";
 
-export default function AvatarBeam(props: any) {
+function AvatarBeam(props: any) {
   const state = useLocalObservable(() => ({
     get data() {
       return generateData(props.name, props.colors);
@@ -116,3 +116,6 @@ export default function AvatarBeam(props: any) {
     </svg>
   );
 }
+
+const observedAvatarBeam = observer(AvatarBeam);
+export default observedAvatarBeam;

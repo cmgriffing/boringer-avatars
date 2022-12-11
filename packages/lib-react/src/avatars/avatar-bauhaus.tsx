@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
-export default function AvatarBauhaus(props: any) {
+function AvatarBauhaus(props: any) {
   const state = useLocalObservable(() => ({
     get properties() {
       return generateColors(props.name, props.colors);
@@ -99,3 +99,6 @@ export default function AvatarBauhaus(props: any) {
     </svg>
   );
 }
+
+const observedAvatarBauhaus = observer(AvatarBauhaus);
+export default observedAvatarBauhaus;

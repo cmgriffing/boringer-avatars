@@ -6,7 +6,7 @@ import { SIZE, generateColors } from "./avatar-marble.utils";
   selector: "avatar-marble, AvatarMarble",
   template: `
     <svg
-      [attr.fill]="'none'"
+      fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       [attr.viewBox]='"0 0 " + SIZE + " " + SIZE'
@@ -26,7 +26,7 @@ import { SIZE, generateColors } from "./avatar-marble.utils";
         [attr.height]="SIZE"
       >
         <rect
-          [attr.fill]="'#FFFFFF'"
+          fill="#FFFFFF"
           [attr.width]="SIZE"
           [attr.height]="SIZE"
           [attr.rx]="square ? undefined : SIZE * 2"

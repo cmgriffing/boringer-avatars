@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
-export default function AvatarMarble(props: any) {
+function AvatarMarble(props: any) {
   const state = useLocalObservable(() => ({
     get properties() {
       return generateColors(props.name, props.colors);
@@ -101,3 +101,6 @@ export default function AvatarMarble(props: any) {
     </svg>
   );
 }
+
+const observedAvatarMarble = observer(AvatarMarble);
+export default observedAvatarMarble;

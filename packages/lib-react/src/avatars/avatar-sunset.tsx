@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
-export default function AvatarSunset(props: any) {
+function AvatarSunset(props: any) {
   const state = useLocalObservable(() => ({
     get formattedName() {
       return props.name.replace(/\s/g, "");
@@ -81,3 +81,6 @@ export default function AvatarSunset(props: any) {
     </svg>
   );
 }
+
+const observedAvatarSunset = observer(AvatarSunset);
+export default observedAvatarSunset;

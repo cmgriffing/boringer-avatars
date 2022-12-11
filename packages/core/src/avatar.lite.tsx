@@ -34,7 +34,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
     <>
       <Show when={state.checkedVariant === `bauhaus`}>
         <AvatarBauhaus
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}
@@ -44,7 +43,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
       </Show>
       <Show when={state.checkedVariant === `beam`}>
         <AvatarBeam
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}
@@ -55,7 +53,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
 
       <Show when={state.checkedVariant === `marble`}>
         <AvatarMarble
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}
@@ -66,7 +63,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
 
       <Show when={state.checkedVariant === `pixel`}>
         <AvatarPixel
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}
@@ -77,7 +73,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
 
       <Show when={state.checkedVariant === `ring`}>
         <AvatarRing
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}
@@ -88,7 +83,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
 
       <Show when={state.checkedVariant === `sunset`}>
         <AvatarSunset
-          {...defaultAvatarProps}
           colors={props.colors}
           name={props.name}
           square={props.square}

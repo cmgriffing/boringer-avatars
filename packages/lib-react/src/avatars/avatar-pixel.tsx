@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { generateColors, SIZE } from "./avatar-pixel.utils";
 
-export default function AvatarPixel(props: any) {
+function AvatarPixel(props: any) {
   const state = useLocalObservable(() => ({
     get pixelColors() {
       return generateColors(props.name, props.colors);
@@ -463,3 +463,6 @@ export default function AvatarPixel(props: any) {
     </svg>
   );
 }
+
+const observedAvatarPixel = observer(AvatarPixel);
+export default observedAvatarPixel;

@@ -6,7 +6,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
   selector: "avatar-beam, AvatarBeam",
   template: `
     <svg
-      [attr.fill]="'none'"
+      fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       [attr.viewBox]='"0 0 " + SIZE + " " + SIZE'
@@ -26,7 +26,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
         [attr.height]="SIZE"
       >
         <rect
-          [attr.fill]="'#FFFFFF'"
+          fill="#FFFFFF"
           [attr.width]="SIZE"
           [attr.height]="SIZE"
           [attr.rx]="square ? undefined : SIZE * 2"
@@ -41,8 +41,8 @@ import { generateData, SIZE } from "./avatar-beam.utils";
         ></rect>
 
         <rect
-          [attr.x]="'0'"
-          [attr.y]="'0'"
+          x="0"
+          y="0"
           [attr.width]="SIZE"
           [attr.height]="SIZE"
           [attr.transform]='"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + " " + SIZE / 2 + " " + SIZE / 2 + ") scale(" + data.wrapperScale + ")"'
@@ -55,7 +55,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
         >
           <ng-container *ngIf="data.isMouthOpen">
             <path
-              [attr.fill]="'none'"
+              fill="none"
               strokeLinecap="round"
               [attr.d]='"M15 " + (19 + data.mouthSpread) + "c2 1 4 1 6 0"'
               [attr.stroke]="data.faceColor"
@@ -63,7 +63,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
           </ng-container>
 
           <rect
-            [attr.stroke]="'none'"
+            stroke="none"
             [attr.x]="14 - data.eyeSpread"
             [attr.y]="14"
             [attr.width]="1.5"
@@ -73,7 +73,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
           ></rect>
 
           <rect
-            [attr.stroke]="'none'"
+            stroke="none"
             [attr.x]="20 + data.eyeSpread"
             [attr.y]="14"
             [attr.width]="1.5"

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import { generateColors, SIZE } from "./avatar-ring.utils";
 
-export default function AvatarRing(props: any) {
+function AvatarRing(props: any) {
   const state = useLocalObservable(() => ({
     get ringColors() {
       return generateColors(props.colors, props.name);
@@ -58,3 +58,6 @@ export default function AvatarRing(props: any) {
     </svg>
   );
 }
+
+const observedAvatarRing = observer(AvatarRing);
+export default observedAvatarRing;

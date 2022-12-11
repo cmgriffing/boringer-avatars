@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect } from "react";
-import { useLocalObservable } from "mobx-react-lite";
+import { useLocalObservable, observer } from "mobx-react-lite";
 import type { Variant } from "./avatar.utils";
 interface AvatarProps {
   variant: Variant;
@@ -19,8 +19,8 @@ import AvatarPixel from "./avatars/avatar-pixel";
 import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
-export default function Avatar(props: Partial<AvatarProps>) {
-  const state = { checkedVariant: coerceVariant(props.variant) || "beam" };
+function Avatar(props: Partial<AvatarProps>) {
+  const state = useLocalObservable(() => ({ checkedVariant: coerceVariant(props.variant) || "beam" }));
 
   
 
@@ -108,3 +108,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
     </>
   );
 }
+
+const observedAvatar = observer(Avatar);
+export default observedAvatar;

@@ -6,7 +6,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
   selector: "avatar-sunset, AvatarSunset",
   template: `
     <svg
-      [attr.fill]="'none'"
+      fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       [attr.viewBox]='"0 0 " + SIZE + " " + SIZE'
@@ -26,7 +26,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
         [attr.height]="SIZE"
       >
         <rect
-          [attr.fill]="'#FFFFFF'"
+          fill="#FFFFFF"
           [attr.width]="SIZE"
           [attr.height]="SIZE"
           [attr.rx]="square ? undefined : SIZE * 2"
@@ -48,7 +48,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
       <defs>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          [id]='"gradient_paint0_linear_" + formattedName'
+          [attr.id]='"gradient_paint0_linear_" + formattedName'
           [attr.x1]="SIZE / 2"
           [attr.y1]="0"
           [attr.x2]="SIZE / 2"
@@ -61,7 +61,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
 
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          [id]='"gradient_paint1_linear_" + formattedName'
+          [attr.id]='"gradient_paint1_linear_" + formattedName'
           [attr.x1]="SIZE / 2"
           [attr.y1]="SIZE / 2"
           [attr.x2]="SIZE / 2"
