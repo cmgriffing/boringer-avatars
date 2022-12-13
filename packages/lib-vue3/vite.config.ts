@@ -13,7 +13,7 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
+      entry: path.resolve(__dirname, "src/index.js"),
       name: "BoringerAvatarsVue3",
       formats: ["es", "umd"],
       fileName: (format) => `boringer-avatars.vue3.${format}.js`,

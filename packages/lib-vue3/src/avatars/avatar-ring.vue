@@ -40,7 +40,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { generateColors, SIZE } from "./avatar-ring.utils";
 
 export default {
@@ -52,7 +52,7 @@ export default {
 
   computed: {
     ringColors() {
-      return generateColors((this as any).colors, (this as any).name);
+      return generateColors(this.colors, this.name);
     },
   },
 };

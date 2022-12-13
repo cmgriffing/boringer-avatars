@@ -1,7 +1,8 @@
 import { useStore } from "@builder.io/mitosis";
+import { AvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-pixel.utils";
 
-export default function AvatarPixel(props) {
+export default function AvatarPixel(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
     get pixelColors() {
       return generateColors(props.name, props.colors);

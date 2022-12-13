@@ -1,7 +1,8 @@
-import { useStore, onMount, useState } from "@builder.io/mitosis";
-import { Color, generateColors, SIZE } from "./avatar-bauhaus.utils";
+import { useStore } from "@builder.io/mitosis";
+import { AvatarProps } from "../avatar.utils";
+import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
-export default function AvatarBauhaus(props) {
+export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
     get properties() {
       return generateColors(props.name, props.colors);

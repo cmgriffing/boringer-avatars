@@ -93,7 +93,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
 export default {
@@ -105,7 +105,7 @@ export default {
 
   computed: {
     properties() {
-      return generateColors((this as any).name, (this as any).colors);
+      return generateColors(this.name, this.colors);
     },
   },
 };

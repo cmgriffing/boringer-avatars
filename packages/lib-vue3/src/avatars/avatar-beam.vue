@@ -105,7 +105,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { generateData, SIZE } from "./avatar-beam.utils";
 
 export default {
@@ -117,7 +117,7 @@ export default {
 
   computed: {
     data() {
-      return generateData((this as any).name, (this as any).colors);
+      return generateData(this.name, this.colors);
     },
   },
 };

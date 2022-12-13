@@ -390,7 +390,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { generateColors, SIZE } from "./avatar-pixel.utils";
 
 export default {
@@ -402,7 +402,7 @@ export default {
 
   computed: {
     pixelColors() {
-      return generateColors((this as any).name, (this as any).colors);
+      return generateColors(this.name, this.colors);
     },
   },
 };

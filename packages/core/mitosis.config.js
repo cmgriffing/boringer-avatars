@@ -8,17 +8,29 @@ module.exports = {
   files: "src/**/*",
   targets: ["vue3", "solid", "svelte", "react", "angular"],
   options: {
+    solid: {
+      typescript: true,
+      // plugins: [CustomVuePlugin],
+    },
+    // vue2: {
+    //   typescript: true,
+    //   // plugins: [CustomVuePlugin],
+    // },
     vue3: {
+      // typescript: true,
       plugins: [CustomVuePlugin],
     },
     react: {
-      plugins: [CustomReactPlugin],
+      typescript: true,
+      // plugins: [CustomReactPlugin],
     },
     svelte: {
-      plugins: [CustomSveltePlugin],
+      // typescript: true,
+      // plugins: [CustomSveltePlugin],
     },
     angular: {
-      prettier: false,
+      typescript: true,
+      // prettier: false,
       plugins: [
         CustomAngularPlugin({
           // attributes: [

@@ -1,7 +1,8 @@
 import { useStore } from "@builder.io/mitosis";
+import { AvatarProps } from "../avatar.utils";
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
-export default function AvatarMarble(props) {
+export default function AvatarMarble(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
     get properties() {
       return generateColors(props.name, props.colors);

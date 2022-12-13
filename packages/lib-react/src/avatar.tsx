@@ -1,17 +1,7 @@
 import * as React from "react";
-import { useEffect } from "react";
-import { useLocalObservable, observer } from "mobx-react-lite";
+import { useState, useEffect } from "react";
 import type { Variant } from "./avatar.utils";
-interface AvatarProps {
-  variant: Variant;
-  colors: string[];
-  name: string;
-  square: boolean;
-  title: boolean;
-  size: number;
-}
-
-import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import { AvatarProps, coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
 import AvatarBeam from "./avatars/avatar-beam";
 import AvatarMarble from "./avatars/avatar-marble";
@@ -19,95 +9,94 @@ import AvatarPixel from "./avatars/avatar-pixel";
 import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
-function Avatar(props: Partial<AvatarProps>) {
-  const state = useLocalObservable(() => ({ checkedVariant: coerceVariant(props.variant) || "beam" }));
+export default function Avatar(props: Partial<AvatarProps>) {
+  const [checkedVariant, setCheckedVariant] = useState(() => "beam");
 
-  
+  const [coercedProps, setCoercedProps] = useState(() => defaultAvatarProps);
 
-  
+  useEffect(() => {
+    setCheckedVariant(coerceVariant(props.variant) || "beam");
+    setCoercedProps({ ...defaultAvatarProps, ...props });
+  }, []);
+
+  useEffect(() => {
+    setCheckedVariant(coerceVariant(props.variant) || "beam");
+    setCoercedProps({ ...defaultAvatarProps, ...props });
+  }, [props.variant]);
 
   return (
     <>
-      {state.checkedVariant === `bauhaus` ? (
+      {checkedVariant === `bauhaus` ? (
         <>
           <AvatarBauhaus
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
 
-      {state.checkedVariant === `beam` ? (
+      {checkedVariant === `beam` ? (
         <>
           <AvatarBeam
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
 
-      {state.checkedVariant === `marble` ? (
+      {checkedVariant === `marble` ? (
         <>
           <AvatarMarble
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
 
-      {state.checkedVariant === `pixel` ? (
+      {checkedVariant === `pixel` ? (
         <>
           <AvatarPixel
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
 
-      {state.checkedVariant === `ring` ? (
+      {checkedVariant === `ring` ? (
         <>
           <AvatarRing
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
 
-      {state.checkedVariant === `sunset` ? (
+      {checkedVariant === `sunset` ? (
         <>
           <AvatarSunset
-            {...defaultAvatarProps}
-            colors={props.colors}
-            name={props.name}
-            square={props.square}
-            title={props.title}
-            size={props.size}
+            colors={coercedProps.colors}
+            name={coercedProps.name}
+            square={coercedProps.square}
+            title={coercedProps.title}
+            size={coercedProps.size}
           />
         </>
       ) : null}
     </>
   );
 }
-
-const observedAvatar = observer(Avatar);
-export default observedAvatar;

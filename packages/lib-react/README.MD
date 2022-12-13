@@ -18,16 +18,16 @@ This repo is forked from [boring-avatars](https://boringavatars.com). It aims to
 ```
 import { Avatar } from "@boringer-avatars/react";
 
-...
+    ...
 
-<Avatar
-  title={false}
-  size={400}
-  variant="beam"
-  name="testing"
-  square={false}
-  colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-/>
+    <Avatar
+      title={false}
+      size={400}
+      variant="beam"
+      name="testing"
+      square={false}
+      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    />
 ```
 
 ## Props

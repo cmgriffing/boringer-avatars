@@ -1,7 +1,8 @@
 import { useStore } from "@builder.io/mitosis";
+import { AvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
-export default function AvatarSunset(props) {
+export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
     get formattedName() {
       return props.name.replace(/\s/g, "");

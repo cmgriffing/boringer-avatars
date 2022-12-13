@@ -1,72 +1,66 @@
 <template>
   <template v-if="checkedVariant === `bauhaus`">
     <avatar-bauhaus
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-bauhaus>
   </template>
 
   <template v-if="checkedVariant === `beam`">
     <avatar-beam
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-beam>
   </template>
 
   <template v-if="checkedVariant === `marble`">
     <avatar-marble
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-marble>
   </template>
 
   <template v-if="checkedVariant === `pixel`">
     <avatar-pixel
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-pixel>
   </template>
 
   <template v-if="checkedVariant === `ring`">
     <avatar-ring
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-ring>
   </template>
 
   <template v-if="checkedVariant === `sunset`">
     <avatar-sunset
-      v-bind="defaultAvatarProps"
-      :colors="colors"
-      :name="name"
-      :square="square"
-      :title="title"
-      :size="size"
+      :colors="coercedProps.colors"
+      :name="coercedProps.name"
+      :square="coercedProps.square"
+      :title="coercedProps.title"
+      :size="coercedProps.size"
     ></avatar-sunset>
   </template>
 </template>
 
-<script lang="ts">
+<script>
 import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus.vue";
 import AvatarBeam from "./avatars/avatar-beam.vue";
@@ -78,31 +72,36 @@ import AvatarSunset from "./avatars/avatar-sunset.vue";
 export default {
   name: "avatar",
   components: {
-    "avatar-bauhaus": AvatarBauhaus,
-    "avatar-beam": AvatarBeam,
-    "avatar-marble": AvatarMarble,
-    "avatar-pixel": AvatarPixel,
-    "avatar-ring": AvatarRing,
-    "avatar-sunset": AvatarSunset,
+    AvatarBauhaus: AvatarBauhaus,
+    AvatarBeam: AvatarBeam,
+    AvatarMarble: AvatarMarble,
+    AvatarPixel: AvatarPixel,
+    AvatarRing: AvatarRing,
+    AvatarSunset: AvatarSunset,
   },
-  props: ["variant", "colors", "name", "square", "title", "size"],
+  props: ["variant"],
 
-  data: () => ({ checkedVariant: "beam", defaultAvatarProps }),
+  data: () => ({ checkedVariant: "beam", coercedProps: defaultAvatarProps }),
 
   mounted() {
-    (this as any).checkedVariant = coerceVariant((this as any).variant) || "beam";
+    this.checkedVariant = coerceVariant(this.variant) || "beam";
+    this.coercedProps = { ...defaultAvatarProps, ...this.props };
   },
 
   watch: {
-    onUpdateHook0() {
-      (this as any).checkedVariant = coerceVariant((this as any).variant) || "beam";
+    onUpdateHook0: {
+      handler() {
+        this.checkedVariant = coerceVariant(this.variant) || "beam";
+        this.coercedProps = { ...defaultAvatarProps, ...this.props };
+      },
+      immediate: true,
     },
   },
 
   computed: {
     onUpdateHook0() {
       return {
-        0: (this as any).variant,
+        0: this.variant,
       };
     },
   },

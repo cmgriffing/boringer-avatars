@@ -1,7 +1,8 @@
 import { useStore } from "@builder.io/mitosis";
+import { AvatarProps } from "../avatar.utils";
 import { generateData, SIZE } from "./avatar-beam.utils";
 
-export default function AvatarBeam(props) {
+export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
     get data() {
       return generateData(props.name, props.colors);

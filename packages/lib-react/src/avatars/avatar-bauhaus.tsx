@@ -1,13 +1,11 @@
 import * as React from "react";
-import { useLocalObservable, observer } from "mobx-react-lite";
+import { AvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
-function AvatarBauhaus(props: any) {
-  const state = useLocalObservable(() => ({
-    get properties() {
-      return generateColors(props.name, props.colors);
-    },
-  }));
+export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
+  function properties() {
+    return generateColors(props.name, props.colors);
+  }
 
   return (
     <svg
@@ -37,21 +35,21 @@ function AvatarBauhaus(props: any) {
       </mask>
 
       <g mask="url(#mask__bauhaus)">
-        <rect width={SIZE} height={SIZE} fill={state.properties?.[0]?.color} />
+        <rect width={SIZE} height={SIZE} fill={properties?.()?.[0]?.color} />
 
         <rect
           x={(SIZE - 60) / 2}
           y={(SIZE - 20) / 2}
           width={SIZE}
-          height={state.properties?.[1]?.isSquare ? SIZE : SIZE / 8}
-          fill={state.properties?.[1]?.color}
+          height={properties?.()?.[1]?.isSquare ? SIZE : SIZE / 8}
+          fill={properties?.()?.[1]?.color}
           transform={
             "translate(" +
-            state.properties?.[1]?.translateX +
+            properties?.()?.[1]?.translateX +
             " " +
-            state.properties?.[1]?.translateY +
+            properties?.()?.[1]?.translateY +
             ") rotate(" +
-            state.properties?.[1]?.rotate +
+            properties?.()?.[1]?.rotate +
             " " +
             SIZE / 2 +
             " " +
@@ -63,13 +61,13 @@ function AvatarBauhaus(props: any) {
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          fill={state.properties?.[2]?.color}
+          fill={properties?.()?.[2]?.color}
           r={SIZE / 5}
           transform={
             "translate(" +
-            state.properties?.[2]?.translateX +
+            properties?.()?.[2]?.translateX +
             " " +
-            state.properties?.[2]?.translateY +
+            properties?.()?.[2]?.translateY +
             ")"
           }
         />
@@ -80,14 +78,14 @@ function AvatarBauhaus(props: any) {
           x2={SIZE}
           y2={SIZE / 2}
           strokeWidth={2}
-          stroke={state.properties?.[3]?.color}
+          stroke={properties?.()?.[3]?.color}
           transform={
             "translate(" +
-            state.properties?.[3]?.translateX +
+            properties?.()?.[3]?.translateX +
             " " +
-            state.properties?.[3]?.translateY +
+            properties?.()?.[3]?.translateY +
             ") rotate(" +
-            state.properties?.[3]?.rotate +
+            properties?.()?.[3]?.rotate +
             " " +
             SIZE / 2 +
             " " +
@@ -99,6 +97,3 @@ function AvatarBauhaus(props: any) {
     </svg>
   );
 }
-
-const observedAvatarBauhaus = observer(AvatarBauhaus);
-export default observedAvatarBauhaus;

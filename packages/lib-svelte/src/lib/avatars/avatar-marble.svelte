@@ -96,22 +96,9 @@
       filterUnits="userSpaceOnUse"
       colorInterpolationFilters="sRGB"
     >
-      <svelte:component
-        this={feFlood}
-        result="BackgroundImageFix"
-        floodOpacity={0}
-      />
-      <svelte:component
-        this={feBlend}
-        in="SourceGraphic"
-        in2="BackgroundImageFix"
-        result="shape"
-      />
-      <svelte:component
-        this={feGaussianBlur}
-        result="effect1_foregroundBlur"
-        stdDeviation={7}
-      />
+      <feFlood result="BackgroundImageFix" floodOpacity={0} />
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+      <feGaussianBlur result="effect1_foregroundBlur" stdDeviation={7} />
     </filter>
   </defs>
 </svg>

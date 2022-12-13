@@ -1,13 +1,11 @@
 import * as React from "react";
-import { useLocalObservable, observer } from "mobx-react-lite";
+import { AvatarProps } from "../avatar.utils";
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
-function AvatarMarble(props: any) {
-  const state = useLocalObservable(() => ({
-    get properties() {
-      return generateColors(props.name, props.colors);
-    },
-  }));
+export default function AvatarMarble(props: Omit<AvatarProps, "variant">) {
+  function properties() {
+    return generateColors(props.name, props.colors);
+  }
 
   return (
     <svg
@@ -37,25 +35,25 @@ function AvatarMarble(props: any) {
       </mask>
 
       <g mask="url(#mask__marble)">
-        <rect width={SIZE} height={SIZE} fill={state.properties[0].color} />
+        <rect width={SIZE} height={SIZE} fill={properties()[0].color} />
 
         <path
           filter="url(#prefix__filter0_f)"
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
-          fill={state.properties[1].color}
+          fill={properties()[1].color}
           transform={
             "translate(" +
-            state.properties[1].translateX +
+            properties()[1].translateX +
             " " +
-            state.properties[1].translateY +
+            properties()[1].translateY +
             ") rotate(" +
-            state.properties[1].rotate +
+            properties()[1].rotate +
             " " +
             SIZE / 2 +
             " " +
             SIZE / 2 +
             ") scale(" +
-            state.properties[2].scale +
+            properties()[2].scale +
             ")"
           }
         />
@@ -66,20 +64,20 @@ function AvatarMarble(props: any) {
           style={{
             mixBlendMode: "overlay",
           }}
-          fill={state.properties[2].color}
+          fill={properties()[2].color}
           transform={
             "translate(" +
-            state.properties[2].translateX +
+            properties()[2].translateX +
             " " +
-            state.properties[2].translateY +
+            properties()[2].translateY +
             ") rotate(" +
-            state.properties[2].rotate +
+            properties()[2].rotate +
             " " +
             SIZE / 2 +
             " " +
             SIZE / 2 +
             ") scale(" +
-            state.properties[2].scale +
+            properties()[2].scale +
             ")"
           }
         />
@@ -101,6 +99,3 @@ function AvatarMarble(props: any) {
     </svg>
   );
 }
-
-const observedAvatarMarble = observer(AvatarMarble);
-export default observedAvatarMarble;

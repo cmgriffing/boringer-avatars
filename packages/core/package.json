@@ -1,16 +1,17 @@
 {
-  "name": "@boring-avatars/core",
+  "name": "@boringer-avatars/core",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "mitosis": "mitosis",
     "build:mitosis:plugins": "tsc --project tsconfig.plugins.json",
-    "build:mitosis:compile": "ts-node --project=tsconfig.json ./scripts/compile.ts",
-    "build": "npm-run-all -s build:mitosis:plugins build:mitosis:compile"
+    "build:mitosis": "pnpm mitosis build",
+    "build:compile": "ts-node --project=tsconfig.json ./scripts/new-compile.ts",
+    "build:new": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile"
   },
   "devDependencies": {
-    "@builder.io/mitosis": "^0.0.64",
-    "@builder.io/mitosis-cli": "^0.0.25",
+    "@builder.io/mitosis": "^0.0.82",
+    "@builder.io/mitosis-cli": "^0.0.40",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^8.0.0",
     "@types/mustache": "^4.2.1",

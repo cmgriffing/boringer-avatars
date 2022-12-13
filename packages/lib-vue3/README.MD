@@ -17,19 +17,19 @@ This repo is forked from [boring-avatars](https://boringavatars.com). It aims to
 
 ```
 <script setup lang="ts">
-  import { Avatar } from "@boringer-avatars/vue3";
-</script>
+      import { Avatar } from "@boringer-avatars/vue3";
+    </script>
 
-<template>
-  <Avatar
-    :title="false"
-    :size="400"
-    variant="beam"
-    name="testing"
-    :square="false"
-    :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
-  />
-</template>
+    <template>
+      <Avatar
+        :title="false"
+        :size="400"
+        variant="beam"
+        name="testing"
+        :square="false"
+        :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+      />
+    </template>
 ```
 
 ## Props

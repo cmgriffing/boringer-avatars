@@ -63,7 +63,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
 export default {
@@ -75,10 +75,10 @@ export default {
 
   computed: {
     formattedName() {
-      return (this as any).name.replace(/\s/g, "");
+      return this.name.replace(/\s/g, "");
     },
     sunsetColors() {
-      return generateColors((this as any).name, (this as any).colors);
+      return generateColors(this.name, this.colors);
     },
   },
 };

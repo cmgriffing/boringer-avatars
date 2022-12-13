@@ -86,7 +86,7 @@
   </svg>
 </template>
 
-<script lang="ts">
+<script>
 import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
 export default {
@@ -98,7 +98,7 @@ export default {
 
   computed: {
     properties() {
-      return generateColors((this as any).name, (this as any).colors);
+      return generateColors(this.name, this.colors);
     },
   },
 };

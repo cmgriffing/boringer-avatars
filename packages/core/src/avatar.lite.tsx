@@ -1,4 +1,4 @@
-import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import { AvatarProps, coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import type { Variant } from "./avatar.utils";
 import { useStore, onMount, onUpdate, Show } from "@builder.io/mitosis";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
@@ -8,86 +8,86 @@ import AvatarPixel from "./avatars/avatar-pixel";
 import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
-interface AvatarProps {
-  variant: Variant;
-  colors: string[];
-  name: string;
-  square: boolean;
-  title: boolean;
-  size: number;
-}
-
 export default function Avatar(props: Partial<AvatarProps>) {
   const state = useStore({
     checkedVariant: "beam",
+    coercedProps: defaultAvatarProps,
   });
 
   onMount(() => {
     state.checkedVariant = coerceVariant(props.variant) || "beam";
+    state.coercedProps = {
+      ...defaultAvatarProps,
+      ...props,
+    };
   });
 
   onUpdate(() => {
     state.checkedVariant = coerceVariant(props.variant) || "beam";
+    state.coercedProps = {
+      ...defaultAvatarProps,
+      ...props,
+    };
   }, [props.variant]);
 
   return (
     <>
       <Show when={state.checkedVariant === `bauhaus`}>
         <AvatarBauhaus
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
       <Show when={state.checkedVariant === `beam`}>
         <AvatarBeam
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
 
       <Show when={state.checkedVariant === `marble`}>
         <AvatarMarble
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
 
       <Show when={state.checkedVariant === `pixel`}>
         <AvatarPixel
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
 
       <Show when={state.checkedVariant === `ring`}>
         <AvatarRing
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
 
       <Show when={state.checkedVariant === `sunset`}>
         <AvatarSunset
-          colors={props.colors}
-          name={props.name}
-          square={props.square}
-          title={props.title}
-          size={props.size}
+          colors={state.coercedProps.colors}
+          name={state.coercedProps.name}
+          square={state.coercedProps.square}
+          title={state.coercedProps.title}
+          size={state.coercedProps.size}
         />
       </Show>
     </>

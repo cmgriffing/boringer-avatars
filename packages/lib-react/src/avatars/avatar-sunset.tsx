@@ -1,16 +1,15 @@
 import * as React from "react";
-import { useLocalObservable, observer } from "mobx-react-lite";
+import { AvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
-function AvatarSunset(props: any) {
-  const state = useLocalObservable(() => ({
-    get formattedName() {
-      return props.name.replace(/\s/g, "");
-    },
-    get sunsetColors() {
-      return generateColors(props.name, props.colors);
-    },
-  }));
+export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
+  function formattedName() {
+    return props.name.replace(/\s/g, "");
+  }
+
+  function sunsetColors() {
+    return generateColors(props.name, props.colors);
+  }
 
   return (
     <svg
@@ -42,45 +41,42 @@ function AvatarSunset(props: any) {
       <g mask="url(#mask__sunset)">
         <path
           d="M0 0h80v40H0z"
-          fill={"url(#gradient_paint0_linear_" + state.formattedName + ")"}
+          fill={"url(#gradient_paint0_linear_" + formattedName() + ")"}
         />
 
         <path
           d="M0 40h80v40H0z"
-          fill={"url(#gradient_paint1_linear_" + state.formattedName + ")"}
+          fill={"url(#gradient_paint1_linear_" + formattedName() + ")"}
         />
       </g>
 
       <defs>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id={"gradient_paint0_linear_" + state.formattedName}
+          id={"gradient_paint0_linear_" + formattedName()}
           x1={SIZE / 2}
           y1={0}
           x2={SIZE / 2}
           y2={SIZE / 2}
         >
-          <stop stop-color={state.sunsetColors[0]} />
+          <stop stop-color={sunsetColors()[0]} />
 
-          <stop offset={1} stop-color={state.sunsetColors[1]} />
+          <stop offset={1} stop-color={sunsetColors()[1]} />
         </linearGradient>
 
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id={"gradient_paint1_linear_" + state.formattedName}
+          id={"gradient_paint1_linear_" + formattedName()}
           x1={SIZE / 2}
           y1={SIZE / 2}
           x2={SIZE / 2}
           y2={SIZE}
         >
-          <stop stop-color={state.sunsetColors[2]} />
+          <stop stop-color={sunsetColors()[2]} />
 
-          <stop offset={1} stop-color={state.sunsetColors[3]} />
+          <stop offset={1} stop-color={sunsetColors()[3]} />
         </linearGradient>
       </defs>
     </svg>
   );
 }
-
-const observedAvatarSunset = observer(AvatarSunset);
-export default observedAvatarSunset;
