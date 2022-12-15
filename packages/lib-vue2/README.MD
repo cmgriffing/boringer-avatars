@@ -4,7 +4,7 @@
   <p>This library is generated using [Mitosis](https://github.com/BuilderIO/mitosis).</p>
 </div>
 
-# @boringer-avatars/vue3
+# @boringer-avatars/vue2
 
 This repo is forked from [boring-avatars](https://boringavatars.com). It aims to create cross-framework implementations for as many frameworks as possible. (Angular, React, Vue, Solid, Svelte, Qwik, etc).
 
@@ -16,8 +16,8 @@ This repo is forked from [boring-avatars](https://boringavatars.com). It aims to
 
 
 ```
-<script setup>
-      import { Avatar } from "@boringer-avatars/vue3";
+<script>
+      import { Avatar } from "@boringer-avatars/vue2";
     </script>
 
     <template>

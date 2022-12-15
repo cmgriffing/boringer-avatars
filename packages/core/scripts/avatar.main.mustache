@@ -31,7 +31,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
   }, [props.variant]);
 
   return (
-    <div>
+    <>
       <Show when={state.checkedVariant === `bauhaus`}>
         <AvatarBauhaus
           colors={state.coercedProps.colors}
@@ -90,6 +90,6 @@ export default function Avatar(props: Partial<AvatarProps>) {
           size={state.coercedProps.size}
         />
       </Show>
-    </div>
+    </>
   );
 }

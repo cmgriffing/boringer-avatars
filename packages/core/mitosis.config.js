@@ -12,10 +12,6 @@ module.exports = {
       typescript: true,
       // plugins: [CustomVuePlugin],
     },
-    // vue2: {
-    //   typescript: true,
-    //   // plugins: [CustomVuePlugin],
-    // },
     vue3: {
       // typescript: true,
       plugins: [CustomVuePlugin],
