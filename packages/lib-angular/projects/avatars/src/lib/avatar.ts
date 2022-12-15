@@ -3,9 +3,9 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { Component, Input } from "@angular/core";
 
-import type { Variant } from "./avatar.utils";
+import type { AvatarProps } from "./avatar.utils";
 
-import { AvatarProps, coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import { AvatarBauhausModule } from "./avatars/avatar-bauhaus";
 import { AvatarBeamModule } from "./avatars/avatar-beam";
 import { AvatarMarbleModule } from "./avatars/avatar-marble";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import type { Variant } from "./avatar.utils";
-import { AvatarProps, coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import type { AvatarProps } from "./avatar.utils";
+import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
 import AvatarBeam from "./avatars/avatar-beam";
 import AvatarMarble from "./avatars/avatar-marble";

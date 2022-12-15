@@ -6,7 +6,7 @@ module.exports = {
   targets: ["vue2"],
   options: {
     vue2: {
-      // typescript: true,
+      typescript: true,
       plugins: [CustomVuePlugin],
     },
   },

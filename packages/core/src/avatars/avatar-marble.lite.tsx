@@ -1,5 +1,6 @@
 import { useStore } from "@builder.io/mitosis";
-import { AvatarProps } from "../avatar.utils";
+import type { AvatarProps } from "../avatar.utils";
+import { defaultAvatarProps } from "../avatar.utils";
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
 export default function AvatarMarble(props: Omit<AvatarProps, "variant">) {

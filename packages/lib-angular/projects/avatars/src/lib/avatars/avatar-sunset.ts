@@ -3,7 +3,9 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { Component, Input } from "@angular/core";
 
-import { AvatarProps, defaultAvatarProps } from "../avatar.utils";
+import type { AvatarProps } from "../avatar.utils";
+
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
 @Component({

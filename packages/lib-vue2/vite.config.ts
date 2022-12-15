@@ -1,8 +1,7 @@
 import { defineConfig, type UserConfig } from "vite";
 import vue from "@vitejs/plugin-vue2";
 
-// const path = require("path");
-import path from "path";
+import path from "node:path";
 
 /**
  * Vite Configure

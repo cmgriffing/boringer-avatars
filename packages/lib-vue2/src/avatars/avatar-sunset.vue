@@ -63,7 +63,10 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
+import type { AvatarProps } from "../avatar.utils";
+
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
 export default {

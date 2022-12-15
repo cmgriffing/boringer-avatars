@@ -1,7 +1,7 @@
-import { defineConfig } from 'vitest/config';
-import vue from '@vitejs/plugin-vue2';
+import { defineConfig } from "vitest/config";
+import vue from "@vitejs/plugin-vue2";
 
-import { fileURLToPath, URL } from 'node:url';
+import { fileURLToPath, URL } from "node:url";
 
 /**
  * Vitest Configure
@@ -12,11 +12,11 @@ export default defineConfig({
   // plugins
   plugins: [
     {
-      name: 'vitest-plugin-beforeall',
+      name: "vitest-plugin-beforeall",
       config: () => ({
         test: {
           setupFiles: [
-            fileURLToPath(new URL('./vitest/beforeAll.ts', import.meta.url)),
+            fileURLToPath(new URL("./vitest/beforeAll.ts", import.meta.url)),
           ],
         },
       }),
@@ -29,14 +29,8 @@ export default defineConfig({
   resolve: {
     // https://vitejs.dev/config/shared-options.html#resolve-alias
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "~": fileURLToPath(new URL("./node_modules", import.meta.url)),
     },
-  },
-  test: {
-    // https://vitest.dev/guide/#configuring-vitest
-    globals: true,
-    globalSetup: [fileURLToPath(new URL('./vitest/setup.ts', import.meta.url))],
-    environment: 'jsdom',
   },
 });

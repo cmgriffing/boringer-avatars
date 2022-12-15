@@ -1,5 +1,6 @@
 import { useStore } from "@builder.io/mitosis";
-import { AvatarProps } from "../avatar.utils";
+import type { AvatarProps } from "../avatar.utils";
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
 export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {

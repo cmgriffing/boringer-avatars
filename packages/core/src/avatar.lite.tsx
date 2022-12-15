@@ -1,5 +1,5 @@
-import { AvatarProps, coerceVariant, defaultAvatarProps } from "./avatar.utils";
-import type { Variant } from "./avatar.utils";
+import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
+import type { AvatarProps } from "./avatar.utils";
 import { useStore, onMount, onUpdate, Show } from "@builder.io/mitosis";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
 import AvatarBeam from "./avatars/avatar-beam";

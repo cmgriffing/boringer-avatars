@@ -105,7 +105,10 @@
   </svg>
 </template>
 
-<script>
+<script lang="ts">
+import type { AvatarProps } from "../avatar.utils";
+
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateData, SIZE } from "./avatar-beam.utils";
 
 export default {

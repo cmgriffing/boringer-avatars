@@ -6,5 +6,5 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.vitest.json" }
   ],
-  "compilerOptions": { "newLine": "lf" }
+  "compilerOptions": { "newLine": "lf", "lib": ["es2016"] }
 }

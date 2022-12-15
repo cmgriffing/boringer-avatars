@@ -1,6 +1,6 @@
 import { Show, createSignal } from "solid-js";
 
-import { AvatarProps } from "../avatar.utils";
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-ring.utils";
 
 function AvatarRing(props) {

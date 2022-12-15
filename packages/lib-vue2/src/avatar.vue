@@ -62,7 +62,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import type { AvatarProps } from "./avatar.utils";
+
 import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus.vue";
 import AvatarBeam from "./avatars/avatar-beam.vue";

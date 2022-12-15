@@ -1,5 +1,6 @@
 import { useStore } from "@builder.io/mitosis";
-import { AvatarProps } from "../avatar.utils";
+import type { AvatarProps } from "../avatar.utils";
+import { defaultAvatarProps } from "../avatar.utils";
 import { generateData, SIZE } from "./avatar-beam.utils";
 
 export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
