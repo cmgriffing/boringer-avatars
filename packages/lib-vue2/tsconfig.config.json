@@ -4,6 +4,7 @@
   "include": ["vite.config.*"],
   "compilerOptions": {
     "composite": true,
-    "types": ["node"]
+    "types": ["node"],
+    "lib": ["es2016"]
   }
 }

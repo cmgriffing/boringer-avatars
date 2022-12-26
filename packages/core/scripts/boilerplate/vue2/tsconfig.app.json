@@ -6,7 +6,8 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
-    "paths": { "@/*": ["./src/*"] }
+    "paths": { "@/*": ["./src/*"] },
+    "lib": ["es2016"]
   },
   "vueCompilerOptions": { "target": 2.7 }
 }

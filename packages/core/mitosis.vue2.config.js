@@ -1,4 +1,4 @@
-const { CustomVuePlugin } = require("./mitosis/plugins/vue");
+const { CustomVue2Plugin } = require("./mitosis/plugins/vue2");
 
 module.exports = {
   prettier: false,
@@ -7,7 +7,7 @@ module.exports = {
   options: {
     vue2: {
       typescript: true,
-      plugins: [CustomVuePlugin],
+      plugins: [CustomVue2Plugin],
     },
   },
 };

@@ -21,12 +21,12 @@ const _ = (r) => {
   "geometric",
   "abstract",
   void 0
-], A = {
+], T = {
   geometric: "beam",
   abstract: "bauhaus"
 };
-function B(r) {
-  return r ? Object.keys(A).includes(r || "") ? A[r || ""] || "marble" : r && O.includes(r) ? r : "marble" : "marble";
+function A(r) {
+  return r ? Object.keys(T).includes(r || "") ? T[r || ""] || "marble" : r && O.includes(r) ? r : "marble" : "marble";
 }
 const C = {
   variant: "marble",
@@ -84,9 +84,9 @@ function f(r, t, e, i, s, l, a, p) {
   };
 }
 var H = function() {
-  var i, s, l, a, p, o, c, x, m, h, w, g, I, Z, y, F, k, z, $, b, P, q, M, U, R, T;
+  var i, s, l, a, p, o, c, x, m, h, w, g, I, Z, y, F, k, z, $, b, P, q, M, U, R, B;
   var t = this, e = t._self._c;
-  return e("svg", { attrs: { fill: "none", role: "img", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 " + t.SIZE + " " + t.SIZE, width: t.size, height: t.size } }, [t.title ? [e("title", [t._v(t._s(t.name))])] : t._e(), e("mask", { attrs: { id: "mask__bauhaus", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: t.SIZE, height: t.SIZE } }, [e("rect", { attrs: { fill: "#FFFFFF", width: t.SIZE, height: t.SIZE, rx: t.square ? void 0 : t.SIZE * 2 } })]), e("g", { attrs: { mask: "url(#mask__bauhaus)" } }, [e("rect", { attrs: { width: t.SIZE, height: t.SIZE, fill: (s = (i = t.properties) == null ? void 0 : i[0]) == null ? void 0 : s.color } }), e("rect", { attrs: { x: (t.SIZE - 60) / 2, y: (t.SIZE - 20) / 2, width: t.SIZE, height: (a = (l = t.properties) == null ? void 0 : l[1]) != null && a.isSquare ? t.SIZE : t.SIZE / 8, fill: (o = (p = t.properties) == null ? void 0 : p[1]) == null ? void 0 : o.color, transform: "translate(" + ((x = (c = t.properties) == null ? void 0 : c[1]) == null ? void 0 : x.translateX) + " " + ((h = (m = t.properties) == null ? void 0 : m[1]) == null ? void 0 : h.translateY) + ") rotate(" + ((g = (w = t.properties) == null ? void 0 : w[1]) == null ? void 0 : g.rotate) + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ")" } }), e("circle", { attrs: { cx: t.SIZE / 2, cy: t.SIZE / 2, fill: (Z = (I = t.properties) == null ? void 0 : I[2]) == null ? void 0 : Z.color, r: t.SIZE / 5, transform: "translate(" + ((F = (y = t.properties) == null ? void 0 : y[2]) == null ? void 0 : F.translateX) + " " + ((z = (k = t.properties) == null ? void 0 : k[2]) == null ? void 0 : z.translateY) + ")" } }), e("line", { attrs: { x1: 0, y1: t.SIZE / 2, x2: t.SIZE, y2: t.SIZE / 2, strokeWidth: 2, stroke: (b = ($ = t.properties) == null ? void 0 : $[3]) == null ? void 0 : b.color, transform: "translate(" + ((q = (P = t.properties) == null ? void 0 : P[3]) == null ? void 0 : q.translateX) + " " + ((U = (M = t.properties) == null ? void 0 : M[3]) == null ? void 0 : U.translateY) + ") rotate(" + ((T = (R = t.properties) == null ? void 0 : R[3]) == null ? void 0 : T.rotate) + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ")" } })])], 2);
+  return e("svg", { attrs: { fill: "none", role: "img", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 " + t.SIZE + " " + t.SIZE, width: t.size, height: t.size } }, [t.title ? [e("title", [t._v(t._s(t.name))])] : t._e(), e("mask", { attrs: { id: "mask__bauhaus", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: t.SIZE, height: t.SIZE } }, [e("rect", { attrs: { fill: "#FFFFFF", width: t.SIZE, height: t.SIZE, rx: t.square ? void 0 : t.SIZE * 2 } })]), e("g", { attrs: { mask: "url(#mask__bauhaus)" } }, [e("rect", { attrs: { width: t.SIZE, height: t.SIZE, fill: (s = (i = t.properties) == null ? void 0 : i[0]) == null ? void 0 : s.color } }), e("rect", { attrs: { x: (t.SIZE - 60) / 2, y: (t.SIZE - 20) / 2, width: t.SIZE, height: (a = (l = t.properties) == null ? void 0 : l[1]) != null && a.isSquare ? t.SIZE : t.SIZE / 8, fill: (o = (p = t.properties) == null ? void 0 : p[1]) == null ? void 0 : o.color, transform: "translate(" + ((x = (c = t.properties) == null ? void 0 : c[1]) == null ? void 0 : x.translateX) + " " + ((h = (m = t.properties) == null ? void 0 : m[1]) == null ? void 0 : h.translateY) + ") rotate(" + ((g = (w = t.properties) == null ? void 0 : w[1]) == null ? void 0 : g.rotate) + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ")" } }), e("circle", { attrs: { cx: t.SIZE / 2, cy: t.SIZE / 2, fill: (Z = (I = t.properties) == null ? void 0 : I[2]) == null ? void 0 : Z.color, r: t.SIZE / 5, transform: "translate(" + ((F = (y = t.properties) == null ? void 0 : y[2]) == null ? void 0 : F.translateX) + " " + ((z = (k = t.properties) == null ? void 0 : k[2]) == null ? void 0 : z.translateY) + ")" } }), e("line", { attrs: { x1: 0, y1: t.SIZE / 2, x2: t.SIZE, y2: t.SIZE / 2, strokeWidth: 2, stroke: (b = ($ = t.properties) == null ? void 0 : $[3]) == null ? void 0 : b.color, transform: "translate(" + ((q = (P = t.properties) == null ? void 0 : P[3]) == null ? void 0 : q.translateX) + " " + ((U = (M = t.properties) == null ? void 0 : M[3]) == null ? void 0 : U.translateY) + ") rotate(" + ((B = (R = t.properties) == null ? void 0 : R[3]) == null ? void 0 : B.rotate) + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ")" } })])], 2);
 }, D = [], G = /* @__PURE__ */ f(
   Y,
   H,
@@ -165,7 +165,7 @@ var it = function() {
   var t = this, e = t._self._c;
   return e("svg", { attrs: { fill: "none", role: "img", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 " + t.SIZE + " " + t.SIZE, width: t.size, height: t.size } }, [t.title ? [e("title", [t._v(t._s(t.name))])] : t._e(), e("mask", { attrs: { id: "mask__marble", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: t.SIZE, height: t.SIZE } }, [e("rect", { attrs: { fill: "#FFFFFF", width: t.SIZE, height: t.SIZE, rx: t.square ? void 0 : t.SIZE * 2 } })]), e("g", { attrs: { mask: "url(#mask__marble)" } }, [e("rect", { attrs: { width: t.SIZE, height: t.SIZE, fill: t.properties[0].color } }), e("path", { attrs: { filter: "url(#prefix__filter0_f)", d: "M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z", fill: t.properties[1].color, transform: "translate(" + t.properties[1].translateX + " " + t.properties[1].translateY + ") rotate(" + t.properties[1].rotate + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ") scale(" + t.properties[2].scale + ")" } }), e("path", { style: {
     mixBlendMode: "overlay"
-  }, attrs: { filter: "url(#prefix__filter0_f)", d: "M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z", fill: t.properties[2].color, transform: "translate(" + t.properties[2].translateX + " " + t.properties[2].translateY + ") rotate(" + t.properties[2].rotate + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ") scale(" + t.properties[2].scale + ")" } })]), e("defs", [e("filter", { attrs: { id: "prefix__filter0_f", filterUnits: "userSpaceOnUse", colorInterpolationFilters: "sRGB" } }, [e("fe-flood", { attrs: { result: "BackgroundImageFix", floodOpacity: 0 } }), e("fe-blend", { attrs: { in: "SourceGraphic", in2: "BackgroundImageFix", result: "shape" } }), e("fe-gaussian-blur", { attrs: { result: "effect1_foregroundBlur", stdDeviation: 7 } })], 1)])], 2);
+  }, attrs: { filter: "url(#prefix__filter0_f)", d: "M22.216 24L0 46.75l14.108 38.129L78 86l-3.081-59.276-22.378 4.005 12.972 20.186-23.35 27.395L22.215 24z", fill: t.properties[2].color, transform: "translate(" + t.properties[2].translateX + " " + t.properties[2].translateY + ") rotate(" + t.properties[2].rotate + " " + t.SIZE / 2 + " " + t.SIZE / 2 + ") scale(" + t.properties[2].scale + ")" } })]), e("defs", [e("filter", { attrs: { id: "prefix__filter0_f", filterUnits: "userSpaceOnUse", colorInterpolationFilters: "sRGB" } }, [e("feFlood", { attrs: { result: "BackgroundImageFix", floodOpacity: 0 } }), e("feBlend", { attrs: { in: "SourceGraphic", in2: "BackgroundImageFix", result: "shape" } }), e("feGaussianBlur", { attrs: { result: "effect1_foregroundBlur", stdDeviation: 7 } })], 1)])], 2);
 }, lt = [], ot = /* @__PURE__ */ f(
   at,
   it,
@@ -261,7 +261,7 @@ const kt = {
 };
 var zt = function() {
   var t = this, e = t._self._c;
-  return e("svg", { attrs: { fill: "none", role: "img", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 " + t.SIZE + " " + t.SIZE, width: t.size, height: t.size } }, [t.title ? [e("title", [t._v(t._s(t.name))])] : t._e(), e("mask", { attrs: { id: "mask__sunset", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: t.SIZE, height: t.SIZE } }, [e("rect", { attrs: { fill: "#FFFFFF", width: t.SIZE, height: t.SIZE, rx: t.square ? void 0 : t.SIZE * 2 } })]), e("g", { attrs: { mask: "url(#mask__sunset)" } }, [e("path", { attrs: { d: "M0 0h80v40H0z", fill: "url(#gradient_paint0_linear_" + t.formattedName + ")" } }), e("path", { attrs: { d: "M0 40h80v40H0z", fill: "url(#gradient_paint1_linear_" + t.formattedName + ")" } })]), e("defs", [e("linear-gradient", { attrs: { gradientUnits: "userSpaceOnUse", id: "gradient_paint0_linear_" + t.formattedName, x1: t.SIZE / 2, y1: 0, x2: t.SIZE / 2, y2: t.SIZE / 2 } }, [e("stop", { attrs: { "stop-color": t.sunsetColors[0] } }), e("stop", { attrs: { offset: 1, "stop-color": t.sunsetColors[1] } })], 1), e("linear-gradient", { attrs: { gradientUnits: "userSpaceOnUse", id: "gradient_paint1_linear_" + t.formattedName, x1: t.SIZE / 2, y1: t.SIZE / 2, x2: t.SIZE / 2, y2: t.SIZE } }, [e("stop", { attrs: { "stop-color": t.sunsetColors[2] } }), e("stop", { attrs: { offset: 1, "stop-color": t.sunsetColors[3] } })], 1)], 1)], 2);
+  return e("svg", { attrs: { fill: "none", role: "img", xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 " + t.SIZE + " " + t.SIZE, width: t.size, height: t.size } }, [t.title ? [e("title", [t._v(t._s(t.name))])] : t._e(), e("mask", { attrs: { id: "mask__sunset", maskUnits: "userSpaceOnUse", x: 0, y: 0, width: t.SIZE, height: t.SIZE } }, [e("rect", { attrs: { fill: "#FFFFFF", width: t.SIZE, height: t.SIZE, rx: t.square ? void 0 : t.SIZE * 2 } })]), e("g", { attrs: { mask: "url(#mask__sunset)" } }, [e("path", { attrs: { d: "M0 0h80v40H0z", fill: "url(#gradient_paint0_linear_" + t.formattedName + ")" } }), e("path", { attrs: { d: "M0 40h80v40H0z", fill: "url(#gradient_paint1_linear_" + t.formattedName + ")" } })]), e("defs", [e("linearGradient", { attrs: { gradientUnits: "userSpaceOnUse", id: "gradient_paint0_linear_" + t.formattedName, x1: t.SIZE / 2, y1: 0, x2: t.SIZE / 2, y2: t.SIZE / 2 } }, [e("stop", { attrs: { "stop-color": t.sunsetColors[0] } }), e("stop", { attrs: { offset: 1, "stop-color": t.sunsetColors[1] } })], 1), e("linearGradient", { attrs: { gradientUnits: "userSpaceOnUse", id: "gradient_paint1_linear_" + t.formattedName, x1: t.SIZE / 2, y1: t.SIZE / 2, x2: t.SIZE / 2, y2: t.SIZE } }, [e("stop", { attrs: { "stop-color": t.sunsetColors[2] } }), e("stop", { attrs: { offset: 1, "stop-color": t.sunsetColors[3] } })], 1)], 1)], 2);
 }, $t = [], bt = /* @__PURE__ */ f(
   kt,
   zt,
@@ -285,12 +285,12 @@ const Pt = bt.exports, qt = {
   props: ["variant"],
   data: () => ({ checkedVariant: "beam", coercedProps: C }),
   mounted() {
-    this.checkedVariant = B(this.variant) || "beam", this.coercedProps = { ...C, ...this.props };
+    this.checkedVariant = A(this.variant) || "beam", this.coercedProps = { ...C, ...this.$props };
   },
   watch: {
     onUpdateHook0: {
       handler() {
-        this.checkedVariant = B(this.variant) || "beam", this.coercedProps = { ...C, ...this.props };
+        this.checkedVariant = A(this.variant) || "beam", this.coercedProps = { ...C, ...this.$props };
       },
       immediate: !0
     }
@@ -316,7 +316,7 @@ var Mt = function() {
   null,
   null
 );
-const Tt = Rt.exports;
+const Bt = Rt.exports;
 export {
-  Tt as Avatar
+  Bt as Avatar
 };

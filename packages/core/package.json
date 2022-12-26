@@ -11,11 +11,11 @@
     "build:compile:main": "ts-node --project=tsconfig.json ./scripts/new-compile.ts",
     "build:compile:vue2": "ts-node --project=tsconfig.json ./scripts/compile-vue2.ts",
     "build:compile": "npm-run-all -s build:compile:main build:compile:vue2",
-    "build:new": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile"
+    "build": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile"
   },
   "devDependencies": {
-    "@builder.io/mitosis": "^0.0.82",
-    "@builder.io/mitosis-cli": "^0.0.40",
+    "@builder.io/mitosis": "^0.0.83",
+    "@builder.io/mitosis-cli": "^0.0.41",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^8.0.0",
     "@types/mustache": "^4.2.1",

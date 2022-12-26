@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 
 import { Component, Input } from "@angular/core";
 
@@ -92,7 +92,7 @@ export class AvatarBauhaus {
 
 @NgModule({
   declarations: [AvatarBauhaus],
-  imports: [BrowserModule],
+  imports: [CommonModule],
   exports: [AvatarBauhaus],
 })
 export class AvatarBauhausModule {}

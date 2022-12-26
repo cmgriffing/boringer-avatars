@@ -215,8 +215,8 @@ importers:
 
   packages/core:
     specifiers:
-      '@builder.io/mitosis': ^0.0.82
-      '@builder.io/mitosis-cli': ^0.0.40
+      '@builder.io/mitosis': ^0.0.83
+      '@builder.io/mitosis-cli': ^0.0.41
       '@types/fs-extra': ^9.0.13
       '@types/glob': ^8.0.0
       '@types/mustache': ^4.2.1
@@ -234,8 +234,8 @@ importers:
       tslib: ^2.4.0
       typescript: ^4.8.3
     devDependencies:
-      '@builder.io/mitosis': 0.0.82_vvbctko26cfhpr4ppx2ivt5xca
-      '@builder.io/mitosis-cli': 0.0.40_vvbctko26cfhpr4ppx2ivt5xca
+      '@builder.io/mitosis': 0.0.83_vvbctko26cfhpr4ppx2ivt5xca
+      '@builder.io/mitosis-cli': 0.0.41_vvbctko26cfhpr4ppx2ivt5xca
       '@types/fs-extra': 9.0.13
       '@types/glob': 8.0.0
       '@types/mustache': 4.2.1
@@ -2377,15 +2377,15 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
 
-  /@builder.io/mitosis-cli/0.0.40_vvbctko26cfhpr4ppx2ivt5xca:
-    resolution: {integrity: sha512-btYBwm4tRiAarfDluGSro3r8htplPWzvuC1in2ckibewyKlL/I31qRlKPPe2eXJujgNK3wGLr7SZQ1gBjFJCCw==}
+  /@builder.io/mitosis-cli/0.0.41_vvbctko26cfhpr4ppx2ivt5xca:
+    resolution: {integrity: sha512-8D9l507y21eiqhtafIa70AuasIB0QI1IMJem9JJE9PCHh3z6itXUzmVc4F1msg5lbG6NjIL+eqblYKs19IJ45Q==}
     engines: {npm: 99999999.9.9}
     hasBin: true
     dependencies:
       '@babel/core': 7.19.1
       '@babel/preset-typescript': 7.18.6_@babel+core@7.19.1
-      '@builder.io/mitosis': 0.0.82_u52knadffva4a6aa4n4gkheqje
-      '@vue/compiler-sfc': 3.2.39
+      '@builder.io/mitosis': 0.0.83_u52knadffva4a6aa4n4gkheqje
+      '@vue/compiler-sfc': 3.2.45
       babel-preset-solid: 1.5.6_@babel+core@7.19.1
       chalk: 4.1.2
       debug: 4.3.4
@@ -2416,8 +2416,8 @@ packages:
       - ts-node
     dev: true
 
-  /@builder.io/mitosis/0.0.82_u52knadffva4a6aa4n4gkheqje:
-    resolution: {integrity: sha512-+iaDw9Aymb2+5L9o8/RDmsPwGRaX97LSKxx1RFCEEvAKWNDMheo7WK0rj8Q1+WKvoTCujI1IiVmaMTuGbj/KGA==}
+  /@builder.io/mitosis/0.0.83_u52knadffva4a6aa4n4gkheqje:
+    resolution: {integrity: sha512-JlHwqMc3CioPfp57TMmLPgHzpv8cWVKYpsU87upR4uIabz8aL9Gm+9WtOL3kS3CTu4wyepr4P1zEGVrUEvik4w==}
     engines: {npm: 99999999.9.9}
     dependencies:
       '@angular/compiler': 11.2.14
@@ -2470,8 +2470,8 @@ packages:
       - ts-node
     dev: true
 
-  /@builder.io/mitosis/0.0.82_vvbctko26cfhpr4ppx2ivt5xca:
-    resolution: {integrity: sha512-+iaDw9Aymb2+5L9o8/RDmsPwGRaX97LSKxx1RFCEEvAKWNDMheo7WK0rj8Q1+WKvoTCujI1IiVmaMTuGbj/KGA==}
+  /@builder.io/mitosis/0.0.83_vvbctko26cfhpr4ppx2ivt5xca:
+    resolution: {integrity: sha512-JlHwqMc3CioPfp57TMmLPgHzpv8cWVKYpsU87upR4uIabz8aL9Gm+9WtOL3kS3CTu4wyepr4P1zEGVrUEvik4w==}
     engines: {npm: 99999999.9.9}
     dependencies:
       '@angular/compiler': 11.2.14

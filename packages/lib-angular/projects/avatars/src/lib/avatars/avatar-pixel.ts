@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 
 import { Component, Input } from "@angular/core";
 
@@ -556,7 +556,7 @@ export class AvatarPixel {
 
 @NgModule({
   declarations: [AvatarPixel],
-  imports: [BrowserModule],
+  imports: [CommonModule],
   exports: [AvatarPixel],
 })
 export class AvatarPixelModule {}

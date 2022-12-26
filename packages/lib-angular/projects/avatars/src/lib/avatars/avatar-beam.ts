@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 
 import { Component, Input } from "@angular/core";
 
@@ -108,7 +108,7 @@ export class AvatarBeam {
 
 @NgModule({
   declarations: [AvatarBeam],
-  imports: [BrowserModule],
+  imports: [CommonModule],
   exports: [AvatarBeam],
 })
 export class AvatarBeamModule {}

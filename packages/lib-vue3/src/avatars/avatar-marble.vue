@@ -78,16 +78,16 @@
         filterUnits="userSpaceOnUse"
         colorInterpolationFilters="sRGB"
       >
-        <fe-flood result="BackgroundImageFix" :floodOpacity="0"></fe-flood>
-        <fe-blend
+        <feFlood result="BackgroundImageFix" :floodOpacity="0"></feFlood>
+        <feBlend
           in="SourceGraphic"
           in2="BackgroundImageFix"
           result="shape"
-        ></fe-blend>
-        <fe-gaussian-blur
+        ></feBlend>
+        <feGaussianBlur
           result="effect1_foregroundBlur"
           :stdDeviation="7"
-        ></fe-gaussian-blur>
+        ></feGaussianBlur>
       </filter>
     </defs>
   </svg>

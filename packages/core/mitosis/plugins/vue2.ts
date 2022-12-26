@@ -1,7 +1,7 @@
 import { MitosisPlugin } from "../types";
 import type { MitosisComponent } from "@builder.io/mitosis";
 
-export function CustomVuePlugin(): MitosisPlugin {
+export function CustomVue2Plugin(): MitosisPlugin {
   return {
     code: {
       post: (code: string) => {
@@ -15,12 +15,12 @@ export function CustomVuePlugin(): MitosisPlugin {
         //   "(this as any)."
         // );
 
-        // newCode = newCode.replace(
-        //   new RegExp(`v-bind="props"`, "gm"),
-        //   `v-bind="$props"`
-        // );
-
         let newCode = code.replace(
+          new RegExp(`this.props`, "gm"),
+          `this.$props`
+        );
+
+        newCode = newCode.replace(
           new RegExp(`(import \\S+ from ".\\/avatars\\/avatar-\\S+)";`, "gm"),
           `$1.vue";`
         );

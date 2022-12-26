@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { CommonModule } from "@angular/common";
 
 import { Component, Input } from "@angular/core";
 
@@ -106,7 +106,7 @@ export class AvatarMarble {
 
 @NgModule({
   declarations: [AvatarMarble],
-  imports: [BrowserModule],
+  imports: [CommonModule],
   exports: [AvatarMarble],
 })
 export class AvatarMarbleModule {}

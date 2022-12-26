@@ -89,14 +89,14 @@ export default {
 
   mounted() {
     this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.coercedProps = { ...defaultAvatarProps, ...this.props };
+    this.coercedProps = { ...defaultAvatarProps, ...this.$props };
   },
 
   watch: {
     onUpdateHook0: {
       handler() {
         this.checkedVariant = coerceVariant(this.variant) || "beam";
-        this.coercedProps = { ...defaultAvatarProps, ...this.props };
+        this.coercedProps = { ...defaultAvatarProps, ...this.$props };
       },
       immediate: true,
     },

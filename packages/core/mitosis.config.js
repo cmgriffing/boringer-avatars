@@ -1,7 +1,5 @@
 const { CustomAngularPlugin } = require("./mitosis/plugins/angular");
-const { CustomReactPlugin } = require("./mitosis/plugins/react");
-const { CustomSveltePlugin } = require("./mitosis/plugins/svelte");
-const { CustomVuePlugin } = require("./mitosis/plugins/vue");
+const { CustomVue3Plugin } = require("./mitosis/plugins/vue3");
 
 module.exports = {
   prettier: false,
@@ -14,7 +12,7 @@ module.exports = {
     },
     vue3: {
       // typescript: true,
-      plugins: [CustomVuePlugin],
+      plugins: [CustomVue3Plugin],
     },
     react: {
       typescript: true,

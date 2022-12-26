@@ -37,7 +37,7 @@
       ></path>
     </g>
     <defs>
-      <linear-gradient
+      <linearGradient
         gradientUnits="userSpaceOnUse"
         :id="'gradient_paint0_linear_' + formattedName"
         :x1="SIZE / 2"
@@ -47,8 +47,8 @@
       >
         <stop :stop-color="sunsetColors[0]"></stop>
         <stop :offset="1" :stop-color="sunsetColors[1]"></stop>
-      </linear-gradient>
-      <linear-gradient
+      </linearGradient>
+      <linearGradient
         gradientUnits="userSpaceOnUse"
         :id="'gradient_paint1_linear_' + formattedName"
         :x1="SIZE / 2"
@@ -58,7 +58,7 @@
       >
         <stop :stop-color="sunsetColors[2]"></stop>
         <stop :offset="1" :stop-color="sunsetColors[3]"></stop>
-      </linear-gradient>
+      </linearGradient>
     </defs>
   </svg>
 </template>
