@@ -1,0 +1,34 @@
+---
+import StylesListItem from "./StylesListItem.astro";
+
+const variants = ["beam", "marble", "pixel", "sunset", "bauhaus", "ring"];
+
+const size = `${100}%`;
+const name = "testing";
+const colors = ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"];
+---
+
+<section id="styles">
+  <div
+    class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"
+  >
+    <h2
+      class="text-3xl font-bold leading-none tracking-tighter text-neutral-600 md:text-6xl lg:text-4xl my-8 text-center"
+    >
+      Avatar Styles
+    </h2>
+
+    <div class="flex flex-row items-center justify-center gap-4">
+      {
+        variants.map((variant) => (
+          <StylesListItem
+            variant={variant}
+            size={size}
+            name={name}
+            colors={colors}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

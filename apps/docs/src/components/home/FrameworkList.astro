@@ -4,63 +4,75 @@ import FrameworkListItem from "./FrameworkListItem.astro";
 const frameworks = [
   {
     name: "React",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "react.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-react",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl: "https://www.npmjs.com/package/@boringer-avatars/react",
   },
 
   {
     name: "Vue2",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "vue.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-vue2",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl: "https://www.npmjs.com/package/@boringer-avatars/vue2",
   },
   {
     name: "Vue3",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "vue.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-vue3",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl: "https://www.npmjs.com/package/@boringer-avatars/vue3",
   },
 
   {
     name: "Svelte",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "svelte.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-svelte",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl: "https://www.npmjs.com/package/@boringer-avatars/svelte",
   },
 
   {
     name: "Solid",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "solid.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-solid",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl: "https://www.npmjs.com/package/@boringer-avatars/solid",
   },
 
   {
     name: "Angular",
-    logo: "something.jpg",
-    githubUrl: "",
+    logo: "angular.svg",
+    githubUrl:
+      "https://github.com/cmgriffing/boringer-avatars/tree/main/packages/lib-angular",
     demoUrl: "",
-    packageManager: "",
-    packageManagerUrl: "",
+    packageManager: "NPM",
+    packageManagerUrl:
+      "https://www.npmjs.com/package/@boringer-avatars/angular",
   },
 ];
 ---
 
-<section>
+<section id="frameworks">
   <div
     class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"
   >
+    <h2
+      class="text-3xl font-bold leading-none tracking-tighter text-neutral-600 md:text-6xl lg:text-4xl my-8 text-center"
+    >
+      Supported Frameworks
+    </h2>
     <div class="grid w-full grid-cols-1 gap-12 mx-auto lg:grid-cols-3">
       {
         frameworks.map((framework) => (

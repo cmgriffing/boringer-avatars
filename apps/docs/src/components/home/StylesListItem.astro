@@ -1,0 +1,28 @@
+---
+import { Avatar } from "@boringer-avatars/solid";
+
+export interface Props {
+  variant: string;
+  size: number | string;
+  colors: string[];
+  name: string;
+}
+
+const { size, variant, colors, name } = Astro.props;
+---
+
+<div class="w:1/6">
+  <h3
+    class="text-xl font-semibold tracking-tighter leading-none text-neutral-600 my-2 text-center"
+  >
+    {variant.toUpperCase()}
+  </h3>
+  <Avatar
+    client:only
+    size={size}
+    variant={variant}
+    name={name}
+    square={false}
+    colors={colors}
+  />
+</div>
