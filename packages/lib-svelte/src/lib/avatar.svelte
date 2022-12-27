@@ -2,12 +2,12 @@
   import { onMount } from "svelte";
 
   import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
-  import AvatarBauhaus from "./avatars/avatar-bauhaus";
-  import AvatarBeam from "./avatars/avatar-beam";
-  import AvatarMarble from "./avatars/avatar-marble";
-  import AvatarPixel from "./avatars/avatar-pixel";
-  import AvatarRing from "./avatars/avatar-ring";
-  import AvatarSunset from "./avatars/avatar-sunset";
+  import AvatarBauhaus from "./avatars/avatar-bauhaus.svelte";
+  import AvatarBeam from "./avatars/avatar-beam.svelte";
+  import AvatarMarble from "./avatars/avatar-marble.svelte";
+  import AvatarPixel from "./avatars/avatar-pixel.svelte";
+  import AvatarRing from "./avatars/avatar-ring.svelte";
+  import AvatarSunset from "./avatars/avatar-sunset.svelte";
 
   export let variant;
 
@@ -16,12 +16,12 @@
 
   onMount(() => {
     checkedVariant = coerceVariant(variant) || "beam";
-    coercedProps = { ...defaultAvatarProps, ...props };
+    coercedProps = { ...defaultAvatarProps, ...$$props };
   });
 
   function onUpdateFn_0() {
     checkedVariant = coerceVariant(variant) || "beam";
-    coercedProps = { ...defaultAvatarProps, ...props };
+    coercedProps = { ...defaultAvatarProps, ...$$props };
   }
   $: onUpdateFn_0(...[variant]);
 </script>

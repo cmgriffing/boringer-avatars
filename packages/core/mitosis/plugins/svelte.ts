@@ -12,16 +12,14 @@ export function CustomSveltePlugin(): MitosisPlugin {
       // Happens after formatting
       post: (code: string) => {
         let newCode = code.replace(
-          new RegExp("\\{\\.\\.\\.props\\}", "gm"),
-          "{...$$$$props}"
+          new RegExp("\\.\\.\\.props", "gm"),
+          "...$$$$props"
         );
 
-        newCode = newCode.replace(new RegExp("state\\.", "gm"), "");
-
-        newCode = newCode.replace(
-          new RegExp(`checkedVariant = "bauhaus";`),
-          `let checkedVariant = "bauhaus";`
-        );
+        // newCode = newCode.replace(
+        //   new RegExp(`checkedVariant = "bauhaus";`),
+        //   `let checkedVariant = "bauhaus";`
+        // );
 
         newCode = newCode.replace(
           new RegExp(`(import \\S+ from ".\\/avatars\\/avatar-\\S+)";`, "gm"),
