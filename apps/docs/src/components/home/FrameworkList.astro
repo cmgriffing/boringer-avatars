@@ -1,0 +1,72 @@
+---
+import FrameworkListItem from "./FrameworkListItem.astro";
+
+const frameworks = [
+  {
+    name: "React",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+
+  {
+    name: "Vue2",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+  {
+    name: "Vue3",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+
+  {
+    name: "Svelte",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+
+  {
+    name: "Solid",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+
+  {
+    name: "Angular",
+    logo: "something.jpg",
+    githubUrl: "",
+    demoUrl: "",
+    packageManager: "",
+    packageManagerUrl: "",
+  },
+];
+---
+
+<section>
+  <div
+    class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl"
+  >
+    <div class="grid w-full grid-cols-1 gap-12 mx-auto lg:grid-cols-3">
+      {
+        frameworks.map((framework) => (
+          <FrameworkListItem framework={framework} />
+        ))
+      }
+    </div>
+  </div>
+</section>
