@@ -22,7 +22,19 @@ function Avatar(props) {
     setCheckedVariant(coerceVariant(props.variant) || "beam");
     setCoercedProps({ ...defaultAvatarProps, ...props });
   }
-  createEffect(on(() => [props.variant], onUpdateFn_0));
+  createEffect(
+    on(
+      () => [
+        props.variant,
+        props.size,
+        props.colors,
+        props.name,
+        props.square,
+        props.title,
+      ],
+      onUpdateFn_0
+    )
+  );
 
   return (
     <>

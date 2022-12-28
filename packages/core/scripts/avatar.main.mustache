@@ -28,7 +28,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
       ...defaultAvatarProps,
       ...props,
     };
-  }, [props.variant]);
+  }, [props.variant, props.size, props.colors, props.name, props.square, props.title]);
 
   return (
     <>

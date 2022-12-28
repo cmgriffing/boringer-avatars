@@ -79,20 +79,20 @@ export default {
     AvatarRing: AvatarRing,
     AvatarSunset: AvatarSunset,
   },
-  props: ["variant"],
+  props: ["variant", "size", "colors", "name", "square", "title"],
 
   data: () => ({ checkedVariant: "beam", coercedProps: defaultAvatarProps }),
 
   mounted() {
     this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.coercedProps = { ...defaultAvatarProps, ...this.props };
+    this.coercedProps = { ...defaultAvatarProps, ...this.$props };
   },
 
   watch: {
     onUpdateHook0: {
       handler() {
         this.checkedVariant = coerceVariant(this.variant) || "beam";
-        this.coercedProps = { ...defaultAvatarProps, ...this.props };
+        this.coercedProps = { ...defaultAvatarProps, ...this.$props };
       },
       immediate: true,
     },
@@ -102,6 +102,11 @@ export default {
     onUpdateHook0() {
       return {
         0: this.variant,
+        1: this.size,
+        2: this.colors,
+        3: this.name,
+        4: this.square,
+        5: this.title,
       };
     },
   },

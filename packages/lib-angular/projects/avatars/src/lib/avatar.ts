@@ -81,6 +81,11 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
 })
 export class Avatar {
   @Input() variant: Partial<AvatarProps>["variant"];
+  @Input() size: Partial<AvatarProps>["size"];
+  @Input() colors: Partial<AvatarProps>["colors"];
+  @Input() name: Partial<AvatarProps>["name"];
+  @Input() square: Partial<AvatarProps>["square"];
+  @Input() title: Partial<AvatarProps>["title"];
 
   checkedVariant = "beam";
   coercedProps = defaultAvatarProps;

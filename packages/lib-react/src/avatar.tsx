@@ -22,7 +22,14 @@ export default function Avatar(props: Partial<AvatarProps>) {
   useEffect(() => {
     setCheckedVariant(coerceVariant(props.variant) || "beam");
     setCoercedProps({ ...defaultAvatarProps, ...props });
-  }, [props.variant]);
+  }, [
+    props.variant,
+    props.size,
+    props.colors,
+    props.name,
+    props.square,
+    props.title,
+  ]);
 
   return (
     <>

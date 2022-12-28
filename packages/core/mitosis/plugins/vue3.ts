@@ -10,6 +10,16 @@ export function CustomVue3Plugin(): MitosisPlugin {
           `$1.vue";`
         );
 
+        newCode = newCode.replace(
+          new RegExp(`this\\.props`, "gm"),
+          `this.$props`
+        );
+
+        newCode = newCode.replace(
+          `props: ["variant"],`,
+          `props: ["variant", "name", "colors", "size", "title", "square"],`
+        );
+
         return newCode;
       },
     },

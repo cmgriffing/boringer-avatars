@@ -10,6 +10,11 @@
   import AvatarSunset from "./avatars/avatar-sunset.svelte";
 
   export let variant;
+  export let size;
+  export let colors;
+  export let name;
+  export let square;
+  export let title;
 
   let checkedVariant = "beam";
   let coercedProps = defaultAvatarProps;
@@ -23,7 +28,7 @@
     checkedVariant = coerceVariant(variant) || "beam";
     coercedProps = { ...defaultAvatarProps, ...$$props };
   }
-  $: onUpdateFn_0(...[variant]);
+  $: onUpdateFn_0(...[variant, size, colors, name, square, title]);
 </script>
 
 {#if checkedVariant === `bauhaus`}
