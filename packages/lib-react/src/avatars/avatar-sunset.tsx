@@ -60,9 +60,9 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
           x2={SIZE / 2}
           y2={SIZE / 2}
         >
-          <stop stop-color={sunsetColors()[0]} />
+          <stop stopColor={sunsetColors()[0]} />
 
-          <stop offset={1} stop-color={sunsetColors()[1]} />
+          <stop offset={1} stopColor={sunsetColors()[1]} />
         </linearGradient>
 
         <linearGradient
@@ -73,9 +73,9 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
           x2={SIZE / 2}
           y2={SIZE}
         >
-          <stop stop-color={sunsetColors()[2]} />
+          <stop stopColor={sunsetColors()[2]} />
 
-          <stop offset={1} stop-color={sunsetColors()[3]} />
+          <stop offset={1} stopColor={sunsetColors()[3]} />
         </linearGradient>
       </defs>
     </svg>
