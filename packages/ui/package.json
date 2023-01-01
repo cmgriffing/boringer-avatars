@@ -4,6 +4,7 @@
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
+  "style": "./styles.css",
   "scripts": {
     "lint": "eslint *.ts*"
   },

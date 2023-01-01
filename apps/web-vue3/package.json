@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "vue": "^3.2.37",
-    "@boringer-avatars/vue3": "workspace:*"
+    "@boringer-avatars/vue3": "workspace:*",
+    "@demo/vue3": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",

@@ -10,7 +10,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "@boringer-avatars/svelte": "workspace:*"
+    "@boringer-avatars/svelte": "workspace:*",
+    "@demo/svelte": "workspace:*",
+    "ui": "workspace:*"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",

@@ -1,0 +1,62 @@
+{
+  "name": "@demo/{{target}}",
+  "version": "{{version}}",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "module": "dist/my-lib/fesm2015/demo-angular.mjs",
+  "es2020": "dist/my-lib/fesm2020/demo-angular.mjs",
+  "esm2020": "dist/my-lib/esm2020/demo-angular.mjs",
+  "fesm2020": "dist/my-lib/fesm2020/demo-angular.mjs",
+  "fesm2015": "dist/my-lib/fesm2015/demo-angular.mjs",
+  "typings": "dist/my-lib/index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./dist/my-lib/index.d.ts",
+      "esm2020": "./dist/my-lib/esm2020/demo-angular.mjs",
+      "es2020": "./dist/my-lib/fesm2020/demo-angular.mjs",
+      "es2015": "./dist/my-lib/fesm2015/demo-angular.mjs",
+      "node": "./dist/my-lib/fesm2015/demo-angular.mjs",
+      "default": "./dist/my-lib/fesm2020/demo-angular.mjs"
+    }
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "dependencies": {
+    "@angular/animations": "^14.2.0",
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/forms": "^14.2.0",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@angular/router": "^14.2.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.3",
+    "@angular/cli": "~14.2.3",
+    "@angular/compiler-cli": "^14.2.0",
+    "@types/jasmine": "~4.0.0",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.2.0",
+    "typescript": "~4.7.2"
+  }
+}

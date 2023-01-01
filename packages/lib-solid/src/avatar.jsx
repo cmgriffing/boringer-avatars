@@ -18,26 +18,34 @@ function Avatar(props) {
     setCoercedProps({ ...defaultAvatarProps, ...props });
   });
 
-  function onUpdateFn_0() {
-    setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setCoercedProps({ ...defaultAvatarProps, ...props });
-  }
-  createEffect(
-    on(
-      () => [
-        props.variant,
-        props.size,
-        props.colors,
-        props.name,
-        props.square,
-        props.title,
-      ],
-      onUpdateFn_0
-    )
-  );
+  // function onUpdateFn_0() {
+  //   console.log("updating: ", props.variant);
+  //   setCheckedVariant(props.variant);
+  //   const newProps = { ...defaultAvatarProps, ...props };
+  //   setCoercedProps(newProps);
+  //   console.log({ newProps });
+  // }
+  // createEffect(() => {
+  console.log("updating: ", props.variant);
+  setCheckedVariant(props.variant);
+  const newProps = { ...defaultAvatarProps, ...props };
+  setCoercedProps(newProps);
+  console.log({ newProps });
+  // });
+
+  setInterval(() => {
+    const newSize = parseInt(coercedProps().size, 10) + 10;
+    setCoercedProps({
+      ...coercedProps(),
+      size: newSize,
+    });
+  }, 3000);
 
   return (
     <>
+      {checkedVariant()}
+      {props.size}
+      {coercedProps().size}
       <Show when={checkedVariant() === `bauhaus`}>
         <AvatarBauhaus
           colors={coercedProps().colors}

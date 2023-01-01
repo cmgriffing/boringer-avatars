@@ -10,13 +10,17 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "watch:demo": "nodemon --exec \"cd packages/demo && pnpm build:mitosis:plugins && pnpm build:main\" --watch packages/demo/src --watch packages/demo/mitosis --watch packages/demo/scripts --ignore packages/demo/mitosis -e tsx,ts",
+    "watch:demo-solid": "nodemon --exec \"cd packages/demo-react && pnpm install && pnpm build\" --watch packages/demo-react --delay 5 --ignore packages/demo-react/dist -e tsx,ts",
+    "watch": "npm-run-all -p watch:*"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
     "prettier": "latest",
     "turbo": "latest"
   },
-  "dependencies": {},
   "packageManager": "pnpm@7.2.1"
 }

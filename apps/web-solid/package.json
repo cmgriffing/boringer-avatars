@@ -14,7 +14,9 @@
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "solid-js": "^1.5.1",
-    "@boringer-avatars/solid": "workspace:*"
+    "solid-js": "^1.6.6",
+    "@boringer-avatars/solid": "workspace:*",
+    "@demo/solid": "workspace:*",
+    "ui": "workspace:*"
   }
 }

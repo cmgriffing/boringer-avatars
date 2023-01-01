@@ -1,0 +1,11 @@
+{
+  "extends": "tsconfig/base",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxImportSource": "@builder.io/mitosis",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "target": "ES5"
+  }
+}

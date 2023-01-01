@@ -1,0 +1,311 @@
+:root {
+  --sp-xs: 0.25rem;
+  --sp-s: 0.5rem;
+  --sp-m: 1rem;
+  --sp-l: 1.5rem;
+  --sp-xl: 3rem;
+  --textbox-x: 0.8rem;
+  --textbox-y: 0.4rem;
+  --textbox: 0.4rem 1rem;
+  --pagePadding: calc(var(--sp-s) + 2vw);
+  --buttonHeight: 1.75rem;
+  --c-fieldHover: hsla(0, 0%, 0%, 0.15);
+  --c-fieldFocus: hsla(0, 0%, 0%, 0.3);
+  --c-background: hsl(0, 0%, 100%);
+  --c-body: hsl(0, 0%, 20%);
+  --c-body-secondary: hsl(0, 0%, 60%);
+  --c-button: hsla(0, 0%, 0%, 0.1);
+  --c-buttonHover: hsla(0, 0%, 0%, 0.15);
+  --c-buttonActive: hsla(0, 0%, 0%, 0.2);
+  --c-fade: hsla(0, 0%, 0%, 0.4);
+  --c-backgroundAlt: hsla(0, 0%, 0%, 0.07);
+  --c-colorPickerBorder: #e8e8e8;
+}
+
+.dark {
+  --c-fieldHover: hsla(0, 0%, 100%, 0.15);
+  --c-fieldFocus: hsla(0, 0%, 100%, 0.3);
+  --c-background: hsl(0, 0%, 3%);
+  --c-body: hsl(0, 0%, 80%);
+  --c-button: hsla(0, 0%, 100%, 0.1);
+  --c-buttonHover: hsla(0, 0%, 100%, 0.2);
+  --c-fade: hsla(0, 0%, 100%, 0.4);
+  --c-colorPickerBorder: #2a2a2a;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  background-color: var(--c-background);
+  color: var(--c-body);
+  padding: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-color 0.2s ease 0s;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.inner-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox-label,
+.radio-label {
+  padding: 0 var(--textbox-x);
+  border-radius: 50px;
+  background: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  min-height: var(--buttonHeight);
+  white-space: nowrap;
+}
+
+.radio-label.no-padding {
+  padding: 0;
+}
+
+.widget-wrapper {
+  border-radius: 10rem;
+  padding: 0.2rem;
+  background: var(--c-button);
+  display: inline-flex;
+  border: none;
+  margin: 0 0.25rem;
+}
+
+.radio-label:not(:hover) {
+  color: var(--c-fade);
+}
+
+.radio-label.selected {
+  background: var(--c-background);
+  color: var(--c-body);
+}
+
+.radio-label:hover {
+  background: var(--c-buttonHover);
+  color: var(--c-fade);
+}
+
+.checkbox-label:focus-within,
+.radio-label:focus-within {
+  outline: 4px solid blue;
+}
+
+/*  */
+
+.size-selector .radio-label,
+.shape-selector .radio-label {
+  padding: 0 0.2rem;
+  min-width: var(--buttonHeight);
+}
+
+/* */
+
+.size-dot {
+  background: var(--c-button);
+  border-radius: 100%;
+}
+
+.size-dot.small {
+  width: 8px;
+  height: 8px;
+}
+
+.size-dot.medium {
+  width: 14px;
+  height: 14px;
+}
+
+.size-dot.large {
+  width: 20px;
+  height: 20px;
+}
+
+.radio-label.selected .size-dot {
+  background: var(--c-body);
+}
+
+/* Color input */
+
+.color-inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.color-input {
+  -webkit-appearance: none;
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  padding: 0;
+  background: var(--c-colorPickerBorder);
+  border: 2px solid var(--c-colorPickerBorder);
+  align-items: center;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  padding: 0;
+  border-radius: 100%;
+}
+
+.random-palette {
+  color: var(--c-body);
+  padding: 0.75rem 2rem;
+}
+
+.avatar-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.avatar-list-item {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.avatar-list-item-name {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Responsiveness */
+
+.row {
+  width: 100%;
+}
+
+.avatar-list-item {
+  width: 50%;
+}
+
+@media (min-width: 600px) {
+  .avatar-list-item {
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .avatar-list-item {
+    width: 25%;
+  }
+
+  .row {
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .avatar-list-item {
+    width: calc(100% / 6);
+  }
+}
+
+@media (min-width: 1400px) {
+  .avatar-list-item {
+    width: calc(100% / 8);
+  }
+}
+
+/*
+	Improved screen reader only CSS class
+	@author Gaël Poupard
+		@note Based on Yahoo!'s technique
+		@author Thierry Koblentz
+		@see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+	* 1.
+		@note `clip` is deprecated but works everywhere
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
+	* 2.
+		@note `clip-path` is the future-proof version, but not very well supported yet
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+		@see http://caniuse.com/#search=clip-path
+		@author Yvain Liechti
+		@see https://twitter.com/ryuran78/status/778943389819604992
+	* 3.
+		@note preventing text to be condensed
+		author J. Renée Beach
+		@see https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+		@note Drupal 8 goes with word-wrap: normal instead
+		@see https://www.drupal.org/node/2045151
+		@see http://cgit.drupalcode.org/drupal/commit/?id=5b847ea
+	* 4.
+		@note !important is important
+		@note Obviously you wanna hide something
+		@author Harry Roberts
+		@see https://csswizardry.com/2016/05/the-importance-of-important/
+*/
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+/*
+	Use in conjunction with .sr-only to only display content when it's focused.
+	@note Useful for skip links
+	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
+	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
+		@author Sylvain Pigeard
+		@see https://github.com/twbs/bootstrap/issues/20732
+*/
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}

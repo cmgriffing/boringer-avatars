@@ -13,7 +13,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "ui": "workspace:*",
-    "@boringer-avatars/react": "workspace:*"
+    "@boringer-avatars/react": "workspace:*",
+    "@demo/react": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
