@@ -3,14 +3,14 @@
     <div class="color-inputs">
       <template :key="index" v-for="(colorOption, index) in selectedPalette">
         <div>
-          <label class="sr-only" :for="`color-input-${index}`">
+          <label class="sr-only" :for="getInputId(index)">
             Color Input {{ index }}
           </label>
           <input
             type="color"
             class="color-input"
             :value="colorOption"
-            :id="`color-input-${index}`"
+            :id="getInputId(index)"
             @input="handleChange(index, $event)"
           />
         </div>
@@ -73,6 +73,9 @@ export default {
       });
       this.selectedPalette = newColors;
       this.onChange(newColors);
+    },
+    getInputId(index) {
+      return `color-input-${index}`;
     },
   },
 };

@@ -24,10 +24,10 @@ export default function LightDarkToggle(props: any) {
     <div className="light-dark-toggle widget-wrapper">
       <label className="checkbox-label" htmlFor="theme-checkbox">
         <input
+          id="theme-checkbox"
           type="checkbox"
           className="sr-only radio-item"
           name="theme-checkbox"
-          id={`theme-checkbox`}
           onChange={(event) => {
             handleChange(event);
           }}

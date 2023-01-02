@@ -12,6 +12,10 @@ export default function ShapeSelector(props: any) {
     props.onChange(event?.target?.value || AvatarShape.Circle);
   }
 
+  function getLabelClass(avatarShape) {
+    return `radio-label ${avatarShape === selectedShape ? "selected" : ""}`;
+  }
+
   const [Circle, setCircle] = useState(() => null);
 
   const [Square, setSquare] = useState(() => null);
@@ -26,16 +30,13 @@ export default function ShapeSelector(props: any) {
 
   return (
     <div className="shape-selector widget-wrapper">
-      <label
-        className={`radio-label ${Circle === selectedShape ? "selected" : ""}`}
-        htmlFor={`radio-circle`}
-      >
+      <label htmlFor="radio-circle" className={getLabelClass(AvatarShape.Circle)}>
         <input
+          id="radio-circle"
           type="radio"
           className="sr-only radio-item"
           value="circle"
           name="shape-option"
-          id={`radio-circle`}
           onChange={(event) => handleChange(event)}
         />
 
@@ -49,16 +50,13 @@ export default function ShapeSelector(props: any) {
         </svg>
       </label>
 
-      <label
-        className={`radio-label ${Square === selectedShape ? "selected" : ""}`}
-        htmlFor={`radio-square`}
-      >
+      <label htmlFor="radio-square" className={getLabelClass(AvatarShape.Square)}>
         <input
+          id="radio-square"
           type="radio"
           className="sr-only radio-item"
           value="square"
           name="shape-option"
-          id={`radio-square`}
           onChange={(event) => handleChange(event)}
         />
 

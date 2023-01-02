@@ -9,6 +9,9 @@
   function handleChange(event) {
     onChange(event?.target?.value || AvatarShape.Circle);
   }
+  function getLabelClass(avatarShape) {
+    return `radio-label ${avatarShape === selectedShape ? "selected" : ""}`;
+  }
 
   let AvatarShape = AvatarShape;
   let selectedShape = AvatarShape.Circle;
@@ -24,16 +27,13 @@
 </script>
 
 <div class="shape-selector widget-wrapper">
-  <label
-    class={`radio-label ${Circle === selectedShape ? "selected" : ""}`}
-    for={`radio-circle`}
-  >
+  <label for="radio-circle" class={getLabelClass(AvatarShape.Circle)}>
     <input
+      id="radio-circle"
       type="radio"
       class="sr-only radio-item"
       value="circle"
       name="shape-option"
-      id={`radio-circle`}
       on:change={(event) => {
         handleChange(event);
       }}
@@ -48,16 +48,13 @@
     </svg>
   </label>
 
-  <label
-    class={`radio-label ${Square === selectedShape ? "selected" : ""}`}
-    for={`radio-square`}
-  >
+  <label for="radio-square" class={getLabelClass(AvatarShape.Square)}>
     <input
+      id="radio-square"
       type="radio"
       class="sr-only radio-item"
       value="square"
       name="shape-option"
-      id={`radio-square`}
       on:change={(event) => {
         handleChange(event);
       }}

@@ -1,19 +1,19 @@
 import { MitosisPlugin } from "../types";
 
-export function CustomVue3Plugin(): MitosisPlugin {
+export function CustomCommonPlugin(): MitosisPlugin {
   return {
     code: {
       post: (code: string) => {
         let newCode = code;
 
         newCode = newCode.replace(
-          new RegExp(`this\\.props`, "gm"),
-          `this.$props`
+          "getLabelClass(Circle)",
+          "getLabelClass(AvatarShape.Circle)"
         );
 
         newCode = newCode.replace(
-          new RegExp(`\\"selected\\" \\: \\"\\"`, "gm"),
-          `'selected' : ''`
+          "getLabelClass(Square)",
+          "getLabelClass(AvatarShape.Square)"
         );
 
         return newCode;

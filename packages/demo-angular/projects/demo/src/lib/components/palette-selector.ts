@@ -8,10 +8,35 @@ import type { PaletteSelectorProps } from "./palette-selector.utils";
 @Component({
   selector: "palette-selector, PaletteSelector",
   template: `
-    <div class="widget-wrapper">
-      <ng-container *ngFor="let colorOption of colors">
-        <div>{{colorOption}}</div>
-      </ng-container>
+    <div class="row">
+      <div class="color-inputs">
+        <ng-container
+          *ngFor="let colorOption of selectedPalette; let index = index"
+        >
+          <div>
+            <label class="sr-only" [attr.for]="getInputId(index)">
+              Color Input {{index}}
+            </label>
+
+            <input
+              type="color"
+              class="color-input"
+              [attr.value]="colorOption"
+              [attr.id]="getInputId(index)"
+              (input)="handleChange(index, $event)"
+            />
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="spacer"></div>
+
+      <button
+        class="random-palette widget-wrapper radio-label"
+        (click)="randomizePalette()"
+      >
+        Random Palette
+      </button>
     </div>
   `,
 })
@@ -20,12 +45,30 @@ export class PaletteSelector {
 
   @Output() onChange = new EventEmitter();
 
-  selectedPalette = "beam";
-  handleChange(event) {
-    // this.onChange.emit(
-    //   ((event?.target as HTMLInputElement)?.value as AvatarShape) ||
-    //     AvatarShape.Circle
-    // );
+  selectedPalette = ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"];
+  handleChange(index, event) {
+    const newColors = [...this.selectedPalette];
+    newColors[index] = event.target.value;
+    this.selectedPalette = newColors;
+    this.onChange.emit(newColors);
+  }
+  randomizePalette() {
+    const newColors = this.selectedPalette.map(() => {
+      return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    });
+    this.selectedPalette = newColors;
+    this.onChange.emit(newColors);
+  }
+  getInputId(index) {
+    return `color-input-${index}`;
+  }
+
+  ngOnInit() {
+    this.selectedPalette = this.colors;
+  }
+
+  ngAfterContentChecked() {
+    this.selectedPalette = this.colors;
   }
 }
 

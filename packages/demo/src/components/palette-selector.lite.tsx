@@ -23,6 +23,9 @@ export default function PaletteSelector(
       state.selectedPalette = newColors;
       props.onChange(newColors);
     },
+    getInputId: (index: number) => {
+      return `color-input-${index}`;
+    },
   });
 
   onMount(() => {
@@ -39,14 +42,14 @@ export default function PaletteSelector(
         <For each={state.selectedPalette}>
           {(colorOption, index) => (
             <div>
-              <label class="sr-only" for={`color-input-${index}`}>
+              <label class="sr-only" for={state.getInputId(index)}>
                 Color Input {index}
               </label>
               <input
                 type="color"
                 class="color-input"
                 value={colorOption}
-                id={`color-input-${index}`}
+                id={state.getInputId(index)}
                 onChange={(event) => state.handleChange(index, event)}
               />
             </div>

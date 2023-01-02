@@ -26,6 +26,10 @@ export default function PaletteSelector(props: any) {
     props.onChange(newColors);
   }
 
+  function getInputId(index) {
+    return `color-input-${index}`;
+  }
+
   useEffect(() => {
     setSelectedPalette(props.colors);
   }, []);
@@ -39,7 +43,7 @@ export default function PaletteSelector(props: any) {
       <div className="color-inputs">
         {selectedPalette?.map((colorOption, index) => (
           <div>
-            <label className="sr-only" htmlFor={`color-input-${index}`}>
+            <label className="sr-only" htmlFor={getInputId(index)}>
               Color Input
               {index}
             </label>
@@ -48,7 +52,7 @@ export default function PaletteSelector(props: any) {
               type="color"
               className="color-input"
               value={colorOption}
-              id={`color-input-${index}`}
+              id={getInputId(index)}
               onChange={(event) => handleChange(index, event)}
             />
           </div>

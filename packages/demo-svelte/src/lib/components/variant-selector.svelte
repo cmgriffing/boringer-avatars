@@ -15,6 +15,12 @@
     selectedVariant = newVariant;
     onChange(newVariant);
   }
+  function getLabelClass(variantOption) {
+    return `radio-label ${variantOption === selectedVariant ? "selected" : ""}`;
+  }
+  function getInputId(variantOption) {
+    return `radio-${variantOption}`;
+  }
 
   let selectedVariant = "beam";
 
@@ -30,17 +36,12 @@
 
 <div class="variant-selector widget-wrapper">
   {#each variants as variantOption}
-    <label
-      class={`radio-label ${
-        variantOption === selectedVariant ? "selected" : ""
-      }`}
-      for={`radio-${variantOption}`}
-    >
+    <label class={getLabelClass(variantOption)} for={getInputId(variantOption)}>
       <input
         type="radio"
         class="radio-item sr-only"
         name="variant-option"
-        id={`radio-${variantOption}`}
+        id={getInputId(variantOption)}
         value={variantOption}
         on:change={(event) => {
           handleChange(event);

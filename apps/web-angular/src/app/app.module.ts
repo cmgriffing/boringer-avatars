@@ -4,7 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AvatarModule } from '@boringer-avatars/angular';
-import { VariantSelectorModule } from '@demo/angular';
+import {
+  VariantSelectorModule,
+  SizeSelectorModule,
+  ShapeSelectorModule,
+  PaletteSelectorModule,
+  LightDarkToggleModule,
+  LibraryLinksModule,
+} from '@demo/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +20,11 @@ import { VariantSelectorModule } from '@demo/angular';
     AppRoutingModule,
     AvatarModule,
     VariantSelectorModule,
+    SizeSelectorModule,
+    ShapeSelectorModule,
+    PaletteSelectorModule,
+    LightDarkToggleModule,
+    LibraryLinksModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

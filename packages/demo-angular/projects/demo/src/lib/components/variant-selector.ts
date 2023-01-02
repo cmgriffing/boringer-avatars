@@ -10,17 +10,17 @@ import { coerceVariant, AvatarVariant, variants } from "../utils/common.utils";
 @Component({
   selector: "variant-selector, VariantSelector",
   template: `
-    <div class="widget-wrapper">
+    <div class="variant-selector widget-wrapper">
       <ng-container *ngFor="let variantOption of variants">
         <label
-          [class]='\`radio-label \${variantOption === selectedVariant ? "selected" : ""}\`'
-          [attr.for]="\`radio-\${variantOption}\`"
+          [class]="getLabelClass(variantOption)"
+          [attr.for]="getInputId(variantOption)"
         >
           <input
             type="radio"
             class="radio-item sr-only"
             name="variant-option"
-            [attr.id]="\`radio-\${variantOption}\`"
+            [attr.id]="getInputId(variantOption)"
             [attr.value]="variantOption"
             (input)="handleChange($event)"
           />
@@ -34,7 +34,7 @@ import { coerceVariant, AvatarVariant, variants } from "../utils/common.utils";
 export class VariantSelector {
   variants = variants;
 
-  @Input() variant: VariantSelectorProps["variant"];
+  @Input() variant: any;
 
   @Output() onChange = new EventEmitter();
 
@@ -43,6 +43,14 @@ export class VariantSelector {
     const newVariant = event?.target?.value || AvatarVariant.Marble;
     this.selectedVariant = newVariant;
     this.onChange.emit(newVariant);
+  }
+  getLabelClass(variantOption) {
+    return `radio-label ${
+      variantOption === this.selectedVariant ? "selected" : ""
+    }`;
+  }
+  getInputId(variantOption) {
+    return `radio-${variantOption}`;
   }
 
   ngOnInit() {

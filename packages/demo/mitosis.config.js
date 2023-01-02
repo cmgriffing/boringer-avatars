@@ -3,6 +3,7 @@ const { CustomVue3Plugin } = require("./mitosis/plugins/vue3");
 const { CustomSveltePlugin } = require("./mitosis/plugins/svelte");
 const { CustomReactPlugin } = require("./mitosis/plugins/react");
 const { CustomSolidPlugin } = require("./mitosis/plugins/solid");
+const { CustomCommonPlugin } = require("./mitosis/plugins/common");
 
 module.exports = {
   prettier: false,
@@ -12,30 +13,30 @@ module.exports = {
     "vue3",
     "svelte",
     "react",
-    //  "angular"
+    "angular",
   ],
   options: {
     solid: {
       typescript: true,
-      plugins: [CustomSolidPlugin],
+      plugins: [CustomCommonPlugin, CustomSolidPlugin],
     },
     vue3: {
       typescript: true,
       prettier: false,
-      plugins: [CustomVue3Plugin],
+      plugins: [CustomCommonPlugin, CustomVue3Plugin],
     },
     react: {
       typescript: true,
-      plugins: [CustomReactPlugin],
+      plugins: [CustomCommonPlugin, CustomReactPlugin],
     },
     svelte: {
       // typescript: true,
-      plugins: [CustomSveltePlugin],
+      plugins: [CustomCommonPlugin, CustomSveltePlugin],
     },
-    // angular: {
-    //   typescript: true,
-    //   // prettier: false,
-    //   plugins: [CustomAngularPlugin({})],
-    // },
+    angular: {
+      typescript: true,
+      // prettier: false,
+      plugins: [CustomCommonPlugin, CustomAngularPlugin({})],
+    },
   },
 };

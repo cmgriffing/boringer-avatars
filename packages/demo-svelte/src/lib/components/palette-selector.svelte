@@ -17,6 +17,9 @@
     selectedPalette = newColors;
     onChange(newColors);
   }
+  function getInputId(index) {
+    return `color-input-${index}`;
+  }
 
   let selectedPalette = ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"];
 
@@ -34,14 +37,14 @@
   <div class="color-inputs">
     {#each selectedPalette as colorOption, index}
       <div>
-        <label class="sr-only" for={`color-input-${index}`}>
+        <label class="sr-only" for={getInputId(index)}>
           Color Input {index}
         </label>
         <input
           type="color"
           class="color-input"
           value={colorOption}
-          id={`color-input-${index}`}
+          id={getInputId(index)}
           on:change={(event) => {
             handleChange(index, event);
           }}

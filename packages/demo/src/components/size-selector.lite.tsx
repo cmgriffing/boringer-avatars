@@ -17,6 +17,17 @@ export default function SizeSelector(
       state.selectedSize = newSize;
       props.onChange(newSize);
     },
+    getLabelClass: (sizeEntry: [string, string]) => {
+      return `radio-label ${
+        sizeEntry[1] === state.selectedSize ? "selected" : ""
+      }`;
+    },
+    getInputId: (sizeEntry: [string, string]) => {
+      return `radio-${sizeEntry[0].toLowerCase()}`;
+    },
+    getSizeDotClass(sizeEntry: [string, string]) {
+      return `size-dot ${sizeEntry[0].toLowerCase()}`;
+    },
   });
 
   onMount(() => {
@@ -32,20 +43,18 @@ export default function SizeSelector(
       <For each={sizes}>
         {(entry) => (
           <label
-            class={`radio-label ${
-              entry[1] === state.selectedSize ? "selected" : ""
-            }`}
-            for={`radio-${entry[0].toLowerCase()}`}
+            class={state.getLabelClass(entry)}
+            for={state.getInputId(entry)}
           >
             <input
-              id={`radio-${entry[0].toLowerCase()}`}
+              id={state.getInputId(entry)}
               type="radio"
               class="radio-item sr-only"
               value={entry[1]}
               name="size-option"
               onChange={(event) => state.handleChange(event)}
             />
-            <div class={`size-dot ${entry[0].toLowerCase()}`}></div>
+            <div class={state.getSizeDotClass(entry)}></div>
           </label>
         )}
       </For>

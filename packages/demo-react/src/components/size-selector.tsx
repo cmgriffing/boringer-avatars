@@ -12,6 +12,18 @@ export default function SizeSelector(props: any) {
     props.onChange(newSize);
   }
 
+  function getLabelClass(sizeEntry) {
+    return `radio-label ${sizeEntry[1] === selectedSize ? "selected" : ""}`;
+  }
+
+  function getInputId(sizeEntry) {
+    return `radio-${sizeEntry[0].toLowerCase()}`;
+  }
+
+  function getSizeDotClass(sizeEntry) {
+    return `size-dot ${sizeEntry[0].toLowerCase()}`;
+  }
+
   useEffect(() => {
     setSelectedSize(props.size || AvatarSize.Medium);
   }, []);
@@ -23,22 +35,17 @@ export default function SizeSelector(props: any) {
   return (
     <div className="size-selector widget-wrapper">
       {sizes?.map((entry) => (
-        <label
-          className={`radio-label ${
-            entry[1] === selectedSize ? "selected" : ""
-          }`}
-          htmlFor={`radio-${entry[0].toLowerCase()}`}
-        >
+        <label className={getLabelClass(entry)} htmlFor={getInputId(entry)}>
           <input
             type="radio"
             className="radio-item sr-only"
             name="size-option"
-            id={`radio-${entry[0].toLowerCase()}`}
+            id={getInputId(entry)}
             value={entry[1]}
             onChange={(event) => handleChange(event)}
           />
 
-          <div className={`size-dot ${entry[0].toLowerCase()}`} />
+          <div className={getSizeDotClass(entry)} />
         </label>
       ))}
     </div>

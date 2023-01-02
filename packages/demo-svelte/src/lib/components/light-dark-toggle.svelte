@@ -27,10 +27,10 @@
 <div class="light-dark-toggle widget-wrapper">
   <label class="checkbox-label" for="theme-checkbox">
     <input
+      id="theme-checkbox"
       type="checkbox"
       class="sr-only radio-item"
       name="theme-checkbox"
-      id={`theme-checkbox`}
       on:change={(event) => {
         handleChange(event);
       }}

@@ -11,6 +11,15 @@
     selectedSize = newSize;
     onChange(newSize);
   }
+  function getLabelClass(sizeEntry) {
+    return `radio-label ${sizeEntry[1] === selectedSize ? "selected" : ""}`;
+  }
+  function getInputId(sizeEntry) {
+    return `radio-${sizeEntry[0].toLowerCase()}`;
+  }
+  function getSizeDotClass(sizeEntry) {
+    return `size-dot ${sizeEntry[0].toLowerCase()}`;
+  }
 
   let selectedSize = AvatarSize.Medium;
 
@@ -26,21 +35,18 @@
 
 <div class="size-selector widget-wrapper">
   {#each sizes as entry}
-    <label
-      class={`radio-label ${entry[1] === selectedSize ? "selected" : ""}`}
-      for={`radio-${entry[0].toLowerCase()}`}
-    >
+    <label class={getLabelClass(entry)} for={getInputId(entry)}>
       <input
         type="radio"
         class="radio-item sr-only"
         name="size-option"
-        id={`radio-${entry[0].toLowerCase()}`}
+        id={getInputId(entry)}
         value={entry[1]}
         on:change={(event) => {
           handleChange(event);
         }}
       />
-      <div class={`size-dot ${entry[0].toLowerCase()}`} />
+      <div class={getSizeDotClass(entry)} />
     </label>
   {/each}
 </div>

@@ -2,7 +2,12 @@ import { coerceVariant, AvatarVariant, variants } from "../utils/common.utils";
 import { useStore, onMount, onUpdate, For } from "@builder.io/mitosis";
 import type { VariantSelectorProps } from "./variant-selector.utils";
 
-export default function VariantSelector(props: VariantSelectorProps) {
+export default function VariantSelector(
+  props: VariantSelectorProps = {
+    variant: AvatarVariant.Beam,
+    onChange: () => {},
+  }
+) {
   const state = useStore({
     selectedVariant: "beam",
     handleChange: (event: any) => {
@@ -11,6 +16,14 @@ export default function VariantSelector(props: VariantSelectorProps) {
         AvatarVariant.Marble;
       state.selectedVariant = newVariant;
       props.onChange(newVariant);
+    },
+    getLabelClass: (variantOption: AvatarVariant) => {
+      return `radio-label ${
+        variantOption === state.selectedVariant ? "selected" : ""
+      }`;
+    },
+    getInputId: (variantOption: AvatarVariant) => {
+      return `radio-${variantOption}`;
     },
   });
 
@@ -22,20 +35,16 @@ export default function VariantSelector(props: VariantSelectorProps) {
     state.selectedVariant = coerceVariant(props.variant) || "beam";
   }, [props.variant]);
 
-  console.log("variant", props.variant);
-
   return (
     <div class="variant-selector widget-wrapper">
       <For each={variants}>
         {(variantOption) => (
           <label
-            class={`radio-label ${
-              variantOption === state.selectedVariant ? "selected" : ""
-            }`}
-            for={`radio-${variantOption}`}
+            class={state.getLabelClass(variantOption)}
+            for={state.getInputId(variantOption)}
           >
             <input
-              id={`radio-${variantOption}`}
+              id={state.getInputId(variantOption)}
               type="radio"
               class="radio-item sr-only"
               value={variantOption}
