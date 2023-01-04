@@ -4,21 +4,23 @@ import type { ShapeSelectorProps } from "./shape-selector.utils";
 import { AvatarShape, shapes } from "../utils/common.utils";
 
 export default function ShapeSelector(props: any) {
-  const [AvatarShape, setAvatarShape] = useState(() => AvatarShape);
-
   const [selectedShape, setSelectedShape] = useState(() => AvatarShape.Circle);
 
   function handleChange(event) {
     props.onChange(event?.target?.value || AvatarShape.Circle);
   }
 
-  function getLabelClass(avatarShape) {
-    return `radio-label ${avatarShape === selectedShape ? "selected" : ""}`;
+  function getCircleLabelClass() {
+    return `radio-label ${
+      AvatarShape.Circle === selectedShape ? "selected" : ""
+    }`;
   }
 
-  const [Circle, setCircle] = useState(() => null);
-
-  const [Square, setSquare] = useState(() => null);
+  function getSquareLabelClass() {
+    return `radio-label ${
+      AvatarShape.Square === selectedShape ? "selected" : ""
+    }`;
+  }
 
   useEffect(() => {
     setSelectedShape(props.shape || AvatarShape.Circle);
@@ -30,7 +32,7 @@ export default function ShapeSelector(props: any) {
 
   return (
     <div className="shape-selector widget-wrapper">
-      <label htmlFor="radio-circle" className={getLabelClass(AvatarShape.Circle)}>
+      <label htmlFor="radio-circle" className={getCircleLabelClass()}>
         <input
           id="radio-circle"
           type="radio"
@@ -50,7 +52,7 @@ export default function ShapeSelector(props: any) {
         </svg>
       </label>
 
-      <label htmlFor="radio-square" className={getLabelClass(AvatarShape.Square)}>
+      <label htmlFor="radio-square" className={getSquareLabelClass()}>
         <input
           id="radio-square"
           type="radio"

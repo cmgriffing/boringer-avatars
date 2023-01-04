@@ -8,6 +8,44 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
     get data() {
       return generateData(props.name, props.colors);
     },
+    getRectTransform: () => {
+      return (
+        "translate(" +
+        state.data.wrapperTranslateX +
+        " " +
+        state.data.wrapperTranslateY +
+        ") rotate(" +
+        state.data.wrapperRotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ") scale(" +
+        state.data.wrapperScale +
+        ")"
+      );
+    },
+    getGroupTransform: () => {
+      return (
+        "translate(" +
+        state.data.faceTranslateX +
+        " " +
+        state.data.faceTranslateY +
+        ") rotate(" +
+        state.data.faceRotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ")"
+      );
+    },
+    getOpenMouthData: () => {
+      return "M15 " + (19 + state.data.mouthSpread) + "c2 1 4 1 6 0";
+    },
+    getClosedMouthData: () => {
+      return "M13," + (19 + state.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
+    },
   });
 
   return (
@@ -42,51 +80,20 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
           y="0"
           width={SIZE}
           height={SIZE}
-          transform={
-            "translate(" +
-            state.data.wrapperTranslateX +
-            " " +
-            state.data.wrapperTranslateY +
-            ") rotate(" +
-            state.data.wrapperRotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ") scale(" +
-            state.data.wrapperScale +
-            ")"
-          }
+          transform={state.getRectTransform()}
           fill={state.data.wrapperColor}
           rx={state.data.isCircle ? SIZE : SIZE / 6}
         />
-        <g
-          transform={
-            "translate(" +
-            state.data.faceTranslateX +
-            " " +
-            state.data.faceTranslateY +
-            ") rotate(" +
-            state.data.faceRotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
-        >
+        <g transform={state.getGroupTransform()}>
           {state.data.isMouthOpen ? (
             <path
-              d={"M15 " + (19 + state.data.mouthSpread) + "c2 1 4 1 6 0"}
+              d={state.getOpenMouthData()}
               stroke={state.data.faceColor}
               fill="none"
               strokeLinecap="round"
             />
           ) : (
-            <path
-              d={"M13," + (19 + state.data.mouthSpread) + " a1,0.75 0 0,0 10,0"}
-              fill={state.data.faceColor}
-            />
+            <path d={state.getClosedMouthData()} fill={state.data.faceColor} />
           )}
           <rect
             x={14 - state.data.eyeSpread}

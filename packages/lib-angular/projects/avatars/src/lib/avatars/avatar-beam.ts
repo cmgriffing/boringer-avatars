@@ -51,19 +51,17 @@ import { generateData, SIZE } from "./avatar-beam.utils";
           y="0"
           [attr.width]="SIZE"
           [attr.height]="SIZE"
-          [attr.transform]='"translate(" + data.wrapperTranslateX + " " + data.wrapperTranslateY + ") rotate(" + data.wrapperRotate + " " + SIZE / 2 + " " + SIZE / 2 + ") scale(" + data.wrapperScale + ")"'
+          [attr.transform]="getRectTransform()"
           [attr.fill]="data.wrapperColor"
           [attr.rx]="data.isCircle ? SIZE : SIZE / 6"
         ></rect>
 
-        <g
-          [attr.transform]='"translate(" + data.faceTranslateX + " " + data.faceTranslateY + ") rotate(" + data.faceRotate + " " + SIZE / 2 + " " + SIZE / 2 + ")"'
-        >
+        <g [attr.transform]="getGroupTransform()">
           <ng-container *ngIf="data.isMouthOpen">
             <path
               fill="none"
               strokeLinecap="round"
-              [attr.d]='"M15 " + (19 + data.mouthSpread) + "c2 1 4 1 6 0"'
+              [attr.d]="getOpenMouthData()"
               [attr.stroke]="data.faceColor"
             ></path>
           </ng-container>
@@ -103,6 +101,44 @@ export class AvatarBeam {
 
   get data() {
     return generateData(this.name, this.colors);
+  }
+  getRectTransform() {
+    return (
+      "translate(" +
+      this.data.wrapperTranslateX +
+      " " +
+      this.data.wrapperTranslateY +
+      ") rotate(" +
+      this.data.wrapperRotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ") scale(" +
+      this.data.wrapperScale +
+      ")"
+    );
+  }
+  getGroupTransform() {
+    return (
+      "translate(" +
+      this.data.faceTranslateX +
+      " " +
+      this.data.faceTranslateY +
+      ") rotate(" +
+      this.data.faceRotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
+  }
+  getOpenMouthData() {
+    return "M15 " + (19 + this.data.mouthSpread) + "c2 1 4 1 6 0";
+  }
+  getClosedMouthData() {
+    return "M13," + (19 + this.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
   }
 }
 

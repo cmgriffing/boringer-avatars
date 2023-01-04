@@ -6,16 +6,6 @@ export function CustomCommonPlugin(): MitosisPlugin {
       post: (code: string) => {
         let newCode = code;
 
-        newCode = newCode.replace(
-          "getLabelClass(Circle)",
-          "getLabelClass(AvatarShape.Circle)"
-        );
-
-        newCode = newCode.replace(
-          "getLabelClass(Square)",
-          "getLabelClass(AvatarShape.Square)"
-        );
-
         return newCode;
       },
     },

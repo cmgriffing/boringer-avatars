@@ -7,7 +7,7 @@ export default function LibraryLinks(
   }
 ) {
   return (
-    <>
+    <div className="row">
       <div className="widget-wrapper">
         <a
           href={props.githubUrl}
@@ -52,6 +52,6 @@ export default function LibraryLinks(
           </svg>
         </a>
       </div>
-    </>
+    </div>
   );
 }

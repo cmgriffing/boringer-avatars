@@ -9,7 +9,6 @@ export default function ShapeSelector(
   }
 ) {
   const state = useStore({
-    AvatarShape: AvatarShape,
     selectedShape: AvatarShape.Circle,
     handleChange: (event: any) => {
       props.onChange(
@@ -17,9 +16,14 @@ export default function ShapeSelector(
           AvatarShape.Circle
       );
     },
-    getLabelClass: (avatarShape: AvatarShape) => {
+    getCircleLabelClass: () => {
       return `radio-label ${
-        avatarShape === state.selectedShape ? "selected" : ""
+        AvatarShape.Circle === state.selectedShape ? "selected" : ""
+      }`;
+    },
+    getSquareLabelClass: () => {
+      return `radio-label ${
+        AvatarShape.Square === state.selectedShape ? "selected" : ""
       }`;
     },
   });
@@ -34,7 +38,7 @@ export default function ShapeSelector(
 
   return (
     <div class="shape-selector widget-wrapper">
-      <label class={state.getLabelClass(AvatarShape.Circle)} for="radio-circle">
+      <label class={state.getCircleLabelClass()} for="radio-circle">
         <input
           id="radio-circle"
           type="radio"
@@ -53,7 +57,7 @@ export default function ShapeSelector(
         </svg>
       </label>
 
-      <label class={state.getLabelClass(AvatarShape.Square)} for="radio-square">
+      <label class={state.getSquareLabelClass()} for="radio-square">
         <input
           id="radio-square"
           type="radio"

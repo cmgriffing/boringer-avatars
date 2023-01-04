@@ -9,11 +9,17 @@
   function handleChange(event) {
     onChange(event?.target?.value || AvatarShape.Circle);
   }
-  function getLabelClass(avatarShape) {
-    return `radio-label ${avatarShape === selectedShape ? "selected" : ""}`;
+  function getCircleLabelClass() {
+    return `radio-label ${
+      AvatarShape.Circle === selectedShape ? "selected" : ""
+    }`;
+  }
+  function getSquareLabelClass() {
+    return `radio-label ${
+      AvatarShape.Square === selectedShape ? "selected" : ""
+    }`;
   }
 
-  let AvatarShape = AvatarShape;
   let selectedShape = AvatarShape.Circle;
 
   onMount(() => {
@@ -27,7 +33,7 @@
 </script>
 
 <div class="shape-selector widget-wrapper">
-  <label for="radio-circle" class={getLabelClass(AvatarShape.Circle)}>
+  <label for="radio-circle" class={getCircleLabelClass()}>
     <input
       id="radio-circle"
       type="radio"
@@ -48,7 +54,7 @@
     </svg>
   </label>
 
-  <label for="radio-square" class={getLabelClass(AvatarShape.Square)}>
+  <label for="radio-square" class={getSquareLabelClass()}>
     <input
       id="radio-square"
       type="radio"

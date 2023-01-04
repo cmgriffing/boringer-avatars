@@ -12,6 +12,22 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
     return generateColors(props.name, props.colors);
   }
 
+  function getPaintFill0() {
+    return "url(#gradient_paint0_linear_" + formattedName() + ")";
+  }
+
+  function getPaintFill1() {
+    return "url(#gradient_paint1_linear_" + formattedName() + ")";
+  }
+
+  function getPaintId0() {
+    return "gradient_paint0_linear_" + formattedName();
+  }
+
+  function getPaintId1() {
+    return "gradient_paint1_linear_" + formattedName();
+  }
+
   return (
     <svg
       fill="none"
@@ -40,21 +56,15 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
       </mask>
 
       <g mask="url(#mask__sunset)">
-        <path
-          d="M0 0h80v40H0z"
-          fill={"url(#gradient_paint0_linear_" + formattedName() + ")"}
-        />
+        <path d="M0 0h80v40H0z" fill={getPaintFill0()} />
 
-        <path
-          d="M0 40h80v40H0z"
-          fill={"url(#gradient_paint1_linear_" + formattedName() + ")"}
-        />
+        <path d="M0 40h80v40H0z" fill={getPaintFill1()} />
       </g>
 
       <defs>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id={"gradient_paint0_linear_" + formattedName()}
+          id={getPaintId0()}
           x1={SIZE / 2}
           y1={0}
           x2={SIZE / 2}
@@ -67,7 +77,7 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
 
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id={"gradient_paint1_linear_" + formattedName()}
+          id={getPaintId1()}
           x1={SIZE / 2}
           y1={SIZE / 2}
           x2={SIZE / 2}

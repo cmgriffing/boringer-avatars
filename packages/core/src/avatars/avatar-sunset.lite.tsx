@@ -11,6 +11,18 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
     get sunsetColors() {
       return generateColors(props.name, props.colors);
     },
+    getPaintFill0: () => {
+      return "url(#gradient_paint0_linear_" + state.formattedName + ")";
+    },
+    getPaintFill1: () => {
+      return "url(#gradient_paint1_linear_" + state.formattedName + ")";
+    },
+    getPaintId0: () => {
+      return "gradient_paint0_linear_" + state.formattedName;
+    },
+    getPaintId1: () => {
+      return "gradient_paint1_linear_" + state.formattedName;
+    },
   });
 
   return (
@@ -39,18 +51,12 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
         />
       </mask>
       <g mask="url(#mask__sunset)">
-        <path
-          fill={"url(#gradient_paint0_linear_" + state.formattedName + ")"}
-          d="M0 0h80v40H0z"
-        />
-        <path
-          fill={"url(#gradient_paint1_linear_" + state.formattedName + ")"}
-          d="M0 40h80v40H0z"
-        />
+        <path fill={state.getPaintFill0()} d="M0 0h80v40H0z" />
+        <path fill={state.getPaintFill1()} d="M0 40h80v40H0z" />
       </g>
       <defs>
         <linearGradient
-          id={"gradient_paint0_linear_" + state.formattedName}
+          id={state.getPaintId0()}
           x1={SIZE / 2}
           y1={0}
           x2={SIZE / 2}
@@ -61,7 +67,7 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
           <stop offset={1} stop-color={state.sunsetColors[1]} />
         </linearGradient>
         <linearGradient
-          id={"gradient_paint1_linear_" + state.formattedName}
+          id={state.getPaintId1()}
           x1={SIZE / 2}
           y1={SIZE / 2}
           x2={SIZE / 2}

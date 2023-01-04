@@ -19,61 +19,61 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
     <ng-container>
       <ng-container *ngIf="checkedVariant === \'bauhaus\'">
         <AvatarBauhaus
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarBauhaus>
       </ng-container>
 
       <ng-container *ngIf="checkedVariant === \'beam\'">
         <AvatarBeam
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarBeam>
       </ng-container>
 
       <ng-container *ngIf="checkedVariant === \'marble\'">
         <AvatarMarble
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarMarble>
       </ng-container>
 
       <ng-container *ngIf="checkedVariant === \'pixel\'">
         <AvatarPixel
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarPixel>
       </ng-container>
 
       <ng-container *ngIf="checkedVariant === \'ring\'">
         <AvatarRing
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarRing>
       </ng-container>
 
       <ng-container *ngIf="checkedVariant === \'sunset\'">
         <AvatarSunset
-          [colors]="coercedProps.colors"
-          [name]="coercedProps.name"
-          [square]="coercedProps.square"
-          [title]="coercedProps.title"
-          [size]="coercedProps.size"
+          [colors]="colors_"
+          [name]="name_"
+          [square]="square_"
+          [title]="title_"
+          [size]="size_"
         ></AvatarSunset>
       </ng-container>
     </ng-container>
@@ -83,21 +83,33 @@ export class Avatar {
   @Input() variant: Partial<AvatarProps>["variant"];
   @Input() size: Partial<AvatarProps>["size"];
   @Input() colors: Partial<AvatarProps>["colors"];
-  @Input() name: Partial<AvatarProps>["name"];
   @Input() square: Partial<AvatarProps>["square"];
+  @Input() name: Partial<AvatarProps>["name"];
   @Input() title: Partial<AvatarProps>["title"];
 
-  checkedVariant = "beam";
-  coercedProps = defaultAvatarProps;
+  checkedVariant = defaultAvatarProps.variant || "beam";
+  size_ = defaultAvatarProps.size || 40;
+  colors_ = defaultAvatarProps.colors || [];
+  square_ = defaultAvatarProps.square || false;
+  name_ = defaultAvatarProps.name || "";
+  title_ = defaultAvatarProps.title || false;
 
   ngOnInit() {
     this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.coercedProps = { ...defaultAvatarProps, ...this };
+    this.size_ = this.size || defaultAvatarProps.size || 40;
+    this.colors_ = this.colors || defaultAvatarProps.colors || [];
+    this.square_ = this.square || defaultAvatarProps.square || false;
+    this.name_ = this.name || defaultAvatarProps.name || "";
+    this.title_ = this.title || defaultAvatarProps.title || false;
   }
 
   ngAfterContentChecked() {
     this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.coercedProps = { ...defaultAvatarProps, ...this };
+    this.size_ = this.size || defaultAvatarProps.size || 40;
+    this.colors_ = this.colors || defaultAvatarProps.colors || [];
+    this.square_ = this.square || defaultAvatarProps.square || false;
+    this.name_ = this.name || defaultAvatarProps.name || "";
+    this.title_ = this.title || defaultAvatarProps.title || false;
   }
 }
 

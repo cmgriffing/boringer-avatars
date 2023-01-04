@@ -3,7 +3,7 @@ import { LibraryLinksProps } from "./library-links.utils";
 
 export default function LibraryLinks(props: any) {
   return (
-    <>
+    <div className="row">
       <div className="widget-wrapper">
         <a
           target="_blank"
@@ -49,6 +49,6 @@ export default function LibraryLinks(props: any) {
           </svg>
         </a>
       </div>
-    </>
+    </div>
   );
 }

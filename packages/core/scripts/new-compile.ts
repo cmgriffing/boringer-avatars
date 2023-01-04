@@ -11,6 +11,7 @@ try {
     Svelte = "svelte",
     Vue3 = "vue3",
     Solid = "solid",
+    Qwik = "qwik",
   }
 
   const instructionsMap: Record<Target, string> = {
@@ -19,6 +20,7 @@ try {
     [Target.Svelte]: ``,
     [Target.Vue3]: ``,
     [Target.Solid]: ``,
+    [Target.Qwik]: ``,
   };
 
   const usageMap: Record<Target, string> = {
@@ -80,6 +82,7 @@ try {
         :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
       />
     </template>`,
+    [Target.Qwik]: ``,
   };
 
   const propsNameMap: Record<Target, string> = {
@@ -88,6 +91,7 @@ try {
     [Target.Svelte]: `Props`,
     [Target.Vue3]: `Props`,
     [Target.Solid]: `Props`,
+    [Target.Qwik]: `Props`,
   };
 
   Object.values(Target).forEach((target) => {
@@ -160,13 +164,13 @@ try {
 
     fs.copySync(compiledDir, srcDir);
 
-    execSync("pnpm install", {
-      cwd: outputDir,
-    });
+    // execSync("pnpm install", {
+    //   cwd: outputDir,
+    // });
 
-    execSync("pnpm build", {
-      cwd: outputDir,
-    });
+    // execSync("pnpm build", {
+    //   cwd: outputDir,
+    // });
   });
 } catch (e: any) {
   if (e?.stdout) {

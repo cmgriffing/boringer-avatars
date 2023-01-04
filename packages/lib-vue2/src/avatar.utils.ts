@@ -49,6 +49,10 @@ export const getRandomColor = (
 };
 
 export const getContrast = (hexcolor: string) => {
+  if (!hexcolor) {
+    return "#FFFFFF";
+  }
+
   // If a leading # is provided, remove it
   if (hexcolor.slice(0, 1) === "#") {
     hexcolor = hexcolor.slice(1);

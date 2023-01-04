@@ -11,9 +11,6 @@ export function CustomSolidPlugin(): MitosisPlugin {
       post: (code: string) => {
         let newCode = code;
 
-        newCode = `import { css } from "solid-styled-components";
-${newCode}`;
-
         return newCode;
       },
     },

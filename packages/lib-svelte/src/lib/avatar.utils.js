@@ -30,6 +30,9 @@ const getRandomColor = (number, colors, range) => {
   return colors[number % range];
 };
 const getContrast = (hexcolor) => {
+  if (!hexcolor) {
+    return "#FFFFFF";
+  }
   if (hexcolor.slice(0, 1) === "#") {
     hexcolor = hexcolor.slice(1);
   }

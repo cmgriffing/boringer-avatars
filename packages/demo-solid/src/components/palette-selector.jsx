@@ -1,4 +1,3 @@
-import { css } from "solid-styled-components";
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
 function PaletteSelector(props) {
@@ -17,6 +16,18 @@ function PaletteSelector(props) {
     props.onChange(newColors);
   }
 
+  function randomizePalette() {
+    const newColors = selectedPalette().map(() => {
+      return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+    });
+    setSelectedPalette(newColors);
+    props.onChange(newColors);
+  }
+
+  function getInputId(index) {
+    return `color-input-${index}`;
+  }
+
   onMount(() => {
     setSelectedPalette(props.colors);
   });
@@ -27,38 +38,33 @@ function PaletteSelector(props) {
   createEffect(on(() => [props.colors], onUpdateFn_0));
 
   return (
-    <div class="color-inputs">
-      <For each={selectedPalette()}>
-        {(colorOption, _index) => {
-          const index = _index();
-          return (
-            <div>
-              <label class="sr-only" htmlFor={`color-input-${index}`}>
-                Color Input
-                {index}
-              </label>
-              <input
-                class="color-input"
-                type="color"
-                value={colorOption}
-                id={`color-input-${index}`}
-                onInput={(event) => handleChange(index, event)}
-              />
-            </div>
-          );
-        }}
-      </For>
+    <div class="row">
+      <div class="color-inputs">
+        <For each={selectedPalette()}>
+          {(colorOption, _index) => {
+            const index = _index();
+            return (
+              <div>
+                <label class="sr-only" htmlFor={getInputId(index)}>
+                  Color Input
+                  {index}
+                </label>
+                <input
+                  class="color-input"
+                  type="color"
+                  value={colorOption}
+                  id={getInputId(index)}
+                  onInput={(event) => handleChange(index, event)}
+                />
+              </div>
+            );
+          }}
+        </For>
+      </div>
       <div class="spacer"></div>
       <button
         class="random-palette widget-wrapper radio-label"
-        onClick={(event) => {
-          console.log("randomizing palette");
-          const newColors = selectedPalette().map(() => {
-            return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-          });
-          setSelectedPalette(newColors);
-          props.onChange(newColors);
-        }}
+        onClick={(event) => randomizePalette()}
       >
         Random Palette
       </button>

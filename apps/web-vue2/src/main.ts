@@ -1,6 +1,7 @@
 import { Avatar } from "@boringer-avatars/vue2";
 /** Vue main script */
 import Vue from "vue";
+import "./style.css";
 
 import App from "@/App.vue";
 

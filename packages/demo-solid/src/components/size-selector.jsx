@@ -1,4 +1,3 @@
-import { css } from "solid-styled-components";
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
 import { AvatarSize, sizes } from "../utils/common.utils";
@@ -12,6 +11,18 @@ function SizeSelector(props) {
     props.onChange(newSize);
   }
 
+  function getLabelClass(sizeEntry) {
+    return `radio-label ${sizeEntry[1] === selectedSize() ? "selected" : ""}`;
+  }
+
+  function getInputId(sizeEntry) {
+    return `radio-${sizeEntry[0].toLowerCase()}`;
+  }
+
+  function getSizeDotClass(sizeEntry) {
+    return `size-dot ${sizeEntry[0].toLowerCase()}`;
+  }
+
   onMount(() => {
     setSelectedSize(props.size || AvatarSize.Medium);
   });
@@ -22,26 +33,21 @@ function SizeSelector(props) {
   createEffect(on(() => [props.size], onUpdateFn_0));
 
   return (
-    <div class="widget-wrapper">
+    <div class="size-selector widget-wrapper">
       <For each={sizes}>
         {(entry, _index) => {
           const index = _index();
           return (
-            <label
-              class={`radio-label ${
-                entry[1] === selectedSize() ? "selected" : ""
-              }`}
-              htmlFor={`radio-${entry[0].toLowerCase()}`}
-            >
+            <label class={getLabelClass(entry)} htmlFor={getInputId(entry)}>
               <input
                 class="radio-item sr-only"
                 type="radio"
                 name="size-option"
-                id={`radio-${entry[0].toLowerCase()}`}
+                id={getInputId(entry)}
                 value={entry[1]}
                 onInput={(event) => handleChange(event)}
               />
-              <div class={`size-dot ${entry[0].toLowerCase()}`}></div>
+              <div class={getSizeDotClass(entry)}></div>
             </label>
           );
         }}

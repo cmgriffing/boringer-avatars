@@ -52,7 +52,7 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
           [attr.width]="SIZE"
           [attr.height]="properties?.[1]?.isSquare ? SIZE : SIZE / 8"
           [attr.fill]="properties?.[1]?.color"
-          [attr.transform]='"translate(" + properties?.[1]?.translateX + " " + properties?.[1]?.translateY + ") rotate(" + properties?.[1]?.rotate + " " + SIZE / 2 + " " + SIZE / 2 + ")"'
+          [attr.transform]="getSquareTransform()"
         ></rect>
 
         <circle
@@ -60,7 +60,7 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
           [attr.cy]="SIZE / 2"
           [attr.fill]="properties?.[2]?.color"
           [attr.r]="SIZE / 5"
-          [attr.transform]='"translate(" + properties?.[2]?.translateX + " " + properties?.[2]?.translateY + ")"'
+          [attr.transform]="getCircleTransform()"
         ></circle>
 
         <line
@@ -70,7 +70,7 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
           [attr.y2]="SIZE / 2"
           [attr.strokeWidth]="2"
           [attr.stroke]="properties?.[3]?.color"
-          [attr.transform]='"translate(" + properties?.[3]?.translateX + " " + properties?.[3]?.translateY + ") rotate(" + properties?.[3]?.rotate + " " + SIZE / 2 + " " + SIZE / 2 + ")"'
+          [attr.transform]="getLineTransform()"
         ></line>
       </g>
     </svg>
@@ -87,6 +87,45 @@ export class AvatarBauhaus {
 
   get properties() {
     return generateColors(this.name, this.colors);
+  }
+  getSquareTransform() {
+    return (
+      "translate(" +
+      this.properties?.[1]?.translateX +
+      " " +
+      this.properties?.[1]?.translateY +
+      ") rotate(" +
+      this.properties?.[1]?.rotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
+  }
+  getCircleTransform() {
+    return (
+      "translate(" +
+      this.properties?.[2]?.translateX +
+      " " +
+      this.properties?.[2]?.translateY +
+      ")"
+    );
+  }
+  getLineTransform() {
+    return (
+      "translate(" +
+      this.properties?.[3]?.translateX +
+      " " +
+      this.properties?.[3]?.translateY +
+      ") rotate(" +
+      this.properties?.[3]?.rotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
   }
 }
 

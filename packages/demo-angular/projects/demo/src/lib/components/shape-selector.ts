@@ -11,7 +11,7 @@ import { AvatarShape, shapes } from "../utils/common.utils";
   selector: "shape-selector, ShapeSelector",
   template: `
     <div class="shape-selector widget-wrapper">
-      <label for="radio-circle" [class]="getLabelClass(AvatarShape.Circle)">
+      <label for="radio-circle" [class]="getCircleLabelClass()">
         <input
           id="radio-circle"
           type="radio"
@@ -31,7 +31,7 @@ import { AvatarShape, shapes } from "../utils/common.utils";
         </svg>
       </label>
 
-      <label for="radio-square" [class]="getLabelClass(AvatarShape.Square)">
+      <label for="radio-square" [class]="getSquareLabelClass()">
         <input
           id="radio-square"
           type="radio"
@@ -58,23 +58,27 @@ export class ShapeSelector {
 
   @Output() onChange = new EventEmitter();
 
-  AvatarShape = AvatarShape;
   selectedShape = AvatarShape.Circle;
   handleChange(event) {
-    this.onChange.emit(event?.target?.value || this.AvatarShape.Circle);
+    this.onChange.emit(event?.target?.value || AvatarShape.Circle);
   }
-  getLabelClass(avatarShape) {
+  getCircleLabelClass() {
     return `radio-label ${
-      avatarShape === this.selectedShape ? "selected" : ""
+      AvatarShape.Circle === this.selectedShape ? "selected" : ""
+    }`;
+  }
+  getSquareLabelClass() {
+    return `radio-label ${
+      AvatarShape.Square === this.selectedShape ? "selected" : ""
     }`;
   }
 
   ngOnInit() {
-    this.selectedShape = this.shape || this.AvatarShape.Circle;
+    this.selectedShape = this.shape || AvatarShape.Circle;
   }
 
   ngAfterContentChecked() {
-    this.selectedShape = this.shape || this.AvatarShape.Circle;
+    this.selectedShape = this.shape || AvatarShape.Circle;
   }
 }
 

@@ -12,81 +12,93 @@
   export let variant;
   export let size;
   export let colors;
-  export let name;
   export let square;
+  export let name;
   export let title;
 
-  let checkedVariant = "beam";
-  let coercedProps = defaultAvatarProps;
+  let checkedVariant = defaultAvatarProps.variant || "beam";
+  let size_ = defaultAvatarProps.size || 40;
+  let colors_ = defaultAvatarProps.colors || [];
+  let square_ = defaultAvatarProps.square || false;
+  let name_ = defaultAvatarProps.name || "";
+  let title_ = defaultAvatarProps.title || false;
 
   onMount(() => {
     checkedVariant = coerceVariant(variant) || "beam";
-    coercedProps = { ...defaultAvatarProps, ...$$props };
+    size_ = size || defaultAvatarProps.size || 40;
+    colors_ = colors || defaultAvatarProps.colors || [];
+    square_ = square || defaultAvatarProps.square || false;
+    name_ = name || defaultAvatarProps.name || "";
+    title_ = title || defaultAvatarProps.title || false;
   });
 
   function onUpdateFn_0() {
     checkedVariant = coerceVariant(variant) || "beam";
-    coercedProps = { ...defaultAvatarProps, ...$$props };
+    size_ = size || defaultAvatarProps.size || 40;
+    colors_ = colors || defaultAvatarProps.colors || [];
+    square_ = square || defaultAvatarProps.square || false;
+    name_ = name || defaultAvatarProps.name || "";
+    title_ = title || defaultAvatarProps.title || false;
   }
-  $: onUpdateFn_0(...[variant, size, colors, name, square, title]);
+  $: onUpdateFn_0(...[variant, size, colors, square, name, title]);
 </script>
 
 {#if checkedVariant === `bauhaus`}
   <AvatarBauhaus
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}
 
 {#if checkedVariant === `beam`}
   <AvatarBeam
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}
 
 {#if checkedVariant === `marble`}
   <AvatarMarble
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}
 
 {#if checkedVariant === `pixel`}
   <AvatarPixel
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}
 
 {#if checkedVariant === `ring`}
   <AvatarRing
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}
 
 {#if checkedVariant === `sunset`}
   <AvatarSunset
-    colors={coercedProps.colors}
-    name={coercedProps.name}
-    square={coercedProps.square}
-    title={coercedProps.title}
-    size={coercedProps.size}
+    colors={colors_}
+    name={name_}
+    square={square_}
+    title={title_}
+    size={size_}
   />
 {/if}

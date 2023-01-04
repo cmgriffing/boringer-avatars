@@ -1,4 +1,3 @@
-import { css } from "solid-styled-components";
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
 import { coerceVariant, AvatarVariant, variants } from "../utils/common.utils";
@@ -12,6 +11,16 @@ function VariantSelector(props) {
     props.onChange(newVariant);
   }
 
+  function getLabelClass(variantOption) {
+    return `radio-label ${
+      variantOption === selectedVariant() ? "selected" : ""
+    }`;
+  }
+
+  function getInputId(variantOption) {
+    return `radio-${variantOption}`;
+  }
+
   onMount(() => {
     setSelectedVariant(coerceVariant(props.variant) || "beam");
   });
@@ -22,22 +31,20 @@ function VariantSelector(props) {
   createEffect(on(() => [props.variant], onUpdateFn_0));
 
   return (
-    <div class="widget-wrapper">
+    <div class="variant-selector widget-wrapper">
       <For each={variants}>
         {(variantOption, _index) => {
           const index = _index();
           return (
             <label
-              class={`radio-label ${
-                variantOption === selectedVariant() ? "selected" : ""
-              }`}
-              htmlFor={`radio-${variantOption}`}
+              class={getLabelClass(variantOption)}
+              htmlFor={getInputId(variantOption)}
             >
               <input
                 class="radio-item sr-only"
                 type="radio"
                 name="variant-option"
-                id={`radio-${variantOption}`}
+                id={getInputId(variantOption)}
                 value={variantOption}
                 onInput={(event) => handleChange(event)}
               />

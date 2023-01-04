@@ -8,6 +8,48 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
     return generateData(props.name, props.colors);
   }
 
+  function getRectTransform() {
+    return (
+      "translate(" +
+      data().wrapperTranslateX +
+      " " +
+      data().wrapperTranslateY +
+      ") rotate(" +
+      data().wrapperRotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ") scale(" +
+      data().wrapperScale +
+      ")"
+    );
+  }
+
+  function getGroupTransform() {
+    return (
+      "translate(" +
+      data().faceTranslateX +
+      " " +
+      data().faceTranslateY +
+      ") rotate(" +
+      data().faceRotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
+  }
+
+  function getOpenMouthData() {
+    return "M15 " + (19 + data().mouthSpread) + "c2 1 4 1 6 0";
+  }
+
+  function getClosedMouthData() {
+    return "M13," + (19 + data().mouthSpread) + " a1,0.75 0 0,0 10,0";
+  }
+
   return (
     <svg
       fill="none"
@@ -43,52 +85,21 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
           y="0"
           width={SIZE}
           height={SIZE}
-          transform={
-            "translate(" +
-            data().wrapperTranslateX +
-            " " +
-            data().wrapperTranslateY +
-            ") rotate(" +
-            data().wrapperRotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ") scale(" +
-            data().wrapperScale +
-            ")"
-          }
+          transform={getRectTransform()}
           fill={data().wrapperColor}
           rx={data().isCircle ? SIZE : SIZE / 6}
         />
 
-        <g
-          transform={
-            "translate(" +
-            data().faceTranslateX +
-            " " +
-            data().faceTranslateY +
-            ") rotate(" +
-            data().faceRotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
-        >
+        <g transform={getGroupTransform()}>
           {data().isMouthOpen ? (
             <path
               fill="none"
               strokeLinecap="round"
-              d={"M15 " + (19 + data().mouthSpread) + "c2 1 4 1 6 0"}
+              d={getOpenMouthData()}
               stroke={data().faceColor}
             />
           ) : (
-            <path
-              d={"M13," + (19 + data().mouthSpread) + " a1,0.75 0 0,0 10,0"}
-              fill={data().faceColor}
-            />
+            <path d={getClosedMouthData()} fill={data().faceColor} />
           )}
 
           <rect

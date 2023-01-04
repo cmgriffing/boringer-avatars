@@ -2,7 +2,7 @@
   <div class="shape-selector widget-wrapper">
     <label
       for="radio-circle"
-      :class="_classStringToObject(getLabelClass(AvatarShape.Circle))"
+      :class="_classStringToObject(getCircleLabelClass())"
     >
       <input
         id="radio-circle"
@@ -24,7 +24,7 @@
 
     <label
       for="radio-square"
-      :class="_classStringToObject(getLabelClass(AvatarShape.Square))"
+      :class="_classStringToObject(getSquareLabelClass())"
     >
       <input
         id="radio-square"
@@ -56,7 +56,7 @@ export default {
 
   props: ["onChange", "shape"],
 
-  data: () => ({ AvatarShape: AvatarShape, selectedShape: AvatarShape.Circle }),
+  data: () => ({ selectedShape: AvatarShape.Circle }),
 
   mounted() {
     this.selectedShape = this.shape || AvatarShape.Circle;
@@ -83,9 +83,14 @@ export default {
     handleChange(event) {
       this.onChange(event?.target?.value || AvatarShape.Circle);
     },
-    getLabelClass(avatarShape) {
+    getCircleLabelClass() {
       return `radio-label ${
-        avatarShape === this.selectedShape ? 'selected' : ''
+        AvatarShape.Circle === this.selectedShape ? 'selected' : ''
+      }`;
+    },
+    getSquareLabelClass() {
+      return `radio-label ${
+        AvatarShape.Square === this.selectedShape ? 'selected' : ''
       }`;
     },
     _classStringToObject(str) {

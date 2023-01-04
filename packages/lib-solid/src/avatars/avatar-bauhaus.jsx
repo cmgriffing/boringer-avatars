@@ -8,6 +8,48 @@ function AvatarBauhaus(props) {
     return generateColors(props.name, props.colors);
   }
 
+  function getSquareTransform() {
+    return (
+      "translate(" +
+      properties()?.[1]?.translateX +
+      " " +
+      properties()?.[1]?.translateY +
+      ") rotate(" +
+      properties()?.[1]?.rotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
+  }
+
+  function getCircleTransform() {
+    return (
+      "translate(" +
+      properties()?.[2]?.translateX +
+      " " +
+      properties()?.[2]?.translateY +
+      ")"
+    );
+  }
+
+  function getLineTransform() {
+    return (
+      "translate(" +
+      properties()?.[3]?.translateX +
+      " " +
+      properties()?.[3]?.translateY +
+      ") rotate(" +
+      properties()?.[3]?.rotate +
+      " " +
+      SIZE / 2 +
+      " " +
+      SIZE / 2 +
+      ")"
+    );
+  }
+
   return (
     <svg
       fill="none"
@@ -43,32 +85,14 @@ function AvatarBauhaus(props) {
           width={SIZE}
           height={properties()?.[1]?.isSquare ? SIZE : SIZE / 8}
           fill={properties()?.[1]?.color}
-          transform={
-            "translate(" +
-            properties()?.[1]?.translateX +
-            " " +
-            properties()?.[1]?.translateY +
-            ") rotate(" +
-            properties()?.[1]?.rotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
+          transform={getSquareTransform()}
         ></rect>
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
           fill={properties()?.[2]?.color}
           r={SIZE / 5}
-          transform={
-            "translate(" +
-            properties()?.[2]?.translateX +
-            " " +
-            properties()?.[2]?.translateY +
-            ")"
-          }
+          transform={getCircleTransform()}
         ></circle>
         <line
           x1={0}
@@ -77,19 +101,7 @@ function AvatarBauhaus(props) {
           y2={SIZE / 2}
           strokeWidth={2}
           stroke={properties()?.[3]?.color}
-          transform={
-            "translate(" +
-            properties()?.[3]?.translateX +
-            " " +
-            properties()?.[3]?.translateY +
-            ") rotate(" +
-            properties()?.[3]?.rotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
+          transform={getLineTransform()}
         ></line>
       </g>
     </svg>

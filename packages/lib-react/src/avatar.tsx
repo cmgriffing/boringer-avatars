@@ -10,24 +10,44 @@ import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
 export default function Avatar(props: Partial<AvatarProps>) {
-  const [checkedVariant, setCheckedVariant] = useState(() => "beam");
+  const [checkedVariant, setCheckedVariant] = useState(
+    () => defaultAvatarProps.variant || "beam"
+  );
 
-  const [coercedProps, setCoercedProps] = useState(() => defaultAvatarProps);
+  const [size_, setSize_] = useState(() => defaultAvatarProps.size || 40);
+
+  const [colors_, setColors_] = useState(() => defaultAvatarProps.colors || []);
+
+  const [square_, setSquare_] = useState(
+    () => defaultAvatarProps.square || false
+  );
+
+  const [name_, setName_] = useState(() => defaultAvatarProps.name || "");
+
+  const [title_, setTitle_] = useState(() => defaultAvatarProps.title || false);
 
   useEffect(() => {
     setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setCoercedProps({ ...defaultAvatarProps, ...props });
+    setSize_(props.size || defaultAvatarProps.size || 40);
+    setColors_(props.colors || defaultAvatarProps.colors || []);
+    setSquare_(props.square || defaultAvatarProps.square || false);
+    setName_(props.name || defaultAvatarProps.name || "");
+    setTitle_(props.title || defaultAvatarProps.title || false);
   }, []);
 
   useEffect(() => {
     setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setCoercedProps({ ...defaultAvatarProps, ...props });
+    setSize_(props.size || defaultAvatarProps.size || 40);
+    setColors_(props.colors || defaultAvatarProps.colors || []);
+    setSquare_(props.square || defaultAvatarProps.square || false);
+    setName_(props.name || defaultAvatarProps.name || "");
+    setTitle_(props.title || defaultAvatarProps.title || false);
   }, [
     props.variant,
     props.size,
     props.colors,
-    props.name,
     props.square,
+    props.name,
     props.title,
   ]);
 
@@ -36,11 +56,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `bauhaus` ? (
         <>
           <AvatarBauhaus
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}
@@ -48,11 +68,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `beam` ? (
         <>
           <AvatarBeam
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}
@@ -60,11 +80,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `marble` ? (
         <>
           <AvatarMarble
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}
@@ -72,11 +92,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `pixel` ? (
         <>
           <AvatarPixel
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}
@@ -84,11 +104,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `ring` ? (
         <>
           <AvatarRing
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}
@@ -96,11 +116,11 @@ export default function Avatar(props: Partial<AvatarProps>) {
       {checkedVariant === `sunset` ? (
         <>
           <AvatarSunset
-            colors={coercedProps.colors}
-            name={coercedProps.name}
-            square={coercedProps.square}
-            title={coercedProps.title}
-            size={coercedProps.size}
+            colors={colors_}
+            name={name_}
+            square={square_}
+            title={title_}
+            size={size_}
           />
         </>
       ) : null}

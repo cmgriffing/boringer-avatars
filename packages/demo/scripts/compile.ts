@@ -10,12 +10,14 @@ try {
     React = "react",
     Svelte = "svelte",
     Vue3 = "vue3",
+    Vue2 = "vue2",
     Solid = "solid",
+    Qwik = "qwik",
   }
 
   Object.values(Target).forEach((target) => {
     let compiledDir = path.resolve(process.cwd(), `output/${target}/src`);
-    if (target === Target.Vue3) {
+    if (target === Target.Vue2 || target === Target.Vue3) {
       compiledDir = path.resolve(process.cwd(), `output/vue/${target}/src`);
     }
 

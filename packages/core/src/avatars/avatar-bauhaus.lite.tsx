@@ -8,6 +8,45 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
     get properties() {
       return generateColors(props.name, props.colors);
     },
+    getSquareTransform: () => {
+      return (
+        "translate(" +
+        state.properties?.[1]?.translateX +
+        " " +
+        state.properties?.[1]?.translateY +
+        ") rotate(" +
+        state.properties?.[1]?.rotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ")"
+      );
+    },
+    getCircleTransform() {
+      return (
+        "translate(" +
+        state.properties?.[2]?.translateX +
+        " " +
+        state.properties?.[2]?.translateY +
+        ")"
+      );
+    },
+    getLineTransform() {
+      return (
+        "translate(" +
+        state.properties?.[3]?.translateX +
+        " " +
+        state.properties?.[3]?.translateY +
+        ") rotate(" +
+        state.properties?.[3]?.rotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ")"
+      );
+    },
   });
 
   return (
@@ -43,32 +82,14 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
           width={SIZE}
           height={state.properties?.[1]?.isSquare ? SIZE : SIZE / 8}
           fill={state.properties?.[1]?.color}
-          transform={
-            "translate(" +
-            state.properties?.[1]?.translateX +
-            " " +
-            state.properties?.[1]?.translateY +
-            ") rotate(" +
-            state.properties?.[1]?.rotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
+          transform={state.getSquareTransform()}
         />
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
           fill={state.properties?.[2]?.color}
           r={SIZE / 5}
-          transform={
-            "translate(" +
-            state.properties?.[2]?.translateX +
-            " " +
-            state.properties?.[2]?.translateY +
-            ")"
-          }
+          transform={state.getCircleTransform()}
         />
         <line
           x1={0}
@@ -77,19 +98,7 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
           y2={SIZE / 2}
           strokeWidth={2}
           stroke={state.properties?.[3]?.color}
-          transform={
-            "translate(" +
-            state.properties?.[3]?.translateX +
-            " " +
-            state.properties?.[3]?.translateY +
-            ") rotate(" +
-            state.properties?.[3]?.rotate +
-            " " +
-            SIZE / 2 +
-            " " +
-            SIZE / 2 +
-            ")"
-          }
+          transform={state.getLineTransform()}
         />
       </g>
     </svg>

@@ -1,20 +1,16 @@
 const { CustomAngularPlugin } = require("./mitosis/plugins/angular");
 const { CustomVue3Plugin } = require("./mitosis/plugins/vue3");
+const { CustomVue2Plugin } = require("./mitosis/plugins/vue2");
 const { CustomSveltePlugin } = require("./mitosis/plugins/svelte");
 const { CustomReactPlugin } = require("./mitosis/plugins/react");
 const { CustomSolidPlugin } = require("./mitosis/plugins/solid");
+const { CustomQwikPlugin } = require("./mitosis/plugins/qwik");
 const { CustomCommonPlugin } = require("./mitosis/plugins/common");
 
 module.exports = {
   prettier: false,
   files: "src/**/*",
-  targets: [
-    // "solid",
-    "vue3",
-    "svelte",
-    "react",
-    "angular",
-  ],
+  targets: ["solid", "vue3", "vue2", "svelte", "react", "angular", "qwik"],
   options: {
     solid: {
       typescript: true,
@@ -24,6 +20,11 @@ module.exports = {
       typescript: true,
       prettier: false,
       plugins: [CustomCommonPlugin, CustomVue3Plugin],
+    },
+    vue2: {
+      typescript: false,
+      prettier: false,
+      plugins: [CustomCommonPlugin, CustomVue2Plugin],
     },
     react: {
       typescript: true,
@@ -37,6 +38,11 @@ module.exports = {
       typescript: true,
       // prettier: false,
       plugins: [CustomCommonPlugin, CustomAngularPlugin({})],
+    },
+    qwik: {
+      typescript: true,
+      // prettier: false,
+      plugins: [CustomCommonPlugin, CustomQwikPlugin],
     },
   },
 };

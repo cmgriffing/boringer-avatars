@@ -40,21 +40,15 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
       </mask>
 
       <g mask="url(#mask__sunset)">
-        <path
-          d="M0 0h80v40H0z"
-          [attr.fill]='"url(#gradient_paint0_linear_" + formattedName + ")"'
-        ></path>
+        <path d="M0 0h80v40H0z" [attr.fill]="getPaintFill0()"></path>
 
-        <path
-          d="M0 40h80v40H0z"
-          [attr.fill]='"url(#gradient_paint1_linear_" + formattedName + ")"'
-        ></path>
+        <path d="M0 40h80v40H0z" [attr.fill]="getPaintFill1()"></path>
       </g>
 
       <defs>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          [attr.id]='"gradient_paint0_linear_" + formattedName'
+          [attr.id]="getPaintId0()"
           [attr.x1]="SIZE / 2"
           [attr.y1]="0"
           [attr.x2]="SIZE / 2"
@@ -67,7 +61,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
 
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          [attr.id]='"gradient_paint1_linear_" + formattedName'
+          [attr.id]="getPaintId1()"
           [attr.x1]="SIZE / 2"
           [attr.y1]="SIZE / 2"
           [attr.x2]="SIZE / 2"
@@ -95,6 +89,18 @@ export class AvatarSunset {
   }
   get sunsetColors() {
     return generateColors(this.name, this.colors);
+  }
+  getPaintFill0() {
+    return "url(#gradient_paint0_linear_" + this.formattedName + ")";
+  }
+  getPaintFill1() {
+    return "url(#gradient_paint1_linear_" + this.formattedName + ")";
+  }
+  getPaintId0() {
+    return "gradient_paint0_linear_" + this.formattedName;
+  }
+  getPaintId1() {
+    return "gradient_paint1_linear_" + this.formattedName;
   }
 }
 

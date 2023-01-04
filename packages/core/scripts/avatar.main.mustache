@@ -10,84 +10,97 @@ import AvatarSunset from "./avatars/avatar-sunset";
 
 export default function Avatar(props: Partial<AvatarProps>) {
   const state = useStore({
-    checkedVariant: "beam",
-    coercedProps: defaultAvatarProps,
+    checkedVariant: defaultAvatarProps.variant || "beam",
+    size_: defaultAvatarProps.size || 40,
+    colors_: defaultAvatarProps.colors || [],
+    square_: defaultAvatarProps.square || false,
+    name_: defaultAvatarProps.name || "",
+    title_: defaultAvatarProps.title || false,
   });
 
   onMount(() => {
     state.checkedVariant = coerceVariant(props.variant) || "beam";
-    state.coercedProps = {
-      ...defaultAvatarProps,
-      ...props,
-    };
+    state.size_= props.size || defaultAvatarProps.size || 40;
+    state.colors_ = props.colors || defaultAvatarProps.colors || [];
+    state.square_  = props.square || defaultAvatarProps.square || false;
+    state.name_ = props.name || defaultAvatarProps.name || "";
+    state.title_ = props.title || defaultAvatarProps.title || false;
   });
 
   onUpdate(() => {
     state.checkedVariant = coerceVariant(props.variant) || "beam";
-    state.coercedProps = {
-      ...defaultAvatarProps,
-      ...props,
-    };
-  }, [props.variant, props.size, props.colors, props.name, props.square, props.title]);
+    state.size_= props.size || defaultAvatarProps.size || 40;
+    state.colors_ = props.colors || defaultAvatarProps.colors || [];
+    state.square_  = props.square || defaultAvatarProps.square || false;
+    state.name_ = props.name || defaultAvatarProps.name || "";
+    state.title_ = props.title || defaultAvatarProps.title || false;
+  }, [
+    props.variant,
+    props.size,
+    props.colors,
+    props.square,
+    props.name,
+    props.title,
+  ]);
 
   return (
     <>
       <Show when={state.checkedVariant === `bauhaus`}>
         <AvatarBauhaus
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
       <Show when={state.checkedVariant === `beam`}>
         <AvatarBeam
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
 
       <Show when={state.checkedVariant === `marble`}>
         <AvatarMarble
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
 
       <Show when={state.checkedVariant === `pixel`}>
         <AvatarPixel
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
 
       <Show when={state.checkedVariant === `ring`}>
         <AvatarRing
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
 
       <Show when={state.checkedVariant === `sunset`}>
         <AvatarSunset
-          colors={state.coercedProps.colors}
-          name={state.coercedProps.name}
-          square={state.coercedProps.square}
-          title={state.coercedProps.title}
-          size={state.coercedProps.size}
+          colors={state.colors_}
+          name={state.name_}
+          square={state.square_ }
+          title={state.title_}
+          size={state.size_}
         />
       </Show>
     </>

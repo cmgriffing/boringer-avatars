@@ -6,7 +6,7 @@ const { CustomReactPlugin } = require("./mitosis/plugins/react");
 module.exports = {
   prettier: false,
   files: "src/**/*",
-  targets: ["vue3", "solid", "svelte", "react", "angular"],
+  targets: ["vue3", "solid", "svelte", "react", "angular", "qwik"],
   options: {
     solid: {
       typescript: true,

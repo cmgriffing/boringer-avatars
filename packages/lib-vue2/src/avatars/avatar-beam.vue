@@ -33,53 +33,22 @@
         y="0"
         :width="SIZE"
         :height="SIZE"
-        :transform="
-          'translate(' +
-          data.wrapperTranslateX +
-          ' ' +
-          data.wrapperTranslateY +
-          ') rotate(' +
-          data.wrapperRotate +
-          ' ' +
-          SIZE / 2 +
-          ' ' +
-          SIZE / 2 +
-          ') scale(' +
-          data.wrapperScale +
-          ')'
-        "
+        :transform="getRectTransform()"
         :fill="data.wrapperColor"
         :rx="data.isCircle ? SIZE : SIZE / 6"
       ></rect>
-      <g
-        :transform="
-          'translate(' +
-          data.faceTranslateX +
-          ' ' +
-          data.faceTranslateY +
-          ') rotate(' +
-          data.faceRotate +
-          ' ' +
-          SIZE / 2 +
-          ' ' +
-          SIZE / 2 +
-          ')'
-        "
-      >
+      <g :transform="getGroupTransform()">
         <template v-if="data.isMouthOpen">
           <path
             fill="none"
             strokeLinecap="round"
-            :d="'M15 ' + (19 + data.mouthSpread) + 'c2 1 4 1 6 0'"
+            :d="getOpenMouthData()"
             :stroke="data.faceColor"
           ></path>
         </template>
 
         <template v-else>
-          <path
-            :d="'M13,' + (19 + data.mouthSpread) + ' a1,0.75 0 0,0 10,0'"
-            :fill="data.faceColor"
-          ></path>
+          <path :d="getClosedMouthData()" :fill="data.faceColor"></path>
         </template>
 
         <rect
@@ -121,6 +90,47 @@ export default {
   computed: {
     data() {
       return generateData(this.name, this.colors);
+    },
+  },
+
+  methods: {
+    getRectTransform() {
+      return (
+        "translate(" +
+        this.data.wrapperTranslateX +
+        " " +
+        this.data.wrapperTranslateY +
+        ") rotate(" +
+        this.data.wrapperRotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ") scale(" +
+        this.data.wrapperScale +
+        ")"
+      );
+    },
+    getGroupTransform() {
+      return (
+        "translate(" +
+        this.data.faceTranslateX +
+        " " +
+        this.data.faceTranslateY +
+        ") rotate(" +
+        this.data.faceRotate +
+        " " +
+        SIZE / 2 +
+        " " +
+        SIZE / 2 +
+        ")"
+      );
+    },
+    getOpenMouthData() {
+      return "M15 " + (19 + this.data.mouthSpread) + "c2 1 4 1 6 0";
+    },
+    getClosedMouthData() {
+      return "M13," + (19 + this.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
     },
   },
 };

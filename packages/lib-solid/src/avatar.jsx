@@ -9,95 +9,107 @@ import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
 function Avatar(props) {
-  const [checkedVariant, setCheckedVariant] = createSignal("beam");
+  const [checkedVariant, setCheckedVariant] = createSignal(
+    defaultAvatarProps.variant || "beam"
+  );
 
-  const [coercedProps, setCoercedProps] = createSignal(defaultAvatarProps);
+  const [size_, setSize_] = createSignal(defaultAvatarProps.size || 40);
+
+  const [colors_, setColors_] = createSignal(defaultAvatarProps.colors || []);
+
+  const [square_, setSquare_] = createSignal(
+    defaultAvatarProps.square || false
+  );
+
+  const [name_, setName_] = createSignal(defaultAvatarProps.name || "");
+
+  const [title_, setTitle_] = createSignal(defaultAvatarProps.title || false);
 
   onMount(() => {
     setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setCoercedProps({ ...defaultAvatarProps, ...props });
+    setSize_(props.size || defaultAvatarProps.size || 40);
+    setColors_(props.colors || defaultAvatarProps.colors || []);
+    setSquare_(props.square || defaultAvatarProps.square || false);
+    setName_(props.name || defaultAvatarProps.name || "");
+    setTitle_(props.title || defaultAvatarProps.title || false);
   });
 
-  // function onUpdateFn_0() {
-  //   console.log("updating: ", props.variant);
-  //   setCheckedVariant(props.variant);
-  //   const newProps = { ...defaultAvatarProps, ...props };
-  //   setCoercedProps(newProps);
-  //   console.log({ newProps });
-  // }
-  // createEffect(() => {
-  console.log("updating: ", props.variant);
-  setCheckedVariant(props.variant);
-  const newProps = { ...defaultAvatarProps, ...props };
-  setCoercedProps(newProps);
-  console.log({ newProps });
-  // });
-
-  setInterval(() => {
-    const newSize = parseInt(coercedProps().size, 10) + 10;
-    setCoercedProps({
-      ...coercedProps(),
-      size: newSize,
-    });
-  }, 3000);
+  function onUpdateFn_0() {
+    setCheckedVariant(coerceVariant(props.variant) || "beam");
+    setSize_(props.size || defaultAvatarProps.size || 40);
+    setColors_(props.colors || defaultAvatarProps.colors || []);
+    setSquare_(props.square || defaultAvatarProps.square || false);
+    setName_(props.name || defaultAvatarProps.name || "");
+    setTitle_(props.title || defaultAvatarProps.title || false);
+  }
+  createEffect(
+    on(
+      () => [
+        props.variant,
+        props.size,
+        props.colors,
+        props.square,
+        props.name,
+        props.title,
+      ],
+      onUpdateFn_0
+    )
+  );
 
   return (
     <>
-      {checkedVariant()}
-      {props.size}
-      {coercedProps().size}
       <Show when={checkedVariant() === `bauhaus`}>
         <AvatarBauhaus
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarBauhaus>
       </Show>
       <Show when={checkedVariant() === `beam`}>
         <AvatarBeam
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarBeam>
       </Show>
       <Show when={checkedVariant() === `marble`}>
         <AvatarMarble
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarMarble>
       </Show>
       <Show when={checkedVariant() === `pixel`}>
         <AvatarPixel
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarPixel>
       </Show>
       <Show when={checkedVariant() === `ring`}>
         <AvatarRing
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarRing>
       </Show>
       <Show when={checkedVariant() === `sunset`}>
         <AvatarSunset
-          colors={coercedProps().colors}
-          name={coercedProps().name}
-          square={coercedProps().square}
-          title={coercedProps().title}
-          size={coercedProps().size}
+          colors={colors_()}
+          name={name_()}
+          square={square_()}
+          title={title_()}
+          size={size_()}
         ></AvatarSunset>
       </Show>
     </>

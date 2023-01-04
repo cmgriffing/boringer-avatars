@@ -8,7 +8,7 @@ import { LibraryLinksProps } from "./library-links.utils";
 @Component({
   selector: "library-links, LibraryLinks",
   template: `
-    <ng-container>
+    <div class="row">
       <div class="widget-wrapper">
         <a
           target="_blank"
@@ -54,7 +54,7 @@ import { LibraryLinksProps } from "./library-links.utils";
           </svg>
         </a>
       </div>
-    </ng-container>
+    </div>
   `,
 })
 export class LibraryLinks {
