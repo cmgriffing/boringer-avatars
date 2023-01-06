@@ -6,7 +6,7 @@ try {
     Angular = "angular",
     React = "react",
     Svelte = "svelte",
-    // Vue3 = "vue3",
+    Vue3 = "vue3",
     Vue2 = "vue2",
     Solid = "solid",
     Qwik = "qwik",

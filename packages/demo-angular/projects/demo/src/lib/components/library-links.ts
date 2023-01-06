@@ -8,7 +8,7 @@ import { LibraryLinksProps } from "./library-links.utils";
 @Component({
   selector: "library-links, LibraryLinks",
   template: `
-    <div class="row">
+    <div class="inner-row">
       <div class="widget-wrapper">
         <a
           target="_blank"

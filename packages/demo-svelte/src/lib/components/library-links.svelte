@@ -2,7 +2,7 @@
   export let githubUrl;
 </script>
 
-<div class="row">
+<div class="inner-row">
   <div class="widget-wrapper">
     <a
       target="_blank"

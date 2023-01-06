@@ -2,7 +2,7 @@ import { LibraryLinksProps } from "./library-links.utils";
 
 function LibraryLinks(props) {
   return (
-    <div class="row">
+    <div class="inner-row">
       <div class="widget-wrapper">
         <a
           class="radio-label selected"

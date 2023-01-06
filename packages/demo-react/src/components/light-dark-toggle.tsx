@@ -39,7 +39,7 @@ export default function LightDarkToggle(props: any) {
             cy="10"
             r="9"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
           />
 
           <path d="M10 0a10 10 0 000 20V0z" fill="currentColor" />

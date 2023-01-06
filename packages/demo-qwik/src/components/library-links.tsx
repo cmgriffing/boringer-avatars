@@ -4,7 +4,7 @@ import { LibraryLinksProps } from "./library-links.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
 export const LibraryLinks = component$((props: any) => {
   return (
-    <div class="row">
+    <div class="inner-row">
       <div class="widget-wrapper">
         <a
           target="_blank"

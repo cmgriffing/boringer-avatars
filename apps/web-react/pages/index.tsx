@@ -72,7 +72,7 @@ export default function Web() {
       </div>
       <div className="avatar-list">
         {exampleNames.map((name: string) => (
-          <div className="avatar-list-item">
+          <div className="avatar-list-item" key={name}>
             <Avatar
               title={false}
               size={size}
