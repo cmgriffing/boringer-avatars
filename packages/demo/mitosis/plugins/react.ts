@@ -6,9 +6,9 @@ export function CustomReactPlugin(): MitosisPlugin {
       post: (code: string) => {
         let newCode = code;
 
-        newCode = newCode.replace(new RegExp("-\\rule", "gm"), "Rule");
+        newCode = newCode.replace(new RegExp("\\-rule", "gm"), "Rule");
         newCode = newCode.replace(
-          new RegExp("stroke\\width", "gm"),
+          new RegExp("stroke\\-width", "gm"),
           "strokeWidth"
         );
 

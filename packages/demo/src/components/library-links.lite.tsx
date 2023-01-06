@@ -7,7 +7,7 @@ export default function LibraryLinks(
   }
 ) {
   return (
-    <div className="row">
+    <div className="inner-row">
       <div className="widget-wrapper">
         <a
           href={props.githubUrl}
