@@ -28,363 +28,437 @@
       ></rect>
     </mask>
     <g mask="url(#mask__pixel)">
-      <rect :width="10" :height="10" :fill="pixelColors[0]"></rect>
-      <rect :x="20" :width="10" :height="10" :fill="pixelColors[1]"></rect>
-      <rect :x="40" :width="10" :height="10" :fill="pixelColors[2]"></rect>
-      <rect :x="60" :width="10" :height="10" :fill="pixelColors[3]"></rect>
-      <rect :x="10" :width="10" :height="10" :fill="pixelColors[4]"></rect>
-      <rect :x="30" :width="10" :height="10" :fill="pixelColors[5]"></rect>
-      <rect :x="50" :width="10" :height="10" :fill="pixelColors[6]"></rect>
-      <rect :x="70" :width="10" :height="10" :fill="pixelColors[7]"></rect>
-      <rect :y="10" :width="10" :height="10" :fill="pixelColors[8]"></rect>
-      <rect :y="20" :width="10" :height="10" :fill="pixelColors[9]"></rect>
-      <rect :y="30" :width="10" :height="10" :fill="pixelColors[10]"></rect>
-      <rect :y="40" :width="10" :height="10" :fill="pixelColors[11]"></rect>
-      <rect :y="50" :width="10" :height="10" :fill="pixelColors[12]"></rect>
-      <rect :y="60" :width="10" :height="10" :fill="pixelColors[13]"></rect>
-      <rect :y="70" :width="10" :height="10" :fill="pixelColors[14]"></rect>
+      <rect
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[0]"
+      ></rect>
+      <rect
+        :x="20"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[1]"
+      ></rect>
+      <rect
+        :x="40"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[2]"
+      ></rect>
+      <rect
+        :x="60"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[3]"
+      ></rect>
+      <rect
+        :x="10"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[4]"
+      ></rect>
+      <rect
+        :x="30"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[5]"
+      ></rect>
+      <rect
+        :x="50"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[6]"
+      ></rect>
+      <rect
+        :x="70"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[7]"
+      ></rect>
+      <rect
+        :y="10"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[8]"
+      ></rect>
+      <rect
+        :y="20"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[9]"
+      ></rect>
+      <rect
+        :y="30"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[10]"
+      ></rect>
+      <rect
+        :y="40"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[11]"
+      ></rect>
+      <rect
+        :y="50"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[12]"
+      ></rect>
+      <rect
+        :y="60"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[13]"
+      ></rect>
+      <rect
+        :y="70"
+        :width="10"
+        :height="10"
+        :fill="pixelColors(name, colors)[14]"
+      ></rect>
       <rect
         :x="20"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[15]"
+        :fill="pixelColors(name, colors)[15]"
       ></rect>
       <rect
         :x="20"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[16]"
+        :fill="pixelColors(name, colors)[16]"
       ></rect>
       <rect
         :x="20"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[17]"
+        :fill="pixelColors(name, colors)[17]"
       ></rect>
       <rect
         :x="20"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[18]"
+        :fill="pixelColors(name, colors)[18]"
       ></rect>
       <rect
         :x="20"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[19]"
+        :fill="pixelColors(name, colors)[19]"
       ></rect>
       <rect
         :x="20"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[20]"
+        :fill="pixelColors(name, colors)[20]"
       ></rect>
       <rect
         :x="20"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[21]"
+        :fill="pixelColors(name, colors)[21]"
       ></rect>
       <rect
         :x="40"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[22]"
+        :fill="pixelColors(name, colors)[22]"
       ></rect>
       <rect
         :x="40"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[23]"
+        :fill="pixelColors(name, colors)[23]"
       ></rect>
       <rect
         :x="40"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[24]"
+        :fill="pixelColors(name, colors)[24]"
       ></rect>
       <rect
         :x="40"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[25]"
+        :fill="pixelColors(name, colors)[25]"
       ></rect>
       <rect
         :x="40"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[26]"
+        :fill="pixelColors(name, colors)[26]"
       ></rect>
       <rect
         :x="40"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[27]"
+        :fill="pixelColors(name, colors)[27]"
       ></rect>
       <rect
         :x="40"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[28]"
+        :fill="pixelColors(name, colors)[28]"
       ></rect>
       <rect
         :x="60"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[29]"
+        :fill="pixelColors(name, colors)[29]"
       ></rect>
       <rect
         :x="60"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[30]"
+        :fill="pixelColors(name, colors)[30]"
       ></rect>
       <rect
         :x="60"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[31]"
+        :fill="pixelColors(name, colors)[31]"
       ></rect>
       <rect
         :x="60"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[32]"
+        :fill="pixelColors(name, colors)[32]"
       ></rect>
       <rect
         :x="60"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[33]"
+        :fill="pixelColors(name, colors)[33]"
       ></rect>
       <rect
         :x="60"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[34]"
+        :fill="pixelColors(name, colors)[34]"
       ></rect>
       <rect
         :x="60"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[35]"
+        :fill="pixelColors(name, colors)[35]"
       ></rect>
       <rect
         :x="10"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[36]"
+        :fill="pixelColors(name, colors)[36]"
       ></rect>
       <rect
         :x="10"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[37]"
+        :fill="pixelColors(name, colors)[37]"
       ></rect>
       <rect
         :x="10"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[38]"
+        :fill="pixelColors(name, colors)[38]"
       ></rect>
       <rect
         :x="10"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[39]"
+        :fill="pixelColors(name, colors)[39]"
       ></rect>
       <rect
         :x="10"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[40]"
+        :fill="pixelColors(name, colors)[40]"
       ></rect>
       <rect
         :x="10"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[41]"
+        :fill="pixelColors(name, colors)[41]"
       ></rect>
       <rect
         :x="10"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[42]"
+        :fill="pixelColors(name, colors)[42]"
       ></rect>
       <rect
         :x="30"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[43]"
+        :fill="pixelColors(name, colors)[43]"
       ></rect>
       <rect
         :x="30"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[44]"
+        :fill="pixelColors(name, colors)[44]"
       ></rect>
       <rect
         :x="30"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[45]"
+        :fill="pixelColors(name, colors)[45]"
       ></rect>
       <rect
         :x="30"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[46]"
+        :fill="pixelColors(name, colors)[46]"
       ></rect>
       <rect
         :x="30"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[47]"
+        :fill="pixelColors(name, colors)[47]"
       ></rect>
       <rect
         :x="30"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[48]"
+        :fill="pixelColors(name, colors)[48]"
       ></rect>
       <rect
         :x="30"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[49]"
+        :fill="pixelColors(name, colors)[49]"
       ></rect>
       <rect
         :x="50"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[50]"
+        :fill="pixelColors(name, colors)[50]"
       ></rect>
       <rect
         :x="50"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[51]"
+        :fill="pixelColors(name, colors)[51]"
       ></rect>
       <rect
         :x="50"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[52]"
+        :fill="pixelColors(name, colors)[52]"
       ></rect>
       <rect
         :x="50"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[53]"
+        :fill="pixelColors(name, colors)[53]"
       ></rect>
       <rect
         :x="50"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[54]"
+        :fill="pixelColors(name, colors)[54]"
       ></rect>
       <rect
         :x="50"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[55]"
+        :fill="pixelColors(name, colors)[55]"
       ></rect>
       <rect
         :x="50"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[56]"
+        :fill="pixelColors(name, colors)[56]"
       ></rect>
       <rect
         :x="70"
         :y="10"
         :width="10"
         :height="10"
-        :fill="pixelColors[57]"
+        :fill="pixelColors(name, colors)[57]"
       ></rect>
       <rect
         :x="70"
         :y="20"
         :width="10"
         :height="10"
-        :fill="pixelColors[58]"
+        :fill="pixelColors(name, colors)[58]"
       ></rect>
       <rect
         :x="70"
         :y="30"
         :width="10"
         :height="10"
-        :fill="pixelColors[59]"
+        :fill="pixelColors(name, colors)[59]"
       ></rect>
       <rect
         :x="70"
         :y="40"
         :width="10"
         :height="10"
-        :fill="pixelColors[60]"
+        :fill="pixelColors(name, colors)[60]"
       ></rect>
       <rect
         :x="70"
         :y="50"
         :width="10"
         :height="10"
-        :fill="pixelColors[61]"
+        :fill="pixelColors(name, colors)[61]"
       ></rect>
       <rect
         :x="70"
         :y="60"
         :width="10"
         :height="10"
-        :fill="pixelColors[62]"
+        :fill="pixelColors(name, colors)[62]"
       ></rect>
       <rect
         :x="70"
         :y="70"
         :width="10"
         :height="10"
-        :fill="pixelColors[63]"
+        :fill="pixelColors(name, colors)[63]"
       ></rect>
     </g>
   </svg>
@@ -399,13 +473,13 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
 export default {
   name: "avatar-pixel",
 
-  props: ["name", "colors", "size", "title", "square"],
+  props: ["size", "title", "name", "square", "colors"],
 
   data: () => ({ SIZE }),
 
-  computed: {
-    pixelColors() {
-      return generateColors(this.name, this.colors);
+  methods: {
+    pixelColors(name, colors) {
+      return generateColors(name, colors);
     },
   },
 };

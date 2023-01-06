@@ -43,22 +43,22 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
         <rect
           [attr.width]="SIZE"
           [attr.height]="SIZE"
-          [attr.fill]="properties?.[0]?.color"
+          [attr.fill]="properties(name, colors)?.[0]?.color"
         ></rect>
 
         <rect
           [attr.x]="(SIZE - 60) / 2"
           [attr.y]="(SIZE - 20) / 2"
           [attr.width]="SIZE"
-          [attr.height]="properties?.[1]?.isSquare ? SIZE : SIZE / 8"
-          [attr.fill]="properties?.[1]?.color"
+          [attr.height]="properties(name, colors)?.[1]?.isSquare ? SIZE : SIZE / 8"
+          [attr.fill]="properties(name, colors)?.[1]?.color"
           [attr.transform]="getSquareTransform()"
         ></rect>
 
         <circle
           [attr.cx]="SIZE / 2"
           [attr.cy]="SIZE / 2"
-          [attr.fill]="properties?.[2]?.color"
+          [attr.fill]="properties(name, colors)?.[2]?.color"
           [attr.r]="SIZE / 5"
           [attr.transform]="getCircleTransform()"
         ></circle>
@@ -69,7 +69,7 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
           [attr.x2]="SIZE"
           [attr.y2]="SIZE / 2"
           [attr.strokeWidth]="2"
-          [attr.stroke]="properties?.[3]?.color"
+          [attr.stroke]="properties(name, colors)?.[3]?.color"
           [attr.transform]="getLineTransform()"
         ></line>
       </g>
@@ -85,17 +85,17 @@ export class AvatarBauhaus {
   @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
 
-  get properties() {
-    return generateColors(this.name, this.colors);
+  properties(name, colors) {
+    return generateColors(name, colors);
   }
   getSquareTransform() {
     return (
       "translate(" +
-      this.properties?.[1]?.translateX +
+      this.properties(this.name, this.colors)?.[1]?.translateX +
       " " +
-      this.properties?.[1]?.translateY +
+      this.properties(this.name, this.colors)?.[1]?.translateY +
       ") rotate(" +
-      this.properties?.[1]?.rotate +
+      this.properties(this.name, this.colors)?.[1]?.rotate +
       " " +
       SIZE / 2 +
       " " +
@@ -106,20 +106,20 @@ export class AvatarBauhaus {
   getCircleTransform() {
     return (
       "translate(" +
-      this.properties?.[2]?.translateX +
+      this.properties(this.name, this.colors)?.[2]?.translateX +
       " " +
-      this.properties?.[2]?.translateY +
+      this.properties(this.name, this.colors)?.[2]?.translateY +
       ")"
     );
   }
   getLineTransform() {
     return (
       "translate(" +
-      this.properties?.[3]?.translateX +
+      this.properties(this.name, this.colors)?.[3]?.translateX +
       " " +
-      this.properties?.[3]?.translateY +
+      this.properties(this.name, this.colors)?.[3]?.translateY +
       ") rotate(" +
-      this.properties?.[3]?.rotate +
+      this.properties(this.name, this.colors)?.[3]?.rotate +
       " " +
       SIZE / 2 +
       " " +

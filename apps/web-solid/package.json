@@ -9,14 +9,17 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@solidjs/meta": "^0.28.0",
+    "@solidjs/router": "^0.6.0",
+    "solid-devtools": "^0.24.7",
     "typescript": "^4.8.2",
     "vite": "^3.0.9",
     "vite-plugin-solid": "^2.3.0"
   },
   "dependencies": {
-    "solid-js": "^1.6.6",
     "@boringer-avatars/solid": "workspace:*",
     "@demo/solid": "workspace:*",
+    "solid-js": "^1.6.6",
     "ui": "workspace:*"
   }
 }

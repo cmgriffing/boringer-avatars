@@ -43,7 +43,7 @@ import { generateData, SIZE } from "./avatar-beam.utils";
         <rect
           [attr.width]="SIZE"
           [attr.height]="SIZE"
-          [attr.fill]="data.backgroundColor"
+          [attr.fill]="data(name, colors).backgroundColor"
         ></rect>
 
         <rect
@@ -52,38 +52,38 @@ import { generateData, SIZE } from "./avatar-beam.utils";
           [attr.width]="SIZE"
           [attr.height]="SIZE"
           [attr.transform]="getRectTransform()"
-          [attr.fill]="data.wrapperColor"
-          [attr.rx]="data.isCircle ? SIZE : SIZE / 6"
+          [attr.fill]="data(name, colors).wrapperColor"
+          [attr.rx]="data(name, colors).isCircle ? SIZE : SIZE / 6"
         ></rect>
 
         <g [attr.transform]="getGroupTransform()">
-          <ng-container *ngIf="data.isMouthOpen">
+          <ng-container *ngIf="data(name, colors).isMouthOpen">
             <path
               fill="none"
               strokeLinecap="round"
               [attr.d]="getOpenMouthData()"
-              [attr.stroke]="data.faceColor"
+              [attr.stroke]="data(name, colors).faceColor"
             ></path>
           </ng-container>
 
           <rect
             stroke="none"
-            [attr.x]="14 - data.eyeSpread"
+            [attr.x]="14 - data(name, colors).eyeSpread"
             [attr.y]="14"
             [attr.width]="1.5"
             [attr.height]="2"
             [attr.rx]="1"
-            [attr.fill]="data.faceColor"
+            [attr.fill]="data(name, colors).faceColor"
           ></rect>
 
           <rect
             stroke="none"
-            [attr.x]="20 + data.eyeSpread"
+            [attr.x]="20 + data(name, colors).eyeSpread"
             [attr.y]="14"
             [attr.width]="1.5"
             [attr.height]="2"
             [attr.rx]="1"
-            [attr.fill]="data.faceColor"
+            [attr.fill]="data(name, colors).faceColor"
           ></rect>
         </g>
       </g>
@@ -99,34 +99,34 @@ export class AvatarBeam {
   @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
 
-  get data() {
-    return generateData(this.name, this.colors);
+  data(name, colors) {
+    return generateData(name, colors);
   }
   getRectTransform() {
     return (
       "translate(" +
-      this.data.wrapperTranslateX +
+      this.data(this.name, this.colors).wrapperTranslateX +
       " " +
-      this.data.wrapperTranslateY +
+      this.data(this.name, this.colors).wrapperTranslateY +
       ") rotate(" +
-      this.data.wrapperRotate +
+      this.data(this.name, this.colors).wrapperRotate +
       " " +
       SIZE / 2 +
       " " +
       SIZE / 2 +
       ") scale(" +
-      this.data.wrapperScale +
+      this.data(this.name, this.colors).wrapperScale +
       ")"
     );
   }
   getGroupTransform() {
     return (
       "translate(" +
-      this.data.faceTranslateX +
+      this.data(this.name, this.colors).faceTranslateX +
       " " +
-      this.data.faceTranslateY +
+      this.data(this.name, this.colors).faceTranslateY +
       ") rotate(" +
-      this.data.faceRotate +
+      this.data(this.name, this.colors).faceRotate +
       " " +
       SIZE / 2 +
       " " +
@@ -135,10 +135,18 @@ export class AvatarBeam {
     );
   }
   getOpenMouthData() {
-    return "M15 " + (19 + this.data.mouthSpread) + "c2 1 4 1 6 0";
+    return (
+      "M15 " +
+      (19 + this.data(this.name, this.colors).mouthSpread) +
+      "c2 1 4 1 6 0"
+    );
   }
   getClosedMouthData() {
-    return "M13," + (19 + this.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
+    return (
+      "M13," +
+      (19 + this.data(this.name, this.colors).mouthSpread) +
+      " a1,0.75 0 0,0 10,0"
+    );
   }
 }
 

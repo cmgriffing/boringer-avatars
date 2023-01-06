@@ -9,7 +9,7 @@ export function generateColors(colors: string[], name: string) {
   const colorsShuffle = Array.from({ length: COLORS }, (_, i) =>
     getRandomColor(numFromName + i, colors, range)
   );
-  const colorsList = [];
+  const colorsList: string[] = [];
   colorsList[0] = colorsShuffle[0];
   colorsList[1] = colorsShuffle[1];
   colorsList[2] = colorsShuffle[1];

@@ -5,14 +5,8 @@
   "scripts": {
     "mitosis": "mitosis",
     "build:mitosis:plugins": "tsc --project tsconfig.plugins.json",
-    "build:mitosis:main": "pnpm mitosis build",
-    "build:mitosis:vue2": "pnpm mitosis build --config=mitosis.vue2.config.js",
-    "build:mitosis": "npm-run-all -s build:mitosis:main build:mitosis:vue2",
-    "build:compile:main": "ts-node --project=tsconfig.json ./scripts/compile.ts",
-    "build:compile:vue2": "ts-node --project=tsconfig.json ./scripts/compile-vue2.ts",
-    "build:compile": "npm-run-all -s build:compile:main build:compile:vue2",
-    "build:main": "npm-run-all -s build:mitosis:main build:compile:main",
-    "build:vue2": "npm-run-all -s build:mitosis:vue2 build:compile:vue2",
+    "build:mitosis": "pnpm mitosis build",
+    "build:compile": "ts-node --project=tsconfig.json ./scripts/compile.ts",
     "build": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile"
   },
   "devDependencies": {

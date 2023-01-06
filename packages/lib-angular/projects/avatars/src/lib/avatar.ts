@@ -16,101 +16,78 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
 @Component({
   selector: "avatar, Avatar",
   template: `
-    <ng-container>
-      <ng-container *ngIf="checkedVariant === \'bauhaus\'">
-        <AvatarBauhaus
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarBauhaus>
+    <div>
+      <ng-container *ngIf="variant === \'bauhaus\'">
+        <avatar-bauhaus
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-bauhaus>
       </ng-container>
 
-      <ng-container *ngIf="checkedVariant === \'beam\'">
-        <AvatarBeam
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarBeam>
+      <ng-container *ngIf="variant === \'beam\'">
+        <avatar-beam
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-beam>
       </ng-container>
 
-      <ng-container *ngIf="checkedVariant === \'marble\'">
-        <AvatarMarble
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarMarble>
+      <ng-container *ngIf="variant === \'marble\'">
+        <avatar-marble
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-marble>
       </ng-container>
 
-      <ng-container *ngIf="checkedVariant === \'pixel\'">
-        <AvatarPixel
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarPixel>
+      <ng-container *ngIf="variant === \'pixel\'">
+        <avatar-pixel
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-pixel>
       </ng-container>
 
-      <ng-container *ngIf="checkedVariant === \'ring\'">
-        <AvatarRing
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarRing>
+      <ng-container *ngIf="variant === \'ring\'">
+        <avatar-ring
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-ring>
       </ng-container>
 
-      <ng-container *ngIf="checkedVariant === \'sunset\'">
-        <AvatarSunset
-          [colors]="colors_"
-          [name]="name_"
-          [square]="square_"
-          [title]="title_"
-          [size]="size_"
-        ></AvatarSunset>
+      <ng-container *ngIf="variant === \'sunset\'">
+        <avatar-sunset
+          [colors]="colors || defaultAvatarProps.colors"
+          [name]="name || defaultAvatarProps.name"
+          [square]="square || defaultAvatarProps.square"
+          [title]="title || defaultAvatarProps.title"
+          [size]="size || defaultAvatarProps.size"
+        ></avatar-sunset>
       </ng-container>
-    </ng-container>
+    </div>
   `,
 })
 export class Avatar {
+  defaultAvatarProps = defaultAvatarProps;
+
   @Input() variant: Partial<AvatarProps>["variant"];
-  @Input() size: Partial<AvatarProps>["size"];
   @Input() colors: Partial<AvatarProps>["colors"];
-  @Input() square: Partial<AvatarProps>["square"];
   @Input() name: Partial<AvatarProps>["name"];
+  @Input() square: Partial<AvatarProps>["square"];
   @Input() title: Partial<AvatarProps>["title"];
-
-  checkedVariant = defaultAvatarProps.variant || "beam";
-  size_ = defaultAvatarProps.size || 40;
-  colors_ = defaultAvatarProps.colors || [];
-  square_ = defaultAvatarProps.square || false;
-  name_ = defaultAvatarProps.name || "";
-  title_ = defaultAvatarProps.title || false;
-
-  ngOnInit() {
-    this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.size_ = this.size || defaultAvatarProps.size || 40;
-    this.colors_ = this.colors || defaultAvatarProps.colors || [];
-    this.square_ = this.square || defaultAvatarProps.square || false;
-    this.name_ = this.name || defaultAvatarProps.name || "";
-    this.title_ = this.title || defaultAvatarProps.title || false;
-  }
-
-  ngAfterContentChecked() {
-    this.checkedVariant = coerceVariant(this.variant) || "beam";
-    this.size_ = this.size || defaultAvatarProps.size || 40;
-    this.colors_ = this.colors || defaultAvatarProps.colors || [];
-    this.square_ = this.square || defaultAvatarProps.square || false;
-    this.name_ = this.name || defaultAvatarProps.name || "";
-    this.title_ = this.title || defaultAvatarProps.title || false;
-  }
+  @Input() size: Partial<AvatarProps>["size"];
 }
 
 @NgModule({

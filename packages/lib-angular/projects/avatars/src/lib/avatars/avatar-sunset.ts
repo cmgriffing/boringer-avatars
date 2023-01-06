@@ -54,9 +54,12 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
           [attr.x2]="SIZE / 2"
           [attr.y2]="SIZE / 2"
         >
-          <stop [attr.stop-color]="sunsetColors[0]"></stop>
+          <stop [attr.stop-color]="sunsetColors(name, colors)[0]"></stop>
 
-          <stop [attr.offset]="1" [attr.stop-color]="sunsetColors[1]"></stop>
+          <stop
+            [attr.offset]="1"
+            [attr.stop-color]="sunsetColors(name, colors)[1]"
+          ></stop>
         </linearGradient>
 
         <linearGradient
@@ -67,9 +70,12 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
           [attr.x2]="SIZE / 2"
           [attr.y2]="SIZE"
         >
-          <stop [attr.stop-color]="sunsetColors[2]"></stop>
+          <stop [attr.stop-color]="sunsetColors(name, colors)[2]"></stop>
 
-          <stop [attr.offset]="1" [attr.stop-color]="sunsetColors[3]"></stop>
+          <stop
+            [attr.offset]="1"
+            [attr.stop-color]="sunsetColors(name, colors)[3]"
+          ></stop>
         </linearGradient>
       </defs>
     </svg>
@@ -79,16 +85,16 @@ export class AvatarSunset {
   SIZE = SIZE;
 
   @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
-  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
   @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
   @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
+  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
 
   get formattedName() {
     return this.name.replace(/\s/g, "");
   }
-  get sunsetColors() {
-    return generateColors(this.name, this.colors);
+  sunsetColors(name, colors) {
+    return generateColors(name, colors);
   }
   getPaintFill0() {
     return "url(#gradient_paint0_linear_" + this.formattedName + ")";

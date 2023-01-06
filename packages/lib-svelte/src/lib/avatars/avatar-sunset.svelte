@@ -2,11 +2,14 @@
   import { generateColors, SIZE } from "./avatar-sunset.utils";
 
   export let name;
-  export let colors;
   export let size;
   export let title;
   export let square;
+  export let colors;
 
+  function sunsetColors(name, colors) {
+    return generateColors(name, colors);
+  }
   function getPaintFill0() {
     return "url(#gradient_paint0_linear_" + formattedName() + ")";
   }
@@ -21,9 +24,6 @@
   }
   $: formattedName = () => {
     return name.replace(/\s/g, "");
-  };
-  $: sunsetColors = () => {
-    return generateColors(name, colors);
   };
 </script>
 
@@ -66,8 +66,8 @@
       x2={SIZE / 2}
       y2={SIZE / 2}
     >
-      <stop stop-color={sunsetColors()[0]} />
-      <stop offset={1} stop-color={sunsetColors()[1]} />
+      <stop stop-color={sunsetColors(name, colors)[0]} />
+      <stop offset={1} stop-color={sunsetColors(name, colors)[1]} />
     </linearGradient>
     <linearGradient
       gradientUnits="userSpaceOnUse"
@@ -77,8 +77,8 @@
       x2={SIZE / 2}
       y2={SIZE}
     >
-      <stop stop-color={sunsetColors()[2]} />
-      <stop offset={1} stop-color={sunsetColors()[3]} />
+      <stop stop-color={sunsetColors(name, colors)[2]} />
+      <stop offset={1} stop-color={sunsetColors(name, colors)[3]} />
     </linearGradient>
   </defs>
 </svg>

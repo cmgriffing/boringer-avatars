@@ -2,8 +2,8 @@
 
 import { SIZE, generateColors } from "./avatar-ring.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
-export const ringColors = function ringColors(props, state) {
-  return generateColors(props.colors, props.name);
+export const ringColors = function ringColors(props, state, name, colors) {
+  return generateColors(colors, name);
 };
 export const AvatarRing = component$((props) => {
   const state = {};
@@ -33,37 +33,43 @@ export const AvatarRing = component$((props) => {
         ></rect>
       </mask>
       <g mask="url(#mask__ring)">
-        <path d="M0 0h90v45H0z" fill={ringColors(props, state)[0]}></path>
-        <path d="M0 45h90v45H0z" fill={ringColors(props, state)[1]}></path>
+        <path
+          d="M0 0h90v45H0z"
+          fill={ringColors(props, state, props.name, props.colors)[0]}
+        ></path>
+        <path
+          d="M0 45h90v45H0z"
+          fill={ringColors(props, state, props.name, props.colors)[1]}
+        ></path>
         <path
           d="M83 45a38 38 0 00-76 0h76z"
-          fill={ringColors(props, state)[2]}
+          fill={ringColors(props, state, props.name, props.colors)[2]}
         ></path>
         <path
           d="M83 45a38 38 0 01-76 0h76z"
-          fill={ringColors(props, state)[3]}
+          fill={ringColors(props, state, props.name, props.colors)[3]}
         ></path>
         <path
           d="M77 45a32 32 0 10-64 0h64z"
-          fill={ringColors(props, state)[4]}
+          fill={ringColors(props, state, props.name, props.colors)[4]}
         ></path>
         <path
           d="M77 45a32 32 0 11-64 0h64z"
-          fill={ringColors(props, state)[5]}
+          fill={ringColors(props, state, props.name, props.colors)[5]}
         ></path>
         <path
           d="M71 45a26 26 0 00-52 0h52z"
-          fill={ringColors(props, state)[6]}
+          fill={ringColors(props, state, props.name, props.colors)[6]}
         ></path>
         <path
           d="M71 45a26 26 0 01-52 0h52z"
-          fill={ringColors(props, state)[7]}
+          fill={ringColors(props, state, props.name, props.colors)[7]}
         ></path>
         <circle
           cx={45}
           cy={45}
           r={23}
-          fill={ringColors(props, state)[8]}
+          fill={ringColors(props, state, props.name, props.colors)[8]}
         ></circle>
       </g>
     </svg>

@@ -27,15 +27,38 @@
       ></rect>
     </mask>
     <g mask="url(#mask__ring)">
-      <path d="M0 0h90v45H0z" :fill="ringColors[0]"></path>
-      <path d="M0 45h90v45H0z" :fill="ringColors[1]"></path>
-      <path d="M83 45a38 38 0 00-76 0h76z" :fill="ringColors[2]"></path>
-      <path d="M83 45a38 38 0 01-76 0h76z" :fill="ringColors[3]"></path>
-      <path d="M77 45a32 32 0 10-64 0h64z" :fill="ringColors[4]"></path>
-      <path d="M77 45a32 32 0 11-64 0h64z" :fill="ringColors[5]"></path>
-      <path d="M71 45a26 26 0 00-52 0h52z" :fill="ringColors[6]"></path>
-      <path d="M71 45a26 26 0 01-52 0h52z" :fill="ringColors[7]"></path>
-      <circle :cx="45" :cy="45" :r="23" :fill="ringColors[8]"></circle>
+      <path d="M0 0h90v45H0z" :fill="ringColors(name, colors)[0]"></path>
+      <path d="M0 45h90v45H0z" :fill="ringColors(name, colors)[1]"></path>
+      <path
+        d="M83 45a38 38 0 00-76 0h76z"
+        :fill="ringColors(name, colors)[2]"
+      ></path>
+      <path
+        d="M83 45a38 38 0 01-76 0h76z"
+        :fill="ringColors(name, colors)[3]"
+      ></path>
+      <path
+        d="M77 45a32 32 0 10-64 0h64z"
+        :fill="ringColors(name, colors)[4]"
+      ></path>
+      <path
+        d="M77 45a32 32 0 11-64 0h64z"
+        :fill="ringColors(name, colors)[5]"
+      ></path>
+      <path
+        d="M71 45a26 26 0 00-52 0h52z"
+        :fill="ringColors(name, colors)[6]"
+      ></path>
+      <path
+        d="M71 45a26 26 0 01-52 0h52z"
+        :fill="ringColors(name, colors)[7]"
+      ></path>
+      <circle
+        :cx="45"
+        :cy="45"
+        :r="23"
+        :fill="ringColors(name, colors)[8]"
+      ></circle>
     </g>
   </svg>
 </template>
@@ -49,13 +72,13 @@ import { generateColors, SIZE } from "./avatar-ring.utils";
 export default {
   name: "avatar-ring",
 
-  props: ["colors", "name", "size", "title", "square"],
+  props: ["size", "title", "name", "square", "colors"],
 
   data: () => ({ SIZE }),
 
-  computed: {
-    ringColors() {
-      return generateColors(this.colors, this.name);
+  methods: {
+    ringColors(name, colors) {
+      return generateColors(colors, name);
     },
   },
 };

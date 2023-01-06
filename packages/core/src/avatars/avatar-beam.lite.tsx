@@ -5,34 +5,34 @@ import { generateData, SIZE } from "./avatar-beam.utils";
 
 export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
   const state: any = useStore<any>({
-    get data() {
-      return generateData(props.name, props.colors);
+    data: (name: string, colors: string[]) => {
+      return generateData(name, colors);
     },
     getRectTransform: () => {
       return (
         "translate(" +
-        state.data.wrapperTranslateX +
+        state.data(props.name, props.colors).wrapperTranslateX +
         " " +
-        state.data.wrapperTranslateY +
+        state.data(props.name, props.colors).wrapperTranslateY +
         ") rotate(" +
-        state.data.wrapperRotate +
+        state.data(props.name, props.colors).wrapperRotate +
         " " +
         SIZE / 2 +
         " " +
         SIZE / 2 +
         ") scale(" +
-        state.data.wrapperScale +
+        state.data(props.name, props.colors).wrapperScale +
         ")"
       );
     },
     getGroupTransform: () => {
       return (
         "translate(" +
-        state.data.faceTranslateX +
+        state.data(props.name, props.colors).faceTranslateX +
         " " +
-        state.data.faceTranslateY +
+        state.data(props.name, props.colors).faceTranslateY +
         ") rotate(" +
-        state.data.faceRotate +
+        state.data(props.name, props.colors).faceRotate +
         " " +
         SIZE / 2 +
         " " +
@@ -41,10 +41,18 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
       );
     },
     getOpenMouthData: () => {
-      return "M15 " + (19 + state.data.mouthSpread) + "c2 1 4 1 6 0";
+      return (
+        "M15 " +
+        (19 + state.data(props.name, props.colors).mouthSpread) +
+        "c2 1 4 1 6 0"
+      );
     },
     getClosedMouthData: () => {
-      return "M13," + (19 + state.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
+      return (
+        "M13," +
+        (19 + state.data(props.name, props.colors).mouthSpread) +
+        " a1,0.75 0 0,0 10,0"
+      );
     },
   });
 
@@ -74,44 +82,51 @@ export default function AvatarBeam(props: Omit<AvatarProps, "variant">) {
         />
       </mask>
       <g mask="url(#mask__beam)">
-        <rect width={SIZE} height={SIZE} fill={state.data.backgroundColor} />
+        <rect
+          width={SIZE}
+          height={SIZE}
+          fill={state.data(props.name, props.colors).backgroundColor}
+        />
         <rect
           x="0"
           y="0"
           width={SIZE}
           height={SIZE}
           transform={state.getRectTransform()}
-          fill={state.data.wrapperColor}
-          rx={state.data.isCircle ? SIZE : SIZE / 6}
+          fill={state.data(props.name, props.colors).wrapperColor}
+          rx={state.data(props.name, props.colors).isCircle ? SIZE : SIZE / 6}
         />
         <g transform={state.getGroupTransform()}>
-          {state.data.isMouthOpen ? (
+          {state.data(props.name, props.colors).isMouthOpen ? (
             <path
               d={state.getOpenMouthData()}
-              stroke={state.data.faceColor}
+              stroke={state.data(props.name, props.colors).faceColor}
               fill="none"
               strokeLinecap="round"
             />
           ) : (
-            <path d={state.getClosedMouthData()} fill={state.data.faceColor} />
+            <path
+              d={state.getClosedMouthData()}
+              fill={state.data(props.name, props.colors).faceColor}
+            />
           )}
           <rect
-            x={14 - state.data.eyeSpread}
+            x={14 - state.data(props.name, props.colors).eyeSpread}
             y={14}
             width={1.5}
             height={2}
             rx={1}
             stroke="none"
-            fill={state.data.faceColor}
+            fill={state.data(props.name, props.colors).faceColor}
           />
           <rect
-            x={20 + state.data.eyeSpread}
+            x={20 + state.data(props.name, props.colors).eyeSpread}
             y={14}
             width={1.5}
             height={2}
             rx={1}
             stroke="none"
-            fill={state.data.faceColor}
+            fill={state.data(props.name, props.colors).faceColor}
           />
         </g>
       </g>

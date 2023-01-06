@@ -8,8 +8,8 @@ function AvatarSunset(props) {
     return props.name.replace(/\s/g, "");
   }
 
-  function sunsetColors() {
-    return generateColors(props.name, props.colors);
+  function sunsetColors(name, colors) {
+    return generateColors(name, colors);
   }
 
   function getPaintFill0() {
@@ -68,8 +68,11 @@ function AvatarSunset(props) {
           x2={SIZE / 2}
           y2={SIZE / 2}
         >
-          <stop stop-color={sunsetColors()[0]}></stop>
-          <stop offset={1} stop-color={sunsetColors()[1]}></stop>
+          <stop stop-color={sunsetColors(props.name, props.colors)[0]}></stop>
+          <stop
+            offset={1}
+            stop-color={sunsetColors(props.name, props.colors)[1]}
+          ></stop>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -79,8 +82,11 @@ function AvatarSunset(props) {
           x2={SIZE / 2}
           y2={SIZE}
         >
-          <stop stop-color={sunsetColors()[2]}></stop>
-          <stop offset={1} stop-color={sunsetColors()[3]}></stop>
+          <stop stop-color={sunsetColors(props.name, props.colors)[2]}></stop>
+          <stop
+            offset={1}
+            stop-color={sunsetColors(props.name, props.colors)[3]}
+          ></stop>
         </linearGradient>
       </defs>
     </svg>

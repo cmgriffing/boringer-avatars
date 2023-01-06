@@ -27,19 +27,23 @@
       ></rect>
     </mask>
     <g mask="url(#mask__bauhaus)">
-      <rect :width="SIZE" :height="SIZE" :fill="properties?.[0]?.color"></rect>
+      <rect
+        :width="SIZE"
+        :height="SIZE"
+        :fill="properties(name, colors)?.[0]?.color"
+      ></rect>
       <rect
         :x="(SIZE - 60) / 2"
         :y="(SIZE - 20) / 2"
         :width="SIZE"
-        :height="properties?.[1]?.isSquare ? SIZE : SIZE / 8"
-        :fill="properties?.[1]?.color"
+        :height="properties(name, colors)?.[1]?.isSquare ? SIZE : SIZE / 8"
+        :fill="properties(name, colors)?.[1]?.color"
         :transform="getSquareTransform()"
       ></rect>
       <circle
         :cx="SIZE / 2"
         :cy="SIZE / 2"
-        :fill="properties?.[2]?.color"
+        :fill="properties(name, colors)?.[2]?.color"
         :r="SIZE / 5"
         :transform="getCircleTransform()"
       ></circle>
@@ -49,7 +53,7 @@
         :x2="SIZE"
         :y2="SIZE / 2"
         :strokeWidth="2"
-        :stroke="properties?.[3]?.color"
+        :stroke="properties(name, colors)?.[3]?.color"
         :transform="getLineTransform()"
       ></line>
     </g>
@@ -66,21 +70,18 @@ export default {
 
   data: () => ({ SIZE }),
 
-  computed: {
-    properties() {
-      return generateColors(this.name, this.colors);
-    },
-  },
-
   methods: {
+    properties(name, colors) {
+      return generateColors(name, colors);
+    },
     getSquareTransform() {
       return (
         "translate(" +
-        this.properties?.[1]?.translateX +
+        this.properties(this.name, this.colors)?.[1]?.translateX +
         " " +
-        this.properties?.[1]?.translateY +
+        this.properties(this.name, this.colors)?.[1]?.translateY +
         ") rotate(" +
-        this.properties?.[1]?.rotate +
+        this.properties(this.name, this.colors)?.[1]?.rotate +
         " " +
         SIZE / 2 +
         " " +
@@ -91,20 +92,20 @@ export default {
     getCircleTransform() {
       return (
         "translate(" +
-        this.properties?.[2]?.translateX +
+        this.properties(this.name, this.colors)?.[2]?.translateX +
         " " +
-        this.properties?.[2]?.translateY +
+        this.properties(this.name, this.colors)?.[2]?.translateY +
         ")"
       );
     },
     getLineTransform() {
       return (
         "translate(" +
-        this.properties?.[3]?.translateX +
+        this.properties(this.name, this.colors)?.[3]?.translateX +
         " " +
-        this.properties?.[3]?.translateY +
+        this.properties(this.name, this.colors)?.[3]?.translateY +
         ") rotate(" +
-        this.properties?.[3]?.rotate +
+        this.properties(this.name, this.colors)?.[3]?.rotate +
         " " +
         SIZE / 2 +
         " " +

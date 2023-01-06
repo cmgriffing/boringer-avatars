@@ -8,8 +8,8 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
     get formattedName() {
       return props.name.replace(/\s/g, "");
     },
-    get sunsetColors() {
-      return generateColors(props.name, props.colors);
+    sunsetColors: (name: string, colors: string[]) => {
+      return generateColors(name, colors);
     },
     getPaintFill0: () => {
       return "url(#gradient_paint0_linear_" + state.formattedName + ")";
@@ -63,8 +63,11 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
           y2={SIZE / 2}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color={state.sunsetColors[0]} />
-          <stop offset={1} stop-color={state.sunsetColors[1]} />
+          <stop stop-color={state.sunsetColors(props.name, props.colors)[0]} />
+          <stop
+            offset={1}
+            stop-color={state.sunsetColors(props.name, props.colors)[1]}
+          />
         </linearGradient>
         <linearGradient
           id={state.getPaintId1()}
@@ -74,8 +77,11 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
           y2={SIZE}
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color={state.sunsetColors[2]} />
-          <stop offset={1} stop-color={state.sunsetColors[3]} />
+          <stop stop-color={state.sunsetColors(props.name, props.colors)[2]} />
+          <stop
+            offset={1}
+            stop-color={state.sunsetColors(props.name, props.colors)[3]}
+          />
         </linearGradient>
       </defs>
     </svg>

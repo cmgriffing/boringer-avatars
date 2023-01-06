@@ -40,27 +40,51 @@ import { generateColors, SIZE } from "./avatar-ring.utils";
       </mask>
 
       <g mask="url(#mask__ring)">
-        <path d="M0 0h90v45H0z" [attr.fill]="ringColors[0]"></path>
+        <path
+          d="M0 0h90v45H0z"
+          [attr.fill]="ringColors(name, colors)[0]"
+        ></path>
 
-        <path d="M0 45h90v45H0z" [attr.fill]="ringColors[1]"></path>
+        <path
+          d="M0 45h90v45H0z"
+          [attr.fill]="ringColors(name, colors)[1]"
+        ></path>
 
-        <path d="M83 45a38 38 0 00-76 0h76z" [attr.fill]="ringColors[2]"></path>
+        <path
+          d="M83 45a38 38 0 00-76 0h76z"
+          [attr.fill]="ringColors(name, colors)[2]"
+        ></path>
 
-        <path d="M83 45a38 38 0 01-76 0h76z" [attr.fill]="ringColors[3]"></path>
+        <path
+          d="M83 45a38 38 0 01-76 0h76z"
+          [attr.fill]="ringColors(name, colors)[3]"
+        ></path>
 
-        <path d="M77 45a32 32 0 10-64 0h64z" [attr.fill]="ringColors[4]"></path>
+        <path
+          d="M77 45a32 32 0 10-64 0h64z"
+          [attr.fill]="ringColors(name, colors)[4]"
+        ></path>
 
-        <path d="M77 45a32 32 0 11-64 0h64z" [attr.fill]="ringColors[5]"></path>
+        <path
+          d="M77 45a32 32 0 11-64 0h64z"
+          [attr.fill]="ringColors(name, colors)[5]"
+        ></path>
 
-        <path d="M71 45a26 26 0 00-52 0h52z" [attr.fill]="ringColors[6]"></path>
+        <path
+          d="M71 45a26 26 0 00-52 0h52z"
+          [attr.fill]="ringColors(name, colors)[6]"
+        ></path>
 
-        <path d="M71 45a26 26 0 01-52 0h52z" [attr.fill]="ringColors[7]"></path>
+        <path
+          d="M71 45a26 26 0 01-52 0h52z"
+          [attr.fill]="ringColors(name, colors)[7]"
+        ></path>
 
         <circle
           [attr.cx]="45"
           [attr.cy]="45"
           [attr.r]="23"
-          [attr.fill]="ringColors[8]"
+          [attr.fill]="ringColors(name, colors)[8]"
         ></circle>
       </g>
     </svg>
@@ -69,14 +93,14 @@ import { generateColors, SIZE } from "./avatar-ring.utils";
 export class AvatarRing {
   SIZE = SIZE;
 
-  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
-  @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
   @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
   @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
+  @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
+  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
 
-  get ringColors() {
-    return generateColors(this.colors, this.name);
+  ringColors(name, colors) {
+    return generateColors(colors, name);
   }
 }
 

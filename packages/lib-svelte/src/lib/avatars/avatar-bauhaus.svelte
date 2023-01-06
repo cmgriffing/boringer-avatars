@@ -7,14 +7,17 @@
   export let title;
   export let square;
 
+  function properties(name, colors) {
+    return generateColors(name, colors);
+  }
   function getSquareTransform() {
     return (
       "translate(" +
-      properties?.()?.[1]?.translateX +
+      properties(name, colors)?.[1]?.translateX +
       " " +
-      properties?.()?.[1]?.translateY +
+      properties(name, colors)?.[1]?.translateY +
       ") rotate(" +
-      properties?.()?.[1]?.rotate +
+      properties(name, colors)?.[1]?.rotate +
       " " +
       SIZE / 2 +
       " " +
@@ -25,20 +28,20 @@
   function getCircleTransform() {
     return (
       "translate(" +
-      properties?.()?.[2]?.translateX +
+      properties(name, colors)?.[2]?.translateX +
       " " +
-      properties?.()?.[2]?.translateY +
+      properties(name, colors)?.[2]?.translateY +
       ")"
     );
   }
   function getLineTransform() {
     return (
       "translate(" +
-      properties?.()?.[3]?.translateX +
+      properties(name, colors)?.[3]?.translateX +
       " " +
-      properties?.()?.[3]?.translateY +
+      properties(name, colors)?.[3]?.translateY +
       ") rotate(" +
-      properties?.()?.[3]?.rotate +
+      properties(name, colors)?.[3]?.rotate +
       " " +
       SIZE / 2 +
       " " +
@@ -46,9 +49,6 @@
       ")"
     );
   }
-  $: properties = () => {
-    return generateColors(name, colors);
-  };
 </script>
 
 <svg
@@ -78,19 +78,23 @@
     />
   </mask>
   <g mask="url(#mask__bauhaus)">
-    <rect width={SIZE} height={SIZE} fill={properties?.()?.[0]?.color} />
+    <rect
+      width={SIZE}
+      height={SIZE}
+      fill={properties(name, colors)?.[0]?.color}
+    />
     <rect
       x={(SIZE - 60) / 2}
       y={(SIZE - 20) / 2}
       width={SIZE}
-      height={properties?.()?.[1]?.isSquare ? SIZE : SIZE / 8}
-      fill={properties?.()?.[1]?.color}
+      height={properties(name, colors)?.[1]?.isSquare ? SIZE : SIZE / 8}
+      fill={properties(name, colors)?.[1]?.color}
       transform={getSquareTransform()}
     />
     <circle
       cx={SIZE / 2}
       cy={SIZE / 2}
-      fill={properties?.()?.[2]?.color}
+      fill={properties(name, colors)?.[2]?.color}
       r={SIZE / 5}
       transform={getCircleTransform()}
     />
@@ -100,7 +104,7 @@
       x2={SIZE}
       y2={SIZE / 2}
       strokeWidth={2}
-      stroke={properties?.()?.[3]?.color}
+      stroke={properties(name, colors)?.[3]?.color}
       transform={getLineTransform()}
     />
   </g>

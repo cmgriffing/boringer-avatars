@@ -2,34 +2,34 @@
 
 import { SIZE, generateData } from "./avatar-beam.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
-export const data = function data(props, state) {
-  return generateData(props.name, props.colors);
+export const data = function data(props, state, name, colors) {
+  return generateData(name, colors);
 };
 export const getRectTransform = function getRectTransform(props, state) {
   return (
     "translate(" +
-    data(props, state).wrapperTranslateX +
+    data(props, state, props.name, props.colors).wrapperTranslateX +
     " " +
-    data(props, state).wrapperTranslateY +
+    data(props, state, props.name, props.colors).wrapperTranslateY +
     ") rotate(" +
-    data(props, state).wrapperRotate +
+    data(props, state, props.name, props.colors).wrapperRotate +
     " " +
     SIZE / 2 +
     " " +
     SIZE / 2 +
     ") scale(" +
-    data(props, state).wrapperScale +
+    data(props, state, props.name, props.colors).wrapperScale +
     ")"
   );
 };
 export const getGroupTransform = function getGroupTransform(props, state) {
   return (
     "translate(" +
-    data(props, state).faceTranslateX +
+    data(props, state, props.name, props.colors).faceTranslateX +
     " " +
-    data(props, state).faceTranslateY +
+    data(props, state, props.name, props.colors).faceTranslateY +
     ") rotate(" +
-    data(props, state).faceRotate +
+    data(props, state, props.name, props.colors).faceRotate +
     " " +
     SIZE / 2 +
     " " +
@@ -38,10 +38,18 @@ export const getGroupTransform = function getGroupTransform(props, state) {
   );
 };
 export const getOpenMouthData = function getOpenMouthData(props, state) {
-  return "M15 " + (19 + data(props, state).mouthSpread) + "c2 1 4 1 6 0";
+  return (
+    "M15 " +
+    (19 + data(props, state, props.name, props.colors).mouthSpread) +
+    "c2 1 4 1 6 0"
+  );
 };
 export const getClosedMouthData = function getClosedMouthData(props, state) {
-  return "M13," + (19 + data(props, state).mouthSpread) + " a1,0.75 0 0,0 10,0";
+  return (
+    "M13," +
+    (19 + data(props, state, props.name, props.colors).mouthSpread) +
+    " a1,0.75 0 0,0 10,0"
+  );
 };
 export const AvatarBeam = component$((props) => {
   const state = {};
@@ -74,7 +82,7 @@ export const AvatarBeam = component$((props) => {
         <rect
           width={SIZE}
           height={SIZE}
-          fill={data(props, state).backgroundColor}
+          fill={data(props, state, props.name, props.colors).backgroundColor}
         ></rect>
         <rect
           x="0"
@@ -82,40 +90,44 @@ export const AvatarBeam = component$((props) => {
           width={SIZE}
           height={SIZE}
           transform={getRectTransform(props, state)}
-          fill={data(props, state).wrapperColor}
-          rx={data(props, state).isCircle ? SIZE : SIZE / 6}
+          fill={data(props, state, props.name, props.colors).wrapperColor}
+          rx={
+            data(props, state, props.name, props.colors).isCircle
+              ? SIZE
+              : SIZE / 6
+          }
         ></rect>
         <g transform={getGroupTransform(props, state)}>
-          {data(props, state).isMouthOpen ? (
+          {data(props, state, props.name, props.colors).isMouthOpen ? (
             <path
               fill="none"
               strokeLinecap="round"
               d={getOpenMouthData(props, state)}
-              stroke={data(props, state).faceColor}
+              stroke={data(props, state, props.name, props.colors).faceColor}
             ></path>
           ) : (
             <path
               d={getClosedMouthData(props, state)}
-              fill={data(props, state).faceColor}
+              fill={data(props, state, props.name, props.colors).faceColor}
             ></path>
           )}
           <rect
             stroke="none"
-            x={14 - data(props, state).eyeSpread}
+            x={14 - data(props, state, props.name, props.colors).eyeSpread}
             y={14}
             width={1.5}
             height={2}
             rx={1}
-            fill={data(props, state).faceColor}
+            fill={data(props, state, props.name, props.colors).faceColor}
           ></rect>
           <rect
             stroke="none"
-            x={20 + data(props, state).eyeSpread}
+            x={20 + data(props, state, props.name, props.colors).eyeSpread}
             y={14}
             width={1.5}
             height={2}
             rx={1}
-            fill={data(props, state).faceColor}
+            fill={data(props, state, props.name, props.colors).faceColor}
           ></rect>
         </g>
       </g>

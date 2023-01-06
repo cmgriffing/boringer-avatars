@@ -7,31 +7,34 @@
   export let title;
   export let square;
 
+  function data(name, colors) {
+    return generateData(name, colors);
+  }
   function getRectTransform() {
     return (
       "translate(" +
-      data().wrapperTranslateX +
+      data(name, colors).wrapperTranslateX +
       " " +
-      data().wrapperTranslateY +
+      data(name, colors).wrapperTranslateY +
       ") rotate(" +
-      data().wrapperRotate +
+      data(name, colors).wrapperRotate +
       " " +
       SIZE / 2 +
       " " +
       SIZE / 2 +
       ") scale(" +
-      data().wrapperScale +
+      data(name, colors).wrapperScale +
       ")"
     );
   }
   function getGroupTransform() {
     return (
       "translate(" +
-      data().faceTranslateX +
+      data(name, colors).faceTranslateX +
       " " +
-      data().faceTranslateY +
+      data(name, colors).faceTranslateY +
       ") rotate(" +
-      data().faceRotate +
+      data(name, colors).faceRotate +
       " " +
       SIZE / 2 +
       " " +
@@ -40,14 +43,13 @@
     );
   }
   function getOpenMouthData() {
-    return "M15 " + (19 + data().mouthSpread) + "c2 1 4 1 6 0";
+    return "M15 " + (19 + data(name, colors).mouthSpread) + "c2 1 4 1 6 0";
   }
   function getClosedMouthData() {
-    return "M13," + (19 + data().mouthSpread) + " a1,0.75 0 0,0 10,0";
+    return (
+      "M13," + (19 + data(name, colors).mouthSpread) + " a1,0.75 0 0,0 10,0"
+    );
   }
-  $: data = () => {
-    return generateData(name, colors);
-  };
 </script>
 
 <svg
@@ -77,44 +79,48 @@
     />
   </mask>
   <g mask="url(#mask__beam)">
-    <rect width={SIZE} height={SIZE} fill={data().backgroundColor} />
+    <rect
+      width={SIZE}
+      height={SIZE}
+      fill={data(name, colors).backgroundColor}
+    />
     <rect
       x="0"
       y="0"
       width={SIZE}
       height={SIZE}
       transform={getRectTransform()}
-      fill={data().wrapperColor}
-      rx={data().isCircle ? SIZE : SIZE / 6}
+      fill={data(name, colors).wrapperColor}
+      rx={data(name, colors).isCircle ? SIZE : SIZE / 6}
     />
     <g transform={getGroupTransform()}>
-      {#if data().isMouthOpen}
+      {#if data(name, colors).isMouthOpen}
         <path
           fill="none"
           strokeLinecap="round"
           d={getOpenMouthData()}
-          stroke={data().faceColor}
+          stroke={data(name, colors).faceColor}
         />
       {:else}
-        <path d={getClosedMouthData()} fill={data().faceColor} />
+        <path d={getClosedMouthData()} fill={data(name, colors).faceColor} />
       {/if}
       <rect
         stroke="none"
-        x={14 - data().eyeSpread}
+        x={14 - data(name, colors).eyeSpread}
         y={14}
         width={1.5}
         height={2}
         rx={1}
-        fill={data().faceColor}
+        fill={data(name, colors).faceColor}
       />
       <rect
         stroke="none"
-        x={20 + data().eyeSpread}
+        x={20 + data(name, colors).eyeSpread}
         y={14}
         width={1.5}
         height={2}
         rx={1}
-        fill={data().faceColor}
+        fill={data(name, colors).faceColor}
       />
     </g>
   </g>

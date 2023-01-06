@@ -164,13 +164,13 @@ try {
 
     fs.copySync(compiledDir, srcDir);
 
-    // execSync("pnpm install", {
-    //   cwd: outputDir,
-    // });
+    execSync("pnpm install", {
+      cwd: outputDir,
+    });
 
-    // execSync("pnpm build", {
-    //   cwd: outputDir,
-    // });
+    execSync("pnpm build", {
+      cwd: outputDir,
+    });
   });
 } catch (e: any) {
   if (e?.stdout) {

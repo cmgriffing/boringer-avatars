@@ -39,8 +39,8 @@
         :x2="SIZE / 2"
         :y2="SIZE / 2"
       >
-        <stop :stop-color="sunsetColors[0]"></stop>
-        <stop :offset="1" :stop-color="sunsetColors[1]"></stop>
+        <stop :stop-color="sunsetColors(name, colors)[0]"></stop>
+        <stop :offset="1" :stop-color="sunsetColors(name, colors)[1]"></stop>
       </linearGradient>
       <linearGradient
         gradientUnits="userSpaceOnUse"
@@ -50,8 +50,8 @@
         :x2="SIZE / 2"
         :y2="SIZE"
       >
-        <stop :stop-color="sunsetColors[2]"></stop>
-        <stop :offset="1" :stop-color="sunsetColors[3]"></stop>
+        <stop :stop-color="sunsetColors(name, colors)[2]"></stop>
+        <stop :offset="1" :stop-color="sunsetColors(name, colors)[3]"></stop>
       </linearGradient>
     </defs>
   </svg>
@@ -66,7 +66,7 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
 export default {
   name: "avatar-sunset",
 
-  props: ["name", "colors", "size", "title", "square"],
+  props: ["name", "size", "title", "square", "colors"],
 
   data: () => ({ SIZE }),
 
@@ -74,12 +74,12 @@ export default {
     formattedName() {
       return this.name.replace(/\s/g, "");
     },
-    sunsetColors() {
-      return generateColors(this.name, this.colors);
-    },
   },
 
   methods: {
+    sunsetColors(name, colors) {
+      return generateColors(name, colors);
+    },
     getPaintFill0() {
       return "url(#gradient_paint0_linear_" + this.formattedName + ")";
     },

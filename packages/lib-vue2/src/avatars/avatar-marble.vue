@@ -27,11 +27,15 @@
       ></rect>
     </mask>
     <g mask="url(#mask__marble)">
-      <rect :width="SIZE" :height="SIZE" :fill="properties[0].color"></rect>
+      <rect
+        :width="SIZE"
+        :height="SIZE"
+        :fill="properties(name, colors)[0].color"
+      ></rect>
       <path
         filter="url(#prefix__filter0_f)"
         d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
-        :fill="properties[1].color"
+        :fill="properties(name, colors)[1].color"
         :transform="getPathOneTransform()"
       ></path>
       <path
@@ -40,7 +44,7 @@
         :style="{
           mixBlendMode: 'overlay',
         }"
-        :fill="properties[2].color"
+        :fill="properties(name, colors)[2].color"
         :transform="getPathTwoTransform()"
       ></path>
     </g>
@@ -78,44 +82,41 @@ export default {
 
   data: () => ({ SIZE }),
 
-  computed: {
-    properties() {
-      return generateColors(this.name, this.colors);
-    },
-  },
-
   methods: {
+    properties(name, colors) {
+      return generateColors(name, colors);
+    },
     getPathOneTransform() {
       return (
         "translate(" +
-        this.properties[1].translateX +
+        this.properties(this.name, this.colors)[1].translateX +
         " " +
-        this.properties[1].translateY +
+        this.properties(this.name, this.colors)[1].translateY +
         ") rotate(" +
-        this.properties[1].rotate +
+        this.properties(this.name, this.colors)[1].rotate +
         " " +
         SIZE / 2 +
         " " +
         SIZE / 2 +
         ") scale(" +
-        this.properties[2].scale +
+        this.properties(this.name, this.colors)[2].scale +
         ")"
       );
     },
     getPathTwoTransform() {
       return (
         "translate(" +
-        this.properties[2].translateX +
+        this.properties(this.name, this.colors)[2].translateX +
         " " +
-        this.properties[2].translateY +
+        this.properties(this.name, this.colors)[2].translateY +
         ") rotate(" +
-        this.properties[2].rotate +
+        this.properties(this.name, this.colors)[2].rotate +
         " " +
         SIZE / 2 +
         " " +
         SIZE / 2 +
         ") scale(" +
-        this.properties[2].scale +
+        this.properties(this.name, this.colors)[2].scale +
         ")"
       );
     },

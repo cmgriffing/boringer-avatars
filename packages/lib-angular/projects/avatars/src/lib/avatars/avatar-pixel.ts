@@ -44,105 +44,105 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
         <rect
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[0]"
+          [attr.fill]="pixelColors(name, colors)[0]"
         ></rect>
 
         <rect
           [attr.x]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[1]"
+          [attr.fill]="pixelColors(name, colors)[1]"
         ></rect>
 
         <rect
           [attr.x]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[2]"
+          [attr.fill]="pixelColors(name, colors)[2]"
         ></rect>
 
         <rect
           [attr.x]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[3]"
+          [attr.fill]="pixelColors(name, colors)[3]"
         ></rect>
 
         <rect
           [attr.x]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[4]"
+          [attr.fill]="pixelColors(name, colors)[4]"
         ></rect>
 
         <rect
           [attr.x]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[5]"
+          [attr.fill]="pixelColors(name, colors)[5]"
         ></rect>
 
         <rect
           [attr.x]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[6]"
+          [attr.fill]="pixelColors(name, colors)[6]"
         ></rect>
 
         <rect
           [attr.x]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[7]"
+          [attr.fill]="pixelColors(name, colors)[7]"
         ></rect>
 
         <rect
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[8]"
+          [attr.fill]="pixelColors(name, colors)[8]"
         ></rect>
 
         <rect
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[9]"
+          [attr.fill]="pixelColors(name, colors)[9]"
         ></rect>
 
         <rect
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[10]"
+          [attr.fill]="pixelColors(name, colors)[10]"
         ></rect>
 
         <rect
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[11]"
+          [attr.fill]="pixelColors(name, colors)[11]"
         ></rect>
 
         <rect
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[12]"
+          [attr.fill]="pixelColors(name, colors)[12]"
         ></rect>
 
         <rect
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[13]"
+          [attr.fill]="pixelColors(name, colors)[13]"
         ></rect>
 
         <rect
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[14]"
+          [attr.fill]="pixelColors(name, colors)[14]"
         ></rect>
 
         <rect
@@ -150,7 +150,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[15]"
+          [attr.fill]="pixelColors(name, colors)[15]"
         ></rect>
 
         <rect
@@ -158,7 +158,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[16]"
+          [attr.fill]="pixelColors(name, colors)[16]"
         ></rect>
 
         <rect
@@ -166,7 +166,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[17]"
+          [attr.fill]="pixelColors(name, colors)[17]"
         ></rect>
 
         <rect
@@ -174,7 +174,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[18]"
+          [attr.fill]="pixelColors(name, colors)[18]"
         ></rect>
 
         <rect
@@ -182,7 +182,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[19]"
+          [attr.fill]="pixelColors(name, colors)[19]"
         ></rect>
 
         <rect
@@ -190,7 +190,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[20]"
+          [attr.fill]="pixelColors(name, colors)[20]"
         ></rect>
 
         <rect
@@ -198,7 +198,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[21]"
+          [attr.fill]="pixelColors(name, colors)[21]"
         ></rect>
 
         <rect
@@ -206,7 +206,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[22]"
+          [attr.fill]="pixelColors(name, colors)[22]"
         ></rect>
 
         <rect
@@ -214,7 +214,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[23]"
+          [attr.fill]="pixelColors(name, colors)[23]"
         ></rect>
 
         <rect
@@ -222,7 +222,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[24]"
+          [attr.fill]="pixelColors(name, colors)[24]"
         ></rect>
 
         <rect
@@ -230,7 +230,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[25]"
+          [attr.fill]="pixelColors(name, colors)[25]"
         ></rect>
 
         <rect
@@ -238,7 +238,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[26]"
+          [attr.fill]="pixelColors(name, colors)[26]"
         ></rect>
 
         <rect
@@ -246,7 +246,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[27]"
+          [attr.fill]="pixelColors(name, colors)[27]"
         ></rect>
 
         <rect
@@ -254,7 +254,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[28]"
+          [attr.fill]="pixelColors(name, colors)[28]"
         ></rect>
 
         <rect
@@ -262,7 +262,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[29]"
+          [attr.fill]="pixelColors(name, colors)[29]"
         ></rect>
 
         <rect
@@ -270,7 +270,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[30]"
+          [attr.fill]="pixelColors(name, colors)[30]"
         ></rect>
 
         <rect
@@ -278,7 +278,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[31]"
+          [attr.fill]="pixelColors(name, colors)[31]"
         ></rect>
 
         <rect
@@ -286,7 +286,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[32]"
+          [attr.fill]="pixelColors(name, colors)[32]"
         ></rect>
 
         <rect
@@ -294,7 +294,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[33]"
+          [attr.fill]="pixelColors(name, colors)[33]"
         ></rect>
 
         <rect
@@ -302,7 +302,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[34]"
+          [attr.fill]="pixelColors(name, colors)[34]"
         ></rect>
 
         <rect
@@ -310,7 +310,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[35]"
+          [attr.fill]="pixelColors(name, colors)[35]"
         ></rect>
 
         <rect
@@ -318,7 +318,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[36]"
+          [attr.fill]="pixelColors(name, colors)[36]"
         ></rect>
 
         <rect
@@ -326,7 +326,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[37]"
+          [attr.fill]="pixelColors(name, colors)[37]"
         ></rect>
 
         <rect
@@ -334,7 +334,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[38]"
+          [attr.fill]="pixelColors(name, colors)[38]"
         ></rect>
 
         <rect
@@ -342,7 +342,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[39]"
+          [attr.fill]="pixelColors(name, colors)[39]"
         ></rect>
 
         <rect
@@ -350,7 +350,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[40]"
+          [attr.fill]="pixelColors(name, colors)[40]"
         ></rect>
 
         <rect
@@ -358,7 +358,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[41]"
+          [attr.fill]="pixelColors(name, colors)[41]"
         ></rect>
 
         <rect
@@ -366,7 +366,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[42]"
+          [attr.fill]="pixelColors(name, colors)[42]"
         ></rect>
 
         <rect
@@ -374,7 +374,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[43]"
+          [attr.fill]="pixelColors(name, colors)[43]"
         ></rect>
 
         <rect
@@ -382,7 +382,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[44]"
+          [attr.fill]="pixelColors(name, colors)[44]"
         ></rect>
 
         <rect
@@ -390,7 +390,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[45]"
+          [attr.fill]="pixelColors(name, colors)[45]"
         ></rect>
 
         <rect
@@ -398,7 +398,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[46]"
+          [attr.fill]="pixelColors(name, colors)[46]"
         ></rect>
 
         <rect
@@ -406,7 +406,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[47]"
+          [attr.fill]="pixelColors(name, colors)[47]"
         ></rect>
 
         <rect
@@ -414,7 +414,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[48]"
+          [attr.fill]="pixelColors(name, colors)[48]"
         ></rect>
 
         <rect
@@ -422,7 +422,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[49]"
+          [attr.fill]="pixelColors(name, colors)[49]"
         ></rect>
 
         <rect
@@ -430,7 +430,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[50]"
+          [attr.fill]="pixelColors(name, colors)[50]"
         ></rect>
 
         <rect
@@ -438,7 +438,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[51]"
+          [attr.fill]="pixelColors(name, colors)[51]"
         ></rect>
 
         <rect
@@ -446,7 +446,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[52]"
+          [attr.fill]="pixelColors(name, colors)[52]"
         ></rect>
 
         <rect
@@ -454,7 +454,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[53]"
+          [attr.fill]="pixelColors(name, colors)[53]"
         ></rect>
 
         <rect
@@ -462,7 +462,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[54]"
+          [attr.fill]="pixelColors(name, colors)[54]"
         ></rect>
 
         <rect
@@ -470,7 +470,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[55]"
+          [attr.fill]="pixelColors(name, colors)[55]"
         ></rect>
 
         <rect
@@ -478,7 +478,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[56]"
+          [attr.fill]="pixelColors(name, colors)[56]"
         ></rect>
 
         <rect
@@ -486,7 +486,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="10"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[57]"
+          [attr.fill]="pixelColors(name, colors)[57]"
         ></rect>
 
         <rect
@@ -494,7 +494,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="20"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[58]"
+          [attr.fill]="pixelColors(name, colors)[58]"
         ></rect>
 
         <rect
@@ -502,7 +502,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="30"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[59]"
+          [attr.fill]="pixelColors(name, colors)[59]"
         ></rect>
 
         <rect
@@ -510,7 +510,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="40"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[60]"
+          [attr.fill]="pixelColors(name, colors)[60]"
         ></rect>
 
         <rect
@@ -518,7 +518,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="50"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[61]"
+          [attr.fill]="pixelColors(name, colors)[61]"
         ></rect>
 
         <rect
@@ -526,7 +526,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="60"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[62]"
+          [attr.fill]="pixelColors(name, colors)[62]"
         ></rect>
 
         <rect
@@ -534,7 +534,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
           [attr.y]="70"
           [attr.width]="10"
           [attr.height]="10"
-          [attr.fill]="pixelColors[63]"
+          [attr.fill]="pixelColors(name, colors)[63]"
         ></rect>
       </g>
     </svg>
@@ -543,14 +543,14 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
 export class AvatarPixel {
   SIZE = SIZE;
 
-  @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
-  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
   @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
   @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
+  @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
+  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
 
-  get pixelColors() {
-    return generateColors(this.name, this.colors);
+  pixelColors(name, colors) {
+    return generateColors(name, colors);
   }
 }
 

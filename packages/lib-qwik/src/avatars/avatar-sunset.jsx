@@ -5,8 +5,8 @@ import { Fragment, component$, h } from "@builder.io/qwik";
 export const formattedName = function formattedName(props, state) {
   return props.name.replace(/\s/g, "");
 };
-export const sunsetColors = function sunsetColors(props, state) {
-  return generateColors(props.name, props.colors);
+export const sunsetColors = function sunsetColors(props, state, name, colors) {
+  return generateColors(name, colors);
 };
 export const getPaintFill0 = function getPaintFill0(props, state) {
   return "url(#gradient_paint0_linear_" + formattedName(props, state) + ")";
@@ -60,8 +60,13 @@ export const AvatarSunset = component$((props) => {
           x2={SIZE / 2}
           y2={SIZE / 2}
         >
-          <stop stop-color={sunsetColors(props, state)[0]}></stop>
-          <stop offset={1} stop-color={sunsetColors(props, state)[1]}></stop>
+          <stop
+            stop-color={sunsetColors(props, state, props.name, props.colors)[0]}
+          ></stop>
+          <stop
+            offset={1}
+            stop-color={sunsetColors(props, state, props.name, props.colors)[1]}
+          ></stop>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -71,8 +76,13 @@ export const AvatarSunset = component$((props) => {
           x2={SIZE / 2}
           y2={SIZE}
         >
-          <stop stop-color={sunsetColors(props, state)[2]}></stop>
-          <stop offset={1} stop-color={sunsetColors(props, state)[3]}></stop>
+          <stop
+            stop-color={sunsetColors(props, state, props.name, props.colors)[2]}
+          ></stop>
+          <stop
+            offset={1}
+            stop-color={sunsetColors(props, state, props.name, props.colors)[3]}
+          ></stop>
         </linearGradient>
       </defs>
     </svg>

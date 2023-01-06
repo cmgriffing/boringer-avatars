@@ -2,17 +2,17 @@
 
 import { SIZE, generateColors } from "./avatar-bauhaus.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
-export const properties = function properties(props, state) {
-  return generateColors(props.name, props.colors);
+export const properties = function properties(props, state, name, colors) {
+  return generateColors(name, colors);
 };
 export const getSquareTransform = function getSquareTransform(props, state) {
   return (
     "translate(" +
-    properties(props, state)?.[1]?.translateX +
+    properties(props, state, props.name, props.colors)?.[1]?.translateX +
     " " +
-    properties(props, state)?.[1]?.translateY +
+    properties(props, state, props.name, props.colors)?.[1]?.translateY +
     ") rotate(" +
-    properties(props, state)?.[1]?.rotate +
+    properties(props, state, props.name, props.colors)?.[1]?.rotate +
     " " +
     SIZE / 2 +
     " " +
@@ -23,20 +23,20 @@ export const getSquareTransform = function getSquareTransform(props, state) {
 export const getCircleTransform = function getCircleTransform(props, state) {
   return (
     "translate(" +
-    properties(props, state)?.[2]?.translateX +
+    properties(props, state, props.name, props.colors)?.[2]?.translateX +
     " " +
-    properties(props, state)?.[2]?.translateY +
+    properties(props, state, props.name, props.colors)?.[2]?.translateY +
     ")"
   );
 };
 export const getLineTransform = function getLineTransform(props, state) {
   return (
     "translate(" +
-    properties(props, state)?.[3]?.translateX +
+    properties(props, state, props.name, props.colors)?.[3]?.translateX +
     " " +
-    properties(props, state)?.[3]?.translateY +
+    properties(props, state, props.name, props.colors)?.[3]?.translateY +
     ") rotate(" +
-    properties(props, state)?.[3]?.rotate +
+    properties(props, state, props.name, props.colors)?.[3]?.rotate +
     " " +
     SIZE / 2 +
     " " +
@@ -75,20 +75,24 @@ export const AvatarBauhaus = component$((props) => {
         <rect
           width={SIZE}
           height={SIZE}
-          fill={properties(props, state)?.[0]?.color}
+          fill={properties(props, state, props.name, props.colors)?.[0]?.color}
         ></rect>
         <rect
           x={(SIZE - 60) / 2}
           y={(SIZE - 20) / 2}
           width={SIZE}
-          height={properties(props, state)?.[1]?.isSquare ? SIZE : SIZE / 8}
-          fill={properties(props, state)?.[1]?.color}
+          height={
+            properties(props, state, props.name, props.colors)?.[1]?.isSquare
+              ? SIZE
+              : SIZE / 8
+          }
+          fill={properties(props, state, props.name, props.colors)?.[1]?.color}
           transform={getSquareTransform(props, state)}
         ></rect>
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          fill={properties(props, state)?.[2]?.color}
+          fill={properties(props, state, props.name, props.colors)?.[2]?.color}
           r={SIZE / 5}
           transform={getCircleTransform(props, state)}
         ></circle>
@@ -98,7 +102,9 @@ export const AvatarBauhaus = component$((props) => {
           x2={SIZE}
           y2={SIZE / 2}
           strokeWidth={2}
-          stroke={properties(props, state)?.[3]?.color}
+          stroke={
+            properties(props, state, props.name, props.colors)?.[3]?.color
+          }
           transform={getLineTransform(props, state)}
         ></line>
       </g>

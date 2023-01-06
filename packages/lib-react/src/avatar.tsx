@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
 import type { AvatarProps } from "./avatar.utils";
 import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
@@ -10,120 +9,79 @@ import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
 export default function Avatar(props: Partial<AvatarProps>) {
-  const [checkedVariant, setCheckedVariant] = useState(
-    () => defaultAvatarProps.variant || "beam"
-  );
-
-  const [size_, setSize_] = useState(() => defaultAvatarProps.size || 40);
-
-  const [colors_, setColors_] = useState(() => defaultAvatarProps.colors || []);
-
-  const [square_, setSquare_] = useState(
-    () => defaultAvatarProps.square || false
-  );
-
-  const [name_, setName_] = useState(() => defaultAvatarProps.name || "");
-
-  const [title_, setTitle_] = useState(() => defaultAvatarProps.title || false);
-
-  useEffect(() => {
-    setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setSize_(props.size || defaultAvatarProps.size || 40);
-    setColors_(props.colors || defaultAvatarProps.colors || []);
-    setSquare_(props.square || defaultAvatarProps.square || false);
-    setName_(props.name || defaultAvatarProps.name || "");
-    setTitle_(props.title || defaultAvatarProps.title || false);
-  }, []);
-
-  useEffect(() => {
-    setCheckedVariant(coerceVariant(props.variant) || "beam");
-    setSize_(props.size || defaultAvatarProps.size || 40);
-    setColors_(props.colors || defaultAvatarProps.colors || []);
-    setSquare_(props.square || defaultAvatarProps.square || false);
-    setName_(props.name || defaultAvatarProps.name || "");
-    setTitle_(props.title || defaultAvatarProps.title || false);
-  }, [
-    props.variant,
-    props.size,
-    props.colors,
-    props.square,
-    props.name,
-    props.title,
-  ]);
-
   return (
-    <>
-      {checkedVariant === `bauhaus` ? (
+    <div>
+      {props.variant === `bauhaus` ? (
         <>
           <AvatarBauhaus
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
 
-      {checkedVariant === `beam` ? (
+      {props.variant === `beam` ? (
         <>
           <AvatarBeam
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
 
-      {checkedVariant === `marble` ? (
+      {props.variant === `marble` ? (
         <>
           <AvatarMarble
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
 
-      {checkedVariant === `pixel` ? (
+      {props.variant === `pixel` ? (
         <>
           <AvatarPixel
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
 
-      {checkedVariant === `ring` ? (
+      {props.variant === `ring` ? (
         <>
           <AvatarRing
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
 
-      {checkedVariant === `sunset` ? (
+      {props.variant === `sunset` ? (
         <>
           <AvatarSunset
-            colors={colors_}
-            name={name_}
-            square={square_}
-            title={title_}
-            size={size_}
+            colors={props.colors || defaultAvatarProps.colors}
+            name={props.name || defaultAvatarProps.name}
+            square={props.square || defaultAvatarProps.square}
+            title={props.title || defaultAvatarProps.title}
+            size={props.size || defaultAvatarProps.size}
           />
         </>
       ) : null}
-    </>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Component, createSignal } from "solid-js";
+import { Component, createSignal, For } from "solid-js";
 import { Avatar, Variant } from "@boringer-avatars/solid";
 import {
   VariantSelector,
@@ -26,8 +26,6 @@ const App: Component = () => {
 
   return (
     <>
-      <div>{variant}</div>
-      <div>{variant()}</div>
       <div class={`content ${theme}`}>
         <div class="row">
           <div class="row">
@@ -76,19 +74,22 @@ const App: Component = () => {
           </div>
         </div>
         <div class="avatar-list">
-          {exampleNames.map((name: string) => (
-            <div class="avatar-list-item">
-              <Avatar
-                title={false}
-                size={size()}
-                variant={variant}
-                name={name}
-                square={isSquare()}
-                colors={colors}
-              />
-              <div class="avatar-list-item-name">{name}</div>
-            </div>
-          ))}
+          <For each={exampleNames}>
+            {(name) => (
+              <div class="avatar-list-item">
+                <Avatar
+                  test={variant() + "foo"}
+                  title={false}
+                  size={size()}
+                  variant={variant()}
+                  name={name}
+                  square={isSquare()}
+                  colors={colors()}
+                />
+                <div class="avatar-list-item-name">{name}</div>
+              </div>
+            )}
+          </For>
         </div>
       </div>
     </>

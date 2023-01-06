@@ -2,40 +2,40 @@
 
 import { SIZE, generateColors } from "./avatar-marble.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
-export const properties = function properties(props, state) {
-  return generateColors(props.name, props.colors);
+export const properties = function properties(props, state, name, colors) {
+  return generateColors(name, colors);
 };
 export const getPathOneTransform = function getPathOneTransform(props, state) {
   return (
     "translate(" +
-    properties(props, state)[1].translateX +
+    properties(props, state, props.name, props.colors)[1].translateX +
     " " +
-    properties(props, state)[1].translateY +
+    properties(props, state, props.name, props.colors)[1].translateY +
     ") rotate(" +
-    properties(props, state)[1].rotate +
+    properties(props, state, props.name, props.colors)[1].rotate +
     " " +
     SIZE / 2 +
     " " +
     SIZE / 2 +
     ") scale(" +
-    properties(props, state)[2].scale +
+    properties(props, state, props.name, props.colors)[2].scale +
     ")"
   );
 };
 export const getPathTwoTransform = function getPathTwoTransform(props, state) {
   return (
     "translate(" +
-    properties(props, state)[2].translateX +
+    properties(props, state, props.name, props.colors)[2].translateX +
     " " +
-    properties(props, state)[2].translateY +
+    properties(props, state, props.name, props.colors)[2].translateY +
     ") rotate(" +
-    properties(props, state)[2].rotate +
+    properties(props, state, props.name, props.colors)[2].rotate +
     " " +
     SIZE / 2 +
     " " +
     SIZE / 2 +
     ") scale(" +
-    properties(props, state)[2].scale +
+    properties(props, state, props.name, props.colors)[2].scale +
     ")"
   );
 };
@@ -70,12 +70,12 @@ export const AvatarMarble = component$((props) => {
         <rect
           width={SIZE}
           height={SIZE}
-          fill={properties(props, state)[0].color}
+          fill={properties(props, state, props.name, props.colors)[0].color}
         ></rect>
         <path
           filter="url(#prefix__filter0_f)"
           d="M32.414 59.35L50.376 70.5H72.5v-71H33.728L26.5 13.381l19.057 27.08L32.414 59.35z"
-          fill={properties(props, state)[1].color}
+          fill={properties(props, state, props.name, props.colors)[1].color}
           transform={getPathOneTransform(props, state)}
         ></path>
         <path
@@ -84,7 +84,7 @@ export const AvatarMarble = component$((props) => {
           style={{
             mixBlendMode: "overlay",
           }}
-          fill={properties(props, state)[2].color}
+          fill={properties(props, state, props.name, props.colors)[2].color}
           transform={getPathTwoTransform(props, state)}
         ></path>
       </g>

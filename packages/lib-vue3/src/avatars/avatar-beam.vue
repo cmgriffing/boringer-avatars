@@ -27,47 +27,54 @@
       ></rect>
     </mask>
     <g mask="url(#mask__beam)">
-      <rect :width="SIZE" :height="SIZE" :fill="data.backgroundColor"></rect>
+      <rect
+        :width="SIZE"
+        :height="SIZE"
+        :fill="data(name, colors).backgroundColor"
+      ></rect>
       <rect
         x="0"
         y="0"
         :width="SIZE"
         :height="SIZE"
         :transform="getRectTransform()"
-        :fill="data.wrapperColor"
-        :rx="data.isCircle ? SIZE : SIZE / 6"
+        :fill="data(name, colors).wrapperColor"
+        :rx="data(name, colors).isCircle ? SIZE : SIZE / 6"
       ></rect>
       <g :transform="getGroupTransform()">
-        <template v-if="data.isMouthOpen">
+        <template v-if="data(name, colors).isMouthOpen">
           <path
             fill="none"
             strokeLinecap="round"
             :d="getOpenMouthData()"
-            :stroke="data.faceColor"
+            :stroke="data(name, colors).faceColor"
           ></path>
         </template>
 
         <template v-else>
-          <path :d="getClosedMouthData()" :fill="data.faceColor"></path>
+          <path
+            :d="getClosedMouthData()"
+            :fill="data(name, colors).faceColor"
+          ></path>
         </template>
 
         <rect
           stroke="none"
-          :x="14 - data.eyeSpread"
+          :x="14 - data(name, colors).eyeSpread"
           :y="14"
           :width="1.5"
           :height="2"
           :rx="1"
-          :fill="data.faceColor"
+          :fill="data(name, colors).faceColor"
         ></rect>
         <rect
           stroke="none"
-          :x="20 + data.eyeSpread"
+          :x="20 + data(name, colors).eyeSpread"
           :y="14"
           :width="1.5"
           :height="2"
           :rx="1"
-          :fill="data.faceColor"
+          :fill="data(name, colors).faceColor"
         ></rect>
       </g>
     </g>
@@ -84,38 +91,35 @@ export default {
 
   data: () => ({ SIZE }),
 
-  computed: {
-    data() {
-      return generateData(this.name, this.colors);
-    },
-  },
-
   methods: {
+    data(name, colors) {
+      return generateData(name, colors);
+    },
     getRectTransform() {
       return (
         "translate(" +
-        this.data.wrapperTranslateX +
+        this.data(this.name, this.colors).wrapperTranslateX +
         " " +
-        this.data.wrapperTranslateY +
+        this.data(this.name, this.colors).wrapperTranslateY +
         ") rotate(" +
-        this.data.wrapperRotate +
+        this.data(this.name, this.colors).wrapperRotate +
         " " +
         SIZE / 2 +
         " " +
         SIZE / 2 +
         ") scale(" +
-        this.data.wrapperScale +
+        this.data(this.name, this.colors).wrapperScale +
         ")"
       );
     },
     getGroupTransform() {
       return (
         "translate(" +
-        this.data.faceTranslateX +
+        this.data(this.name, this.colors).faceTranslateX +
         " " +
-        this.data.faceTranslateY +
+        this.data(this.name, this.colors).faceTranslateY +
         ") rotate(" +
-        this.data.faceRotate +
+        this.data(this.name, this.colors).faceRotate +
         " " +
         SIZE / 2 +
         " " +
@@ -124,10 +128,18 @@ export default {
       );
     },
     getOpenMouthData() {
-      return "M15 " + (19 + this.data.mouthSpread) + "c2 1 4 1 6 0";
+      return (
+        "M15 " +
+        (19 + this.data(this.name, this.colors).mouthSpread) +
+        "c2 1 4 1 6 0"
+      );
     },
     getClosedMouthData() {
-      return "M13," + (19 + this.data.mouthSpread) + " a1,0.75 0 0,0 10,0";
+      return (
+        "M13," +
+        (19 + this.data(this.name, this.colors).mouthSpread) +
+        " a1,0.75 0 0,0 10,0"
+      );
     },
   },
 };

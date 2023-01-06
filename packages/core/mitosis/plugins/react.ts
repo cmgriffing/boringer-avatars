@@ -21,6 +21,12 @@ export function CustomReactPlugin(): MitosisPlugin {
           "stopColor"
         );
 
+        newCode = newCode.replace(new RegExp("-\\rule", "gm"), "Rule");
+        newCode = newCode.replace(
+          new RegExp("stroke\\width", "gm"),
+          "strokeWidth"
+        );
+
         return newCode;
       },
     },

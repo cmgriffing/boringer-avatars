@@ -4,18 +4,18 @@ import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
 export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
-  function properties() {
-    return generateColors(props.name, props.colors);
+  function properties(name, colors) {
+    return generateColors(name, colors);
   }
 
   function getSquareTransform() {
     return (
       "translate(" +
-      properties?.()?.[1]?.translateX +
+      properties(props.name, props.colors)?.[1]?.translateX +
       " " +
-      properties?.()?.[1]?.translateY +
+      properties(props.name, props.colors)?.[1]?.translateY +
       ") rotate(" +
-      properties?.()?.[1]?.rotate +
+      properties(props.name, props.colors)?.[1]?.rotate +
       " " +
       SIZE / 2 +
       " " +
@@ -27,9 +27,9 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
   function getCircleTransform() {
     return (
       "translate(" +
-      properties?.()?.[2]?.translateX +
+      properties(props.name, props.colors)?.[2]?.translateX +
       " " +
-      properties?.()?.[2]?.translateY +
+      properties(props.name, props.colors)?.[2]?.translateY +
       ")"
     );
   }
@@ -37,11 +37,11 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
   function getLineTransform() {
     return (
       "translate(" +
-      properties?.()?.[3]?.translateX +
+      properties(props.name, props.colors)?.[3]?.translateX +
       " " +
-      properties?.()?.[3]?.translateY +
+      properties(props.name, props.colors)?.[3]?.translateY +
       ") rotate(" +
-      properties?.()?.[3]?.rotate +
+      properties(props.name, props.colors)?.[3]?.rotate +
       " " +
       SIZE / 2 +
       " " +
@@ -78,21 +78,29 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
       </mask>
 
       <g mask="url(#mask__bauhaus)">
-        <rect width={SIZE} height={SIZE} fill={properties?.()?.[0]?.color} />
+        <rect
+          width={SIZE}
+          height={SIZE}
+          fill={properties(props.name, props.colors)?.[0]?.color}
+        />
 
         <rect
           x={(SIZE - 60) / 2}
           y={(SIZE - 20) / 2}
           width={SIZE}
-          height={properties?.()?.[1]?.isSquare ? SIZE : SIZE / 8}
-          fill={properties?.()?.[1]?.color}
+          height={
+            properties(props.name, props.colors)?.[1]?.isSquare
+              ? SIZE
+              : SIZE / 8
+          }
+          fill={properties(props.name, props.colors)?.[1]?.color}
           transform={getSquareTransform()}
         />
 
         <circle
           cx={SIZE / 2}
           cy={SIZE / 2}
-          fill={properties?.()?.[2]?.color}
+          fill={properties(props.name, props.colors)?.[2]?.color}
           r={SIZE / 5}
           transform={getCircleTransform()}
         />
@@ -103,7 +111,7 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
           x2={SIZE}
           y2={SIZE / 2}
           strokeWidth={2}
-          stroke={properties?.()?.[3]?.color}
+          stroke={properties(props.name, props.colors)?.[3]?.color}
           transform={getLineTransform()}
         />
       </g>

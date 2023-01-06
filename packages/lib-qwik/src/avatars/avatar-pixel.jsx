@@ -2,8 +2,8 @@
 
 import { SIZE, generateColors } from "./avatar-pixel.utils";
 import { Fragment, component$, h } from "@builder.io/qwik";
-export const pixelColors = function pixelColors(props, state) {
-  return generateColors(props.name, props.colors);
+export const pixelColors = function pixelColors(props, state, name, colors) {
+  return generateColors(name, colors);
 };
 export const AvatarPixel = component$((props) => {
   const state = {};
@@ -34,433 +34,437 @@ export const AvatarPixel = component$((props) => {
         ></rect>
       </mask>
       <g mask="url(#mask__pixel)">
-        <rect width={10} height={10} fill={pixelColors(props, state)[0]}></rect>
+        <rect
+          width={10}
+          height={10}
+          fill={pixelColors(props, state, props.name, props.colors)[0]}
+        ></rect>
         <rect
           x={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[1]}
+          fill={pixelColors(props, state, props.name, props.colors)[1]}
         ></rect>
         <rect
           x={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[2]}
+          fill={pixelColors(props, state, props.name, props.colors)[2]}
         ></rect>
         <rect
           x={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[3]}
+          fill={pixelColors(props, state, props.name, props.colors)[3]}
         ></rect>
         <rect
           x={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[4]}
+          fill={pixelColors(props, state, props.name, props.colors)[4]}
         ></rect>
         <rect
           x={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[5]}
+          fill={pixelColors(props, state, props.name, props.colors)[5]}
         ></rect>
         <rect
           x={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[6]}
+          fill={pixelColors(props, state, props.name, props.colors)[6]}
         ></rect>
         <rect
           x={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[7]}
+          fill={pixelColors(props, state, props.name, props.colors)[7]}
         ></rect>
         <rect
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[8]}
+          fill={pixelColors(props, state, props.name, props.colors)[8]}
         ></rect>
         <rect
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[9]}
+          fill={pixelColors(props, state, props.name, props.colors)[9]}
         ></rect>
         <rect
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[10]}
+          fill={pixelColors(props, state, props.name, props.colors)[10]}
         ></rect>
         <rect
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[11]}
+          fill={pixelColors(props, state, props.name, props.colors)[11]}
         ></rect>
         <rect
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[12]}
+          fill={pixelColors(props, state, props.name, props.colors)[12]}
         ></rect>
         <rect
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[13]}
+          fill={pixelColors(props, state, props.name, props.colors)[13]}
         ></rect>
         <rect
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[14]}
+          fill={pixelColors(props, state, props.name, props.colors)[14]}
         ></rect>
         <rect
           x={20}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[15]}
+          fill={pixelColors(props, state, props.name, props.colors)[15]}
         ></rect>
         <rect
           x={20}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[16]}
+          fill={pixelColors(props, state, props.name, props.colors)[16]}
         ></rect>
         <rect
           x={20}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[17]}
+          fill={pixelColors(props, state, props.name, props.colors)[17]}
         ></rect>
         <rect
           x={20}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[18]}
+          fill={pixelColors(props, state, props.name, props.colors)[18]}
         ></rect>
         <rect
           x={20}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[19]}
+          fill={pixelColors(props, state, props.name, props.colors)[19]}
         ></rect>
         <rect
           x={20}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[20]}
+          fill={pixelColors(props, state, props.name, props.colors)[20]}
         ></rect>
         <rect
           x={20}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[21]}
+          fill={pixelColors(props, state, props.name, props.colors)[21]}
         ></rect>
         <rect
           x={40}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[22]}
+          fill={pixelColors(props, state, props.name, props.colors)[22]}
         ></rect>
         <rect
           x={40}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[23]}
+          fill={pixelColors(props, state, props.name, props.colors)[23]}
         ></rect>
         <rect
           x={40}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[24]}
+          fill={pixelColors(props, state, props.name, props.colors)[24]}
         ></rect>
         <rect
           x={40}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[25]}
+          fill={pixelColors(props, state, props.name, props.colors)[25]}
         ></rect>
         <rect
           x={40}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[26]}
+          fill={pixelColors(props, state, props.name, props.colors)[26]}
         ></rect>
         <rect
           x={40}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[27]}
+          fill={pixelColors(props, state, props.name, props.colors)[27]}
         ></rect>
         <rect
           x={40}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[28]}
+          fill={pixelColors(props, state, props.name, props.colors)[28]}
         ></rect>
         <rect
           x={60}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[29]}
+          fill={pixelColors(props, state, props.name, props.colors)[29]}
         ></rect>
         <rect
           x={60}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[30]}
+          fill={pixelColors(props, state, props.name, props.colors)[30]}
         ></rect>
         <rect
           x={60}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[31]}
+          fill={pixelColors(props, state, props.name, props.colors)[31]}
         ></rect>
         <rect
           x={60}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[32]}
+          fill={pixelColors(props, state, props.name, props.colors)[32]}
         ></rect>
         <rect
           x={60}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[33]}
+          fill={pixelColors(props, state, props.name, props.colors)[33]}
         ></rect>
         <rect
           x={60}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[34]}
+          fill={pixelColors(props, state, props.name, props.colors)[34]}
         ></rect>
         <rect
           x={60}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[35]}
+          fill={pixelColors(props, state, props.name, props.colors)[35]}
         ></rect>
         <rect
           x={10}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[36]}
+          fill={pixelColors(props, state, props.name, props.colors)[36]}
         ></rect>
         <rect
           x={10}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[37]}
+          fill={pixelColors(props, state, props.name, props.colors)[37]}
         ></rect>
         <rect
           x={10}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[38]}
+          fill={pixelColors(props, state, props.name, props.colors)[38]}
         ></rect>
         <rect
           x={10}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[39]}
+          fill={pixelColors(props, state, props.name, props.colors)[39]}
         ></rect>
         <rect
           x={10}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[40]}
+          fill={pixelColors(props, state, props.name, props.colors)[40]}
         ></rect>
         <rect
           x={10}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[41]}
+          fill={pixelColors(props, state, props.name, props.colors)[41]}
         ></rect>
         <rect
           x={10}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[42]}
+          fill={pixelColors(props, state, props.name, props.colors)[42]}
         ></rect>
         <rect
           x={30}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[43]}
+          fill={pixelColors(props, state, props.name, props.colors)[43]}
         ></rect>
         <rect
           x={30}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[44]}
+          fill={pixelColors(props, state, props.name, props.colors)[44]}
         ></rect>
         <rect
           x={30}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[45]}
+          fill={pixelColors(props, state, props.name, props.colors)[45]}
         ></rect>
         <rect
           x={30}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[46]}
+          fill={pixelColors(props, state, props.name, props.colors)[46]}
         ></rect>
         <rect
           x={30}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[47]}
+          fill={pixelColors(props, state, props.name, props.colors)[47]}
         ></rect>
         <rect
           x={30}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[48]}
+          fill={pixelColors(props, state, props.name, props.colors)[48]}
         ></rect>
         <rect
           x={30}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[49]}
+          fill={pixelColors(props, state, props.name, props.colors)[49]}
         ></rect>
         <rect
           x={50}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[50]}
+          fill={pixelColors(props, state, props.name, props.colors)[50]}
         ></rect>
         <rect
           x={50}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[51]}
+          fill={pixelColors(props, state, props.name, props.colors)[51]}
         ></rect>
         <rect
           x={50}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[52]}
+          fill={pixelColors(props, state, props.name, props.colors)[52]}
         ></rect>
         <rect
           x={50}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[53]}
+          fill={pixelColors(props, state, props.name, props.colors)[53]}
         ></rect>
         <rect
           x={50}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[54]}
+          fill={pixelColors(props, state, props.name, props.colors)[54]}
         ></rect>
         <rect
           x={50}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[55]}
+          fill={pixelColors(props, state, props.name, props.colors)[55]}
         ></rect>
         <rect
           x={50}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[56]}
+          fill={pixelColors(props, state, props.name, props.colors)[56]}
         ></rect>
         <rect
           x={70}
           y={10}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[57]}
+          fill={pixelColors(props, state, props.name, props.colors)[57]}
         ></rect>
         <rect
           x={70}
           y={20}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[58]}
+          fill={pixelColors(props, state, props.name, props.colors)[58]}
         ></rect>
         <rect
           x={70}
           y={30}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[59]}
+          fill={pixelColors(props, state, props.name, props.colors)[59]}
         ></rect>
         <rect
           x={70}
           y={40}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[60]}
+          fill={pixelColors(props, state, props.name, props.colors)[60]}
         ></rect>
         <rect
           x={70}
           y={50}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[61]}
+          fill={pixelColors(props, state, props.name, props.colors)[61]}
         ></rect>
         <rect
           x={70}
           y={60}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[62]}
+          fill={pixelColors(props, state, props.name, props.colors)[62]}
         ></rect>
         <rect
           x={70}
           y={70}
           width={10}
           height={10}
-          fill={pixelColors(props, state)[63]}
+          fill={pixelColors(props, state, props.name, props.colors)[63]}
         ></rect>
       </g>
     </svg>
