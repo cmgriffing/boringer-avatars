@@ -16,15 +16,20 @@ try {
   const coreDir = path.resolve(process.cwd(), "packages/core");
   const demoDir = path.resolve(process.cwd(), "packages/demo");
 
-  // console.log("Building Core");
-  // execSync("pnpm build", {
-  //   cwd: coreDir,
-  // });
+  console.log("Building Core");
+  execSync("pnpm build", {
+    cwd: coreDir,
+  });
 
-  // console.log("Build Demo");
-  // execSync("pnpm build", {
-  //   cwd: demoDir,
-  // });
+  console.log("Build Demo");
+  execSync("pnpm build", {
+    cwd: demoDir,
+  });
+
+  console.log("Building Docs");
+  execSync("pnpm build", {
+    cwd: docsDir,
+  });
 
   Object.values(Target).forEach((target) => {
     const webDir = path.resolve(process.cwd(), `apps/web-${target}`);
@@ -35,7 +40,7 @@ try {
     } else if (target === Target.Angular) {
       webDistDir = path.resolve(webDir, "dist/web-angular");
     }
-    const outputDir = path.resolve(process.cwd(), `apps/docs/public/${target}`);
+    const outputDir = path.resolve(process.cwd(), `apps/docs/dist/${target}`);
 
     console.log("Installing deps:", target);
     execSync("pnpm install", {
@@ -53,11 +58,6 @@ try {
     }
 
     fs.copySync(webDistDir, outputDir);
-  });
-
-  console.log("Building Docs");
-  execSync("pnpm build", {
-    cwd: docsDir,
   });
 } catch (e: any) {
   if (e?.stdout) {
