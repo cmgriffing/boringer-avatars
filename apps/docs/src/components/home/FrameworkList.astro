@@ -83,7 +83,9 @@ const frameworks = [
     >
       Supported Frameworks
     </h2>
-    <div class="grid w-full grid-cols-1 gap-12 mx-auto lg:grid-cols-3">
+    <div
+      class="grid w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mx-auto xl:grid-cols-4 px-16 md:px-0"
+    >
       {
         frameworks.map((framework) => (
           <FrameworkListItem framework={framework} />

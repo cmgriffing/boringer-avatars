@@ -18,15 +18,19 @@ const colors = ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"];
       Avatar Styles
     </h2>
 
-    <div class="flex flex-row items-center justify-center gap-4">
+    <div
+      class="flex flex-row items-center justify-center gap-4 flex-wrap sm:flex-nowrap"
+    >
       {
         variants.map((variant) => (
-          <StylesListItem
-            variant={variant}
-            size={size}
-            name={name}
-            colors={colors}
-          />
+          <div class="w-1/3 md:w-auto">
+            <StylesListItem
+              variant={variant}
+              size={size}
+              name={name}
+              colors={colors}
+            />
+          </div>
         ))
       }
     </div>
