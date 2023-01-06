@@ -13,4 +13,14 @@ import StylesList from "../components/home/StylesList.astro";
   </main>
 </Layout>
 
-<style></style>
+<style is:global>
+  .hero-image {
+    transition: all 1s;
+    opacity: 1;
+  }
+
+  .blur {
+    filter: blur(300px);
+    opacity: 0;
+  }
+</style>

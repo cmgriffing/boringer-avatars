@@ -8,12 +8,12 @@ export interface Props {
 const { framework } = Astro.props;
 ---
 
-<div class="p-4">
-  <div class="flex items-center mb-1">
+<div class="py-8 px-4 shadow-lg bg-gray-200 rounded-md">
+  <div class="flex items-center mb-4 ml-4">
     <div
-      class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mr-3 text-blue-600 rounded-full bg-blue-50"
+      class="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mr-3 rounded-full bg-blue-50"
     >
-      <img src={`/logos/${framework.logo}`} />
+      <img class="w-full h-auto" src={`/logos/${framework.logo}`} />
     </div>
     <h1
       class="text-xl font-semibold leading-none tracking-tighter text-neutral-600"
@@ -21,7 +21,7 @@ const { framework } = Astro.props;
       {framework.name}
     </h1>
   </div>
-  <div class="flex flex-row gap-x-4">
+  <div class="flex flex-row gap-x-4 justify-center items-center pl-4">
     <div class="">
       <a
         href={framework.demoUrl}
