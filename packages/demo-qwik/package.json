@@ -8,7 +8,6 @@
   "exports": {
     ".": {
       "import": "./lib/demo.qwik.mjs",
-      "require": "./lib/demo.qwik.cjs",
       "types": "./lib-types/index.d.ts"
     }
   },
@@ -22,8 +21,8 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build": "qwik build",
-    "build.lib": "vite build --mode lib",
+    "build.core": "qwik build",
+    "build": "vite build --mode lib",
     "build.types": "tsc --emitDeclarationOnly",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
