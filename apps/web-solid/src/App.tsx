@@ -14,7 +14,7 @@ import "./styles.css";
 const App: Component = () => {
   const [variant, setVariant] = createSignal("beam");
   const [isSquare, setIsSquare] = createSignal(false);
-  const [size, setSize] = createSignal("128px");
+  const [size, setSize] = createSignal("40px");
   const [colors, setColors] = createSignal([
     "#FFAD08",
     "#EDD75A",
@@ -26,7 +26,7 @@ const App: Component = () => {
 
   return (
     <>
-      <div class={`content ${theme}`}>
+      <div class={`content ${theme()}`}>
         <div class="row">
           <div class="row">
             <VariantSelector
@@ -38,7 +38,7 @@ const App: Component = () => {
             />
           </div>
           <PaletteSelector
-            colors={colors}
+            colors={colors()}
             onChange={(newColors: string[]) => {
               console.log({ newColors });
               setColors(newColors);
@@ -47,21 +47,21 @@ const App: Component = () => {
           <div class="row">
             <div class="inner-row">
               <ShapeSelector
-                shape={isSquare ? "square" : "circle"}
+                shape={isSquare() ? "square" : "circle"}
                 onChange={(newShape: string) => {
                   console.log({ newShape });
                   setIsSquare(newShape === "square");
                 }}
               />
               <SizeSelector
-                size={size}
+                size={size()}
                 onChange={(newSize: any) => {
                   console.log({ newSize });
                   setSize(newSize);
                 }}
               />
               <LightDarkToggle
-                theme={theme}
+                theme={theme()}
                 onChange={(newTheme: string) => {
                   console.log("new theme", theme);
                   setTheme(newTheme);
@@ -86,7 +86,7 @@ const App: Component = () => {
                   square={isSquare()}
                   colors={colors()}
                 />
-                <div class="avatar-list-item-name">{name}</div>
+                <div class="avatar-list-item-name">{name as string}</div>
               </div>
             )}
           </For>
