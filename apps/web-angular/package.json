@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "dev": "ng serve",
-    "build": "ng build  --base-href /boringer-avatars/angular",
+    "build": "ng build  --base-href https://cmgriffing.github.io/boringer-avatars/angular",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
