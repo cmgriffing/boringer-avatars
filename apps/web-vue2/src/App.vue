@@ -83,7 +83,7 @@ export default defineComponent({
         </div>
         <div class="inner-row">
           <LibraryLinks
-            githubUrl="https://github.com/cmgriffing/boringer-avatars/packages/lib-vue2"
+            githubUrl="https://github.com/cmgriffing/boringer-avatars/blob/main/packages/lib-vue2"
           />
         </div>
       </div>

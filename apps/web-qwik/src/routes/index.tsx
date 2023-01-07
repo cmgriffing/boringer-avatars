@@ -60,7 +60,7 @@ export default component$(() => {
             />
           </div>
           <div class="inner-row">
-            <LibraryLinks githubUrl="https://github.com/cmgriffing/boringer-avatars/packages/lib-react" />
+            <LibraryLinks githubUrl="https://github.com/cmgriffing/boringer-avatars/blob/main/packages/lib-react" />
           </div>
         </div>
       </div>

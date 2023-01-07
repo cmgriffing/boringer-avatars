@@ -62,7 +62,7 @@ const onThemeChange = (newTheme: string) => {
         </div>
         <div class="inner-row">
           <LibraryLinks
-            githubUrl="https://github.com/cmgriffing/boringer-avatars/packages/lib-svelte"
+            githubUrl="https://github.com/cmgriffing/boringer-avatars/blob/main/packages/lib-svelte"
           />
         </div>
       </div>
