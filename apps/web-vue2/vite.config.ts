@@ -14,7 +14,7 @@ import fs from "node:fs";
 export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
   const config: UserConfig = {
     // // https://vitejs.dev/config/shared-options.html#base
-    base: "/vue2/",
+    base: "/boringer-avatars/vue2/",
     plugins: [
       // Vue2
       // https://github.com/vitejs/vite-plugin-vue2

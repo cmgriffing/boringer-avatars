@@ -6,7 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig(() => {
   return {
     plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
-    base: "/qwik/",
+    base: "/boringer-avatars/qwik/",
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",

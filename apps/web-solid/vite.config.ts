@@ -3,7 +3,7 @@ import solidPlugin from "vite-plugin-solid";
 import devtools from "solid-devtools/vite";
 
 export default defineConfig({
-  base: "/solid/",
+  base: "/boringer-avatars/solid/",
   plugins: [
     solidPlugin(),
     devtools({
