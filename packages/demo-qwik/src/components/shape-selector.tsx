@@ -37,7 +37,7 @@ export const ShapeSelector = component$((props: any) => {
   });
   return (
     <div class="shape-selector widget-wrapper">
-      <label htmlFor="radio-circle" class={getCircleLabelClass(props, state)}>
+      <label for="radio-circle" class={getCircleLabelClass(props, state)}>
         <input
           id="radio-circle"
           type="radio"
@@ -55,7 +55,7 @@ export const ShapeSelector = component$((props: any) => {
           ></path>
         </svg>
       </label>
-      <label htmlFor="radio-square" class={getSquareLabelClass(props, state)}>
+      <label for="radio-square" class={getSquareLabelClass(props, state)}>
         <input
           id="radio-square"
           type="radio"

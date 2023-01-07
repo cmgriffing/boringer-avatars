@@ -11,6 +11,8 @@ export function CustomQwikPlugin(): MitosisPlugin {
           "props.onChange$$"
         );
 
+        newCode = newCode.replace(new RegExp(`htmlFor`, "gm"), "for");
+
         return newCode;
       },
     },

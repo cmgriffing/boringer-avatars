@@ -48,7 +48,7 @@ export const VariantSelector = component$((props: any) => {
         return (
           <label
             class={getLabelClass(props, state, variantOption)}
-            htmlFor={getInputId(props, state, variantOption)}
+            for={getInputId(props, state, variantOption)}
           >
             <input
               type="radio"

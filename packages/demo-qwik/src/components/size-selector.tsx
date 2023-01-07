@@ -53,7 +53,7 @@ export const SizeSelector = component$((props: any) => {
         return (
           <label
             class={getLabelClass(props, state, entry)}
-            htmlFor={getInputId(props, state, entry)}
+            for={getInputId(props, state, entry)}
           >
             <input
               type="radio"

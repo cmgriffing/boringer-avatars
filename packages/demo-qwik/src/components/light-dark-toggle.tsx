@@ -27,7 +27,7 @@ export const LightDarkToggle = component$((props: any) => {
   });
   return (
     <div class="light-dark-toggle widget-wrapper">
-      <label class="checkbox-label" htmlFor="theme-checkbox">
+      <label class="checkbox-label" for="theme-checkbox">
         <input
           id="theme-checkbox"
           type="checkbox"

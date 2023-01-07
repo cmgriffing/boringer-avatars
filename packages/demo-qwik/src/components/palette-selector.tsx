@@ -47,7 +47,7 @@ export const PaletteSelector = component$((props: any) => {
         {(state.selectedPalette || []).map(function (colorOption, index) {
           return (
             <div>
-              <label class="sr-only" htmlFor={getInputId(props, state, index)}>
+              <label class="sr-only" for={getInputId(props, state, index)}>
                 Color Input {index}
               </label>
               <input
