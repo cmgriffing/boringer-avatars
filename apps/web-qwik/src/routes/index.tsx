@@ -22,7 +22,6 @@ export default component$(() => {
 
   return (
     <div class={`content ${state.theme}`}>
-      {state.variant}
       <div class="row">
         <div class="row">
           <VariantSelector
