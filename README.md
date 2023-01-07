@@ -17,9 +17,11 @@ For specific usage, please see the README for whichever framework you need.
 We currently support:
 
 - Angular: [source](./packages/lib-angular) [npm](https://www.npmjs.com/package/@boringer-avatars/angular)
+- Qwik: [source](./packages/lib-qwik) [npm](https://www.npmjs.com/package/@boringer-avatars/qwik)
 - React: [source](./packages/lib-react) [npm](https://www.npmjs.com/package/@boringer-avatars/react)
 - Solid: [source](./packages/lib-solid) [npm](https://www.npmjs.com/package/@boringer-avatars/solid)
 - Svelte: [source](./packages/lib-svelte) [npm](https://www.npmjs.com/package/@boringer-avatars/svelte)
+- Vue2: [source](./packages/lib-vue2) [npm](https://www.npmjs.com/package/@boringer-avatars/vue2)
 - Vue3: [source](./packages/lib-vue3) [npm](https://www.npmjs.com/package/@boringer-avatars/vue3)
 
 ## Contributing
