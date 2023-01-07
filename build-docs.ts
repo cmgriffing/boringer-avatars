@@ -59,6 +59,25 @@ try {
 
     fs.copySync(webDistDir, outputDir);
   });
+
+  // Angular hack
+  const angularIndexPath = path.resolve(
+    process.cwd(),
+    "apps/docs/dist/angular/index.html"
+  );
+  let angularIndex = fs.readFileSync(angularIndexPath, { encoding: "utf8" });
+
+  angularIndex = angularIndex.replace(
+    new RegExp(`<link rel="stylesheet" href="`, "gm"),
+    `<link rel="stylesheet" href="/boringer-avatars/angular/`
+  );
+
+  angularIndex = angularIndex.replace(
+    new RegExp(`<script src="`, "gm"),
+    `<script src="/boringer-avatars/angular/`
+  );
+
+  fs.writeFileSync(angularIndexPath, angularIndex);
 } catch (e: any) {
   if (e?.stdout) {
     console.log("Caught", e?.stdout?.toString());
