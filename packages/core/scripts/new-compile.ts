@@ -82,7 +82,18 @@ try {
         :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
       />
     </template>`,
-    [Target.Qwik]: ``,
+    [Target.Qwik]: `import { Avatar } from "@boringer-avatars/solid";
+
+    ...
+
+    <Avatar
+      title={false}
+      size={400}
+      variant="beam"
+      name="testing"
+      square={false}
+      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    />`,
   };
 
   const propsNameMap: Record<Target, string> = {
