@@ -22,9 +22,7 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build": "qwik build",
-    "build.lib": "vite build --mode lib",
-    "build.types": "tsc --emitDeclarationOnly",
+    "build": "vite build --mode lib && tsc --emitDeclarationOnly",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
     "fmt": "prettier --write .",
