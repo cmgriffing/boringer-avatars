@@ -82,7 +82,7 @@ try {
         :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
       />
     </template>`,
-    [Target.Qwik]: `import { Avatar } from "@boringer-avatars/solid";
+    [Target.Qwik]: `import { Avatar } from "@boringer-avatars/qwik";
 
     ...
 

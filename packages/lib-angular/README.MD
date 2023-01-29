@@ -1,20 +1,29 @@
+# @boringer-avatars/angular
+
+Procedurally generate Avatars for your applications. Use these avatars as placeholders until your users upload their own images.
+
 <div style="background: rgba(255, 0, 0, 0.2); padding:1rem;">
   <h2>Warning: Generated Code</h2>
 
   <p>This library is generated using [Mitosis](https://github.com/BuilderIO/mitosis).</p>
 </div>
 
-# @boringer-avatars/angular
-
 This repo is forked from [boring-avatars](https://boringavatars.com). It aims to create cross-framework implementations for as many frameworks as possible. (Angular, React, Vue, Solid, Svelte, Qwik, etc).
 
 ## Installation
 
-
+```bash
+npm install @boringer-avatars/angular
+# or
+yarn add @boringer-avatars/angular
+# or
+pnpm add @boringer-avatars/angular
+```
 
 ## Usage
 
 ```
+// ...
 import { AvatarModule } from '@boringer-avatars/angular';
 
 @NgModule({
@@ -55,7 +64,7 @@ The options you can pass into the component are listed below.
 
 - **title**: `boolean`. Decides whether Avatar displays a title value. Defaults to: `false`
 
-- **size**: `number`. Determines the width and height of the image. Defaults to: `42`
+- **size**: `string`. Determines the width and height of the image. You can use any valid css value. eg: "42px", "42%", "42vw", etc. Defaults to: `42px`
 
 ## License
 
