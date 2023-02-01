@@ -15,22 +15,27 @@ pub fn AvatarBeam(
 
     log!("square: {:?}", square);
 
-    let mut mouth = view! {cx, <path
-      fill="none"
-      strokeLinecap="round"
-      d={get_open_mouth_data(generated_data.clone())}
-      stroke={generated_data.clone().face_color}
-    />};
+    // let mouth =
+    //   if !generated_data.clone().is_mouth_open {
+    //     view! {
+    //       cx,
+    //       <path
+    //         d={get_closed_mouth_data(generated_data.clone())}
+    //         fill={generated_data.clone().face_color}
+    //       />
+    //     }
+    //   } else {
+    //     view! {
+    //       cx,
+    //       <path
+    //         fill="none"
+    //         strokeLinecap="round"
+    //         d={get_open_mouth_data(generated_data.clone())}
+    //         stroke={generated_data.clone().face_color}
+    //       />
+    //     }
+    //   };
 
-    if !generated_data.clone().is_mouth_open {
-        mouth = view! {
-          cx,
-          <path
-            d={get_closed_mouth_data(generated_data.clone())}
-            fill={generated_data.clone().face_color}
-          />
-        }
-    }
 
     view! { cx,
       <svg
@@ -76,7 +81,7 @@ pub fn AvatarBeam(
 
         <g transform={get_group_transform(generated_data.clone())}>
 
-          {mouth}
+          // {mouth}
 
           <rect
             stroke="none"

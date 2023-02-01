@@ -1,3 +1,6 @@
+use boringer_avatars_leptos::avatar::*;
+use boringer_avatars_leptos::avatar_utils::*;
+
 use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;

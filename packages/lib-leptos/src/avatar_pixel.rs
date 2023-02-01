@@ -39,22 +39,22 @@ pub fn AvatarPixel(
         </mask>
 
         <g mask={format!("url(#mask__pixel_{})", num_from_name)}>
-          <For
-            each= move || {generated_colors.clone().into_iter()}
-            key= |generated_color| {generated_color.index}
-            view= move |generated_color| {
-              view! {
-                cx,
-                  <rect
-                  x={generated_color.index / 8 * 10}
-                  y={generated_color.index % 8 * 10}
-                  width={10}
-                  height={10}
-                  fill={generated_color.color}
-                />
-              }
-            }
-          />
+          // <For
+          //   each= move || {generated_colors.clone().into_iter()}
+          //   key= |generated_color| {generated_color.index}
+          //   view= move |generated_color| {
+          //     view! {
+          //       cx,
+          //         <leptos::svg::Rect
+          //           x={generated_color.index / 8 * 10}
+          //           y={generated_color.index % 8 * 10}
+          //           width={10}
+          //           height={10}
+          //           fill={generated_color.color}
+          //         />
+          //     }
+          //   }
+          // />
         </g>
       </svg>
     }
