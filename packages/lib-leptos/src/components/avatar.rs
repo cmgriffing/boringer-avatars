@@ -1,6 +1,9 @@
 use crate::components::avatar_bauhaus::*;
 use crate::components::avatar_beam::*;
 use crate::components::avatar_marble::*;
+use crate::components::avatar_pixel::*;
+use crate::components::avatar_ring::*;
+use crate::components::avatar_sunset::*;
 use crate::components::avatar_utils::*;
 use leptos::*;
 
@@ -34,8 +37,20 @@ pub fn Avatar(
              <div><AvatarMarble name={name} colors={colors.clone()} square={is_square} /></div>
         },
 
-        _ => view! {cx,
-        <div><AvatarBeam name={name} colors={colors.clone()} square={is_square} /></div>},
+        Variant::Pixel => view! {
+            cx,
+             <div><AvatarPixel name={name} colors={colors.clone()} square={is_square} /></div>
+        },
+
+        Variant::Ring => view! {
+            cx,
+             <div><AvatarRing name={name} colors={colors.clone()} square={is_square} /></div>
+        },
+
+        Variant::Sunset => view! {
+            cx,
+             <div><AvatarSunset name={name} colors={colors.clone()} square={is_square} /></div>
+        },
     };
 
     view! { cx,

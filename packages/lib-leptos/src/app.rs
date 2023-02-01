@@ -66,6 +66,37 @@ fn HomePage(cx: Scope) -> impl IntoView {
         <Avatar variant={Variant::Marble} name={"really".to_string()} colors={colors.clone()} />
         <Avatar variant={Variant::Marble} name={"working".to_string()} colors={colors.clone()} />
         <Avatar variant={Variant::Marble} name={"working2".to_string()} colors={colors.clone()} />
+
+
+        <Avatar variant={Variant::Pixel} name={"foo".to_string()} colors={colors.clone()} square={false} />
+        <Avatar variant={Variant::Pixel} name={"foooo".to_string()} colors={colors.clone()} square={true} />
+        <Avatar variant={Variant::Pixel} name={"fooo".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Pixel} name={"is".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Pixel} name={"this".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Pixel} name={"really".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Pixel} name={"working".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Pixel} name={"working2".to_string()} colors={colors.clone()} />
+
+
+        <Avatar variant={Variant::Ring} name={"foo".to_string()} colors={colors.clone()} square={false} />
+        <Avatar variant={Variant::Ring} name={"foooo".to_string()} colors={colors.clone()} square={true} />
+        <Avatar variant={Variant::Ring} name={"fooo".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Ring} name={"is".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Ring} name={"this".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Ring} name={"really".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Ring} name={"working".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Ring} name={"working2".to_string()} colors={colors.clone()} />
+
+
+        <Avatar variant={Variant::Sunset} name={"foo".to_string()} colors={colors.clone()} square={false} />
+        <Avatar variant={Variant::Sunset} name={"foooo".to_string()} colors={colors.clone()} square={true} />
+        <Avatar variant={Variant::Sunset} name={"fooo".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Sunset} name={"is".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Sunset} name={"this".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Sunset} name={"really".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Sunset} name={"working".to_string()} colors={colors.clone()} />
+        <Avatar variant={Variant::Sunset} name={"working2".to_string()} colors={colors.clone()} />
+
         </div>
     }
 }

@@ -9,18 +9,18 @@ pub enum Variant {
     Sunset,
 }
 
-impl Variant {
-    fn as_str(&self) -> &'static str {
-        match self {
-            Variant::Bauhaus => "bauhaus",
-            Variant::Beam => "beam",
-            Variant::Marble => "marble",
-            Variant::Pixel => "pixel",
-            Variant::Ring => "ring",
-            Variant::Sunset => "sunset",
-        }
-    }
-}
+// impl Variant {
+//     fn as_str(&self) -> &'static str {
+//         match self {
+//             Variant::Bauhaus => "bauhaus",
+//             Variant::Beam => "beam",
+//             Variant::Marble => "marble",
+//             Variant::Pixel => "pixel",
+//             Variant::Ring => "ring",
+//             Variant::Sunset => "sunset",
+//         }
+//     }
+// }
 
 pub fn hash_code(name: &str) -> i64 {
     let mut hash: f64 = 0.0;
