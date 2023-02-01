@@ -1,4 +1,4 @@
-use crate::components::avatar_utils::*;
+use crate::avatar_utils::*;
 
 pub const ELEMENTS: usize = 4;
 pub const SIZE: usize = 80;

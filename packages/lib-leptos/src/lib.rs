@@ -1,24 +1,14 @@
-pub mod app;
-pub mod components;
-use cfg_if::cfg_if;
-
-cfg_if! {
-if #[cfg(feature = "hydrate")] {
-
-  use wasm_bindgen::prelude::wasm_bindgen;
-
-    #[wasm_bindgen]
-    pub fn hydrate() {
-      use app::*;
-      use leptos::*;
-
-      // initializes logging using the `log` crate
-      _ = console_log::init_with_level(log::Level::Debug);
-      console_error_panic_hook::set_once();
-
-      leptos::mount_to_body(move |cx| {
-          view! { cx, <App/> }
-      });
-    }
-}
-}
+pub mod avatar;
+pub mod avatar_bauhaus;
+pub mod avatar_bauhaus_utils;
+pub mod avatar_beam;
+pub mod avatar_beam_utils;
+pub mod avatar_marble;
+pub mod avatar_marble_utils;
+pub mod avatar_pixel;
+pub mod avatar_pixel_utils;
+pub mod avatar_ring;
+pub mod avatar_ring_utils;
+pub mod avatar_sunset;
+pub mod avatar_sunset_utils;
+pub mod avatar_utils;

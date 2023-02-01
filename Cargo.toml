@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "apps/web-leptos",
+    "packages/lib-leptos"
+]

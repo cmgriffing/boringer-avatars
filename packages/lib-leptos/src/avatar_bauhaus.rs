@@ -1,5 +1,5 @@
-use crate::components::avatar_bauhaus_utils::*;
-use crate::components::avatar_utils::*;
+use crate::avatar_bauhaus_utils::*;
+use crate::avatar_utils::*;
 use leptos::*;
 
 #[component]

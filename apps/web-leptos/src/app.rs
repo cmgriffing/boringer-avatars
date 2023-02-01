@@ -2,8 +2,8 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_router::*;
 
-use crate::components::avatar::*;
-use crate::components::avatar_utils::*;
+// use crate::components::avatar::*;
+// use crate::components::avatar_utils::*;
 
 #[component]
 pub fn App(cx: Scope) -> impl IntoView {

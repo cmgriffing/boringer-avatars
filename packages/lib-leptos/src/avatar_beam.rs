@@ -1,5 +1,6 @@
-use crate::components::avatar_beam_utils::*;
-use crate::components::avatar_utils::*;
+use crate::avatar_beam_utils::*;
+use crate::avatar_utils::*;
+use leptos::svg::Path;
 use leptos::*;
 
 #[component]

@@ -1,10 +1,10 @@
-use crate::components::avatar_bauhaus::*;
-use crate::components::avatar_beam::*;
-use crate::components::avatar_marble::*;
-use crate::components::avatar_pixel::*;
-use crate::components::avatar_ring::*;
-use crate::components::avatar_sunset::*;
-use crate::components::avatar_utils::*;
+use crate::avatar_bauhaus::*;
+use crate::avatar_beam::*;
+use crate::avatar_marble::*;
+use crate::avatar_pixel::*;
+use crate::avatar_ring::*;
+use crate::avatar_sunset::*;
+use crate::avatar_utils::*;
 use leptos::*;
 
 #[component]
