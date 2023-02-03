@@ -24,32 +24,32 @@ pub fn Avatar(
     let avatar_variant = match variant {
         Variant::Bauhaus => view! {
             cx,
-             <div><AvatarBauhaus name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarBauhaus name=name colors=colors.clone() square=is_square /></div>
         },
 
         Variant::Beam => view! {
             cx,
-             <div><AvatarBeam name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarBeam name=name colors=colors.clone() square=is_square /></div>
         },
 
         Variant::Marble => view! {
             cx,
-             <div><AvatarMarble name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarMarble name=name colors=colors.clone() square=is_square /></div>
         },
 
         Variant::Pixel => view! {
             cx,
-             <div><AvatarPixel name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarPixel name=name colors=colors.clone() square=is_square /></div>
         },
 
         Variant::Ring => view! {
             cx,
-             <div><AvatarRing name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarRing name=name colors=colors.clone() square=is_square /></div>
         },
 
         Variant::Sunset => view! {
             cx,
-             <div><AvatarSunset name={name} colors={colors.clone()} square={is_square} /></div>
+             <div><AvatarSunset name=name colors=colors.clone() square=is_square /></div>
         },
     };
 
