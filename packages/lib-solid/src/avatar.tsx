@@ -1,5 +1,7 @@
 import { Show } from "solid-js";
 
+import type { AvatarProps } from "./avatar.utils";
+
 import { coerceVariant, defaultAvatarProps } from "./avatar.utils";
 import AvatarBauhaus from "./avatars/avatar-bauhaus";
 import AvatarBeam from "./avatars/avatar-beam";
@@ -8,7 +10,7 @@ import AvatarPixel from "./avatars/avatar-pixel";
 import AvatarRing from "./avatars/avatar-ring";
 import AvatarSunset from "./avatars/avatar-sunset";
 
-function Avatar(props) {
+function Avatar(props: Partial<AvatarProps>) {
   return (
     <div>
       <Show when={props.variant === `bauhaus`}>
@@ -16,7 +18,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarBauhaus>
       </Show>
@@ -25,7 +27,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarBeam>
       </Show>
@@ -34,7 +36,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarMarble>
       </Show>
@@ -43,7 +45,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarPixel>
       </Show>
@@ -52,7 +54,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarRing>
       </Show>
@@ -61,7 +63,7 @@ function Avatar(props) {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarSunset>
       </Show>

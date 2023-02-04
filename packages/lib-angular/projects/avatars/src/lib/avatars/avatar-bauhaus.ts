@@ -19,7 +19,7 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
       [attr.width]="size"
       [attr.height]="size"
     >
-      <ng-container *ngIf="title">
+      <ng-container *ngIf="hasTitle">
         <title>{{name}}</title>
       </ng-container>
 
@@ -82,7 +82,7 @@ export class AvatarBauhaus {
   @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
   @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
   @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
-  @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
+  @Input() hasTitle: Omit<AvatarProps, 'variant'>['hasTitle'] = defaultAvatarProps['hasTitle'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
 
   properties(name, colors) {

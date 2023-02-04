@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <template v-if="title">
+    <template v-if="hasTitle">
       <title>{{ name }}</title>
     </template>
 
@@ -87,9 +87,11 @@ import { generateData, SIZE } from "./avatar-beam.utils";
 export default {
   name: "avatar-beam",
 
-  props: ["name", "colors", "size", "title", "square"],
+  props: ["name", "colors", "size", "hasTitle", "square"],
 
-  data: () => ({ SIZE }),
+  data() {
+    return { SIZE };
+  },
 
   methods: {
     data(name, colors) {

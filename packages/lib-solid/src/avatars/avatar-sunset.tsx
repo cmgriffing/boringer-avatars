@@ -1,9 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
+import type { AvatarProps } from "../avatar.utils";
+
 import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-sunset.utils";
 
-function AvatarSunset(props) {
+function AvatarSunset(props: Omit<AvatarProps, "variant">) {
   function formattedName() {
     return props.name.replace(/\s/g, "");
   }
@@ -37,7 +39,7 @@ function AvatarSunset(props) {
       width={props.size}
       height={props.size}
     >
-      <Show when={props.title}>
+      <Show when={props.hasTitle}>
         <title>{props.name}</title>
       </Show>
       <mask

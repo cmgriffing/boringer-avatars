@@ -1,9 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
+import type { AvatarProps } from "../avatar.utils";
+
 import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 
-function AvatarBauhaus(props) {
+function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
   function properties(name, colors) {
     return generateColors(name, colors);
   }
@@ -59,7 +61,7 @@ function AvatarBauhaus(props) {
       width={props.size}
       height={props.size}
     >
-      <Show when={props.title}>
+      <Show when={props.hasTitle}>
         <title>{props.name}</title>
       </Show>
       <mask

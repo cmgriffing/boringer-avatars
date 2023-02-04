@@ -58,7 +58,7 @@ export default function AvatarBauhaus(props: Omit<AvatarProps, "variant">) {
       width={props.size}
       height={props.size}
     >
-      {props.title && <title>{props.name}</title>}
+      {props.hasTitle && <title>{props.name}</title>}
       <mask
         id="mask__bauhaus"
         maskUnits="userSpaceOnUse"

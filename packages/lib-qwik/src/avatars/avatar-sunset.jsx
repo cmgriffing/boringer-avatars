@@ -31,7 +31,7 @@ export const AvatarSunset = component$((props) => {
       width={props.size}
       height={props.size}
     >
-      {props.title ? <title>{props.name}</title> : null}
+      {props.hasTitle ? <title>{props.name}</title> : null}
       <mask
         id="mask__sunset"
         maskUnits="userSpaceOnUse"

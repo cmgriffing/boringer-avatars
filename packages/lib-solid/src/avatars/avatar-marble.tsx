@@ -1,9 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
+import type { AvatarProps } from "../avatar.utils";
+
 import { defaultAvatarProps } from "../avatar.utils";
 import { SIZE, generateColors } from "./avatar-marble.utils";
 
-function AvatarMarble(props) {
+function AvatarMarble(props: Omit<AvatarProps, "variant">) {
   function properties(name, colors) {
     return generateColors(name, colors);
   }
@@ -53,7 +55,7 @@ function AvatarMarble(props) {
       width={props.size}
       height={props.size}
     >
-      <Show when={props.title}>
+      <Show when={props.hasTitle}>
         <title>{props.name}</title>
       </Show>
       <mask

@@ -11,7 +11,7 @@
   export let colors;
   export let name;
   export let square;
-  export let title;
+  export let hasTitle;
   export let size;
 </script>
 
@@ -21,7 +21,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}
@@ -31,7 +31,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}
@@ -41,7 +41,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}
@@ -51,7 +51,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}
@@ -61,7 +61,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}
@@ -71,7 +71,7 @@
       colors={colors || defaultAvatarProps.colors}
       name={name || defaultAvatarProps.name}
       square={square || defaultAvatarProps.square}
-      title={title || defaultAvatarProps.title}
+      hasTitle={hasTitle || defaultAvatarProps.hasTitle}
       size={size || defaultAvatarProps.size}
     />
   {/if}

@@ -53,7 +53,7 @@ export default function AvatarMarble(props: Omit<AvatarProps, "variant">) {
       width={props.size}
       height={props.size}
     >
-      {props.title && <title>{props.name}</title>}
+      {props.hasTitle && <title>{props.name}</title>}
       <mask
         id="mask__marble"
         maskUnits="userSpaceOnUse"

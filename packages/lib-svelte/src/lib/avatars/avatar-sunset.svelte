@@ -3,7 +3,7 @@
 
   export let name;
   export let size;
-  export let title;
+  export let hasTitle;
   export let square;
   export let colors;
 
@@ -35,7 +35,7 @@
   width={size}
   height={size}
 >
-  {#if title}
+  {#if hasTitle}
     <title>{name}</title>
   {/if}
   <mask

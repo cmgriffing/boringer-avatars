@@ -2,7 +2,7 @@
   import { generateColors, SIZE } from "./avatar-ring.utils";
 
   export let size;
-  export let title;
+  export let hasTitle;
   export let name;
   export let square;
   export let colors;
@@ -20,7 +20,7 @@
   width={size}
   height={size}
 >
-  {#if title}
+  {#if hasTitle}
     <title>{name}</title>
   {/if}
   <mask

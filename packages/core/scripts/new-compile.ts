@@ -12,6 +12,7 @@ try {
     Vue3 = "vue3",
     Solid = "solid",
     Qwik = "qwik",
+    Stencil = "stencil",
   }
 
   const instructionsMap: Record<Target, string> = {
@@ -21,6 +22,7 @@ try {
     [Target.Vue3]: ``,
     [Target.Solid]: ``,
     [Target.Qwik]: ``,
+    [Target.Stencil]: ``,
   };
 
   const usageMap: Record<Target, string> = {
@@ -94,6 +96,7 @@ try {
       square={false}
       colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
     />`,
+    [Target.Stencil]: ``,
   };
 
   const propsNameMap: Record<Target, string> = {
@@ -103,12 +106,26 @@ try {
     [Target.Vue3]: `Props`,
     [Target.Solid]: `Props`,
     [Target.Qwik]: `Props`,
+    [Target.Stencil]: `Props`,
   };
 
   Object.values(Target).forEach((target) => {
     let compiledDir = path.resolve(process.cwd(), `output/${target}/src`);
     if (target === Target.Vue3) {
       compiledDir = path.resolve(process.cwd(), `output/vue/${target}/src`);
+    }
+
+    // temporary until https://github.com/BuilderIO/mitosis/pull/1016 merges
+    console.log({ target });
+    if (target === Target.Stencil) {
+      const jsFilesPath = path.resolve(compiledDir, "**/*.js");
+      const jsFiles = glob.sync(jsFilesPath);
+      console.log({ jsFilesPath, jsFiles });
+      jsFiles.forEach((jsFile) => {
+        const tsFile = jsFile.replace(".js", ".tsx");
+        console.log("Moving", { jsFile, tsFile });
+        fs.moveSync(jsFile, tsFile);
+      });
     }
 
     const outputDir = path.resolve(process.cwd(), "../", `lib-${target}`);

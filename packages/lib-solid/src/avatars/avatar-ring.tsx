@@ -1,9 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
+import type { AvatarProps } from "../avatar.utils";
+
 import { defaultAvatarProps } from "../avatar.utils";
 import { generateColors, SIZE } from "./avatar-ring.utils";
 
-function AvatarRing(props) {
+function AvatarRing(props: Omit<AvatarProps, "variant">) {
   function ringColors(name, colors) {
     return generateColors(colors, name);
   }
@@ -17,7 +19,7 @@ function AvatarRing(props) {
       width={props.size}
       height={props.size}
     >
-      <Show when={props.title}>
+      <Show when={props.hasTitle}>
         <title>{props.name}</title>
       </Show>
       <mask

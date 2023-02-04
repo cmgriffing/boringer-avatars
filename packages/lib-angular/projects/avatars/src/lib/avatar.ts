@@ -22,7 +22,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-bauhaus>
       </ng-container>
@@ -32,7 +32,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-beam>
       </ng-container>
@@ -42,7 +42,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-marble>
       </ng-container>
@@ -52,7 +52,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-pixel>
       </ng-container>
@@ -62,7 +62,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-ring>
       </ng-container>
@@ -72,7 +72,7 @@ import { AvatarSunsetModule } from "./avatars/avatar-sunset";
           [colors]="colors || defaultAvatarProps.colors"
           [name]="name || defaultAvatarProps.name"
           [square]="square || defaultAvatarProps.square"
-          [title]="title || defaultAvatarProps.title"
+          [hasTitle]="hasTitle || defaultAvatarProps.hasTitle"
           [size]="size || defaultAvatarProps.size"
         ></avatar-sunset>
       </ng-container>
@@ -86,7 +86,7 @@ export class Avatar {
   @Input() colors: Partial<AvatarProps>["colors"];
   @Input() name: Partial<AvatarProps>["name"];
   @Input() square: Partial<AvatarProps>["square"];
-  @Input() title: Partial<AvatarProps>["title"];
+  @Input() hasTitle: Partial<AvatarProps>["hasTitle"];
   @Input() size: Partial<AvatarProps>["size"];
 }
 

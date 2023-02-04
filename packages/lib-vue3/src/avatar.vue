@@ -5,7 +5,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-bauhaus>
     </template>
@@ -15,7 +15,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-beam>
     </template>
@@ -25,7 +25,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-marble>
     </template>
@@ -35,7 +35,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-pixel>
     </template>
@@ -45,7 +45,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-ring>
     </template>
@@ -55,7 +55,7 @@
         :colors="colors || defaultAvatarProps.colors"
         :name="name || defaultAvatarProps.name"
         :square="square || defaultAvatarProps.square"
-        :title="title || defaultAvatarProps.title"
+        :hasTitle="hasTitle || defaultAvatarProps.hasTitle"
         :size="size || defaultAvatarProps.size"
       ></avatar-sunset>
     </template>
@@ -81,8 +81,10 @@ export default {
     AvatarRing: AvatarRing,
     AvatarSunset: AvatarSunset,
   },
-  props: ["variant", "colors", "name", "square", "title", "size"],
+  props: ["variant", "colors", "name", "square", "hasTitle", "size"],
 
-  data: () => ({ defaultAvatarProps }),
+  data() {
+    return { defaultAvatarProps };
+  },
 };
 </script>

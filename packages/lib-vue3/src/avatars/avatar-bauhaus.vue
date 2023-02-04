@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <template v-if="title">
+    <template v-if="hasTitle">
       <title>{{ name }}</title>
     </template>
 
@@ -66,9 +66,11 @@ import { generateColors, SIZE } from "./avatar-bauhaus.utils";
 export default {
   name: "avatar-bauhaus",
 
-  props: ["name", "colors", "size", "title", "square"],
+  props: ["name", "colors", "size", "hasTitle", "square"],
 
-  data: () => ({ SIZE }),
+  data() {
+    return { SIZE };
+  },
 
   methods: {
     properties(name, colors) {

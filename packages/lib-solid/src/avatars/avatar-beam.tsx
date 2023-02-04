@@ -1,9 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
+import type { AvatarProps } from "../avatar.utils";
+
 import { defaultAvatarProps } from "../avatar.utils";
 import { generateData, SIZE } from "./avatar-beam.utils";
 
-function AvatarBeam(props) {
+function AvatarBeam(props: Omit<AvatarProps, "variant">) {
   function data(name, colors) {
     return generateData(name, colors);
   }
@@ -67,7 +69,7 @@ function AvatarBeam(props) {
       width={props.size}
       height={props.size}
     >
-      <Show when={props.title}>
+      <Show when={props.hasTitle}>
         <title>{props.name}</title>
       </Show>
       <mask

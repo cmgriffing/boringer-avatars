@@ -37,7 +37,7 @@ export default function AvatarSunset(props: Omit<AvatarProps, "variant">) {
       width={props.size}
       height={props.size}
     >
-      {props.title ? <title>{props.name}</title> : null}
+      {props.hasTitle ? <title>{props.name}</title> : null}
 
       <mask
         id="mask__sunset"

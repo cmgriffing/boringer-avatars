@@ -16,7 +16,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarBauhaus>
       ) : null}
@@ -25,7 +25,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarBeam>
       ) : null}
@@ -34,7 +34,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarMarble>
       ) : null}
@@ -43,7 +43,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarPixel>
       ) : null}
@@ -52,7 +52,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarRing>
       ) : null}
@@ -61,7 +61,7 @@ export const Avatar = component$((props) => {
           colors={props.colors || defaultAvatarProps.colors}
           name={props.name || defaultAvatarProps.name}
           square={props.square || defaultAvatarProps.square}
-          title={props.title || defaultAvatarProps.title}
+          hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
           size={props.size || defaultAvatarProps.size}
         ></AvatarSunset>
       ) : null}

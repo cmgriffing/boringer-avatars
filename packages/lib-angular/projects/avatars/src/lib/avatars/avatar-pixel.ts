@@ -19,7 +19,7 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
       [attr.width]="size"
       [attr.height]="size"
     >
-      <ng-container *ngIf="title">
+      <ng-container *ngIf="hasTitle">
         <title>{{name}}</title>
       </ng-container>
 
@@ -544,7 +544,7 @@ export class AvatarPixel {
   SIZE = SIZE;
 
   @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
-  @Input() title: Omit<AvatarProps, 'variant'>['title'] = defaultAvatarProps['title'];
+  @Input() hasTitle: Omit<AvatarProps, 'variant'>['hasTitle'] = defaultAvatarProps['hasTitle'];
   @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
   @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
   @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];

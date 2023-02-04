@@ -17,7 +17,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>
@@ -29,7 +29,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>
@@ -41,7 +41,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>
@@ -53,7 +53,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>
@@ -65,7 +65,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>
@@ -77,7 +77,7 @@ export default function Avatar(props: Partial<AvatarProps>) {
             colors={props.colors || defaultAvatarProps.colors}
             name={props.name || defaultAvatarProps.name}
             square={props.square || defaultAvatarProps.square}
-            title={props.title || defaultAvatarProps.title}
+            hasTitle={props.hasTitle || defaultAvatarProps.hasTitle}
             size={props.size || defaultAvatarProps.size}
           />
         </>

@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <template v-if="title">
+    <template v-if="hasTitle">
       <title>{{ name }}</title>
     </template>
 
@@ -63,9 +63,11 @@ import { generateColors, SIZE } from "./avatar-sunset.utils";
 export default {
   name: "avatar-sunset",
 
-  props: ["name", "size", "title", "square", "colors"],
+  props: ["name", "size", "hasTitle", "square", "colors"],
 
-  data: () => ({ SIZE }),
+  data() {
+    return { SIZE };
+  },
 
   computed: {
     formattedName() {

@@ -7,7 +7,7 @@
     :width="size"
     :height="size"
   >
-    <template v-if="title">
+    <template v-if="hasTitle">
       <title>{{ name }}</title>
     </template>
 
@@ -470,9 +470,11 @@ import { generateColors, SIZE } from "./avatar-pixel.utils";
 export default {
   name: "avatar-pixel",
 
-  props: ["size", "title", "name", "square", "colors"],
+  props: ["size", "hasTitle", "name", "square", "colors"],
 
-  data: () => ({ SIZE }),
+  data() {
+    return { SIZE };
+  },
 
   methods: {
     pixelColors(name, colors) {
