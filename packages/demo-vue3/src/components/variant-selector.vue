@@ -29,7 +29,9 @@ export default {
 
   props: ["onChange", "variant"],
 
-  data: () => ({ selectedVariant: "beam", variants }),
+  data() {
+    return { selectedVariant: "beam", variants };
+  },
 
   mounted() {
     this.selectedVariant = coerceVariant(this.variant) || "beam";

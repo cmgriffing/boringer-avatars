@@ -68,7 +68,7 @@ export default component$(() => {
         {exampleNames.map((name: string) => (
           <div class="avatar-list-item">
             <Avatar
-              title={false}
+              hasTitle={false}
               size={state.size}
               variant={state.variant}
               name={name}

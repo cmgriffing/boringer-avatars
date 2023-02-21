@@ -30,7 +30,9 @@ export default {
 
   props: ["onChange", "theme"],
 
-  data: () => ({ selectedTheme: Theme.Light }),
+  data() {
+    return { selectedTheme: Theme.Light };
+  },
 
   mounted() {
     this.selectedTheme = this.theme || Theme.Light;

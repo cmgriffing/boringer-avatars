@@ -7,7 +7,7 @@ import {
   h,
   useClientEffect$,
   useStore,
-  useWatch$,
+  useTask$,
 } from "@builder.io/qwik";
 import type { SizeSelectorProps } from "./size-selector.utils";
 export const handleChange = function handleChange(props, state, event: any) {
@@ -43,8 +43,8 @@ export const SizeSelector = component$((props: any) => {
   useClientEffect$(() => {
     state.selectedSize = props.size || AvatarSize.Medium;
   });
-  useWatch$(({ track }) => {
-    props && track(props, "size");
+  useTask$(({ track }) => {
+    track(() => props.size);
     state.selectedSize = props.size || AvatarSize.Medium;
   });
   return (

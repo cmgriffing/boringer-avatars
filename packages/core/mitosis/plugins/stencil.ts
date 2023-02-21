@@ -10,7 +10,6 @@ export function CustomStencilPlugin(): MitosisPlugin {
           new RegExp(`tag: "avatar`, "gm"),
           `tag: "boringer-avatar`
         );
-        // export default
 
         newCode = newCode.replace(new RegExp(`export default`, "gm"), `export`);
 
@@ -18,6 +17,10 @@ export function CustomStencilPlugin(): MitosisPlugin {
           new RegExp(`import (Avatar[A-Za-z]*) from`, "gm"),
           "import { $1 } from"
         );
+
+        newCode = newCode.replace(new RegExp(`\\<\\>`, "gm"), "<Fragment>");
+
+        newCode = newCode.replace(new RegExp(`\\<\\/\\>`, "gm"), "</Fragment>");
 
         return newCode;
       },

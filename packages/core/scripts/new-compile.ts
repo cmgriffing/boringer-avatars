@@ -27,76 +27,96 @@ try {
 
   const usageMap: Record<Target, string> = {
     [Target.Angular]: `<avatar
-  variant="beam"
-  [title]="false"
-  [size]="400"
-  name="testing"
-  [square]="false"
-  [colors]="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
-></avatar>`,
+      variant="beam"
+      [title]="false"
+      [size]="400"
+      name="testing"
+      [square]="false"
+      [colors]="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+    ></avatar>`,
     [Target.React]: `import { Avatar } from "@boringer-avatars/react";
 
-    ...
+        ...
 
-    <Avatar
-      title={false}
-      size={400}
-      variant="beam"
-      name="testing"
-      square={false}
-      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    />`,
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />`,
     [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
 
-    ...
+        ...
 
-    <Avatar
-      title={false}
-      size={400}
-      variant="beam"
-      name="testing"
-      square={false}
-      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    />`,
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />`,
     [Target.Svelte]: `<script lang="ts">
-      import { Avatar } from "@boringer-avatars/svelte/package";
-    </script>
+          import { Avatar } from "@boringer-avatars/svelte/package";
+        </script>
 
-    <Avatar
-      title={false}
-      size={400}
-      variant="beam"
-      name="testing"
-      square={false}
-      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    />`,
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />`,
     [Target.Vue3]: `<script setup>
-      import { Avatar } from "@boringer-avatars/vue3";
-    </script>
+          import { Avatar } from "@boringer-avatars/vue3";
+        </script>
 
-    <template>
-      <Avatar
-        :title="false"
-        :size="400"
-        variant="beam"
-        name="testing"
-        :square="false"
-        :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
-      />
-    </template>`,
+        <template>
+          <Avatar
+            :title="false"
+            :size="400"
+            variant="beam"
+            name="testing"
+            :square="false"
+            :colors="['#FFAD08', '#EDD75A', '#73B06F', '#0C8F8F', '#405059']"
+          />
+        </template>`,
     [Target.Qwik]: `import { Avatar } from "@boringer-avatars/qwik";
 
-    ...
+        ...
 
-    <Avatar
-      title={false}
-      size={400}
-      variant="beam"
-      name="testing"
-      square={false}
-      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    />`,
-    [Target.Stencil]: ``,
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />`,
+    [Target.Stencil]: `import "@boringer-avatars/stencil";
+
+      ...
+
+      <boringer-avatar-beam
+        title={false}
+        size={400}
+        name="testing"
+        square={false}
+        colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+      />
+
+      <boringer-avatar-bauhaus
+        title={false}
+        size={400}
+        name="testing"
+        square={false}
+        colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+      />
+
+    `,
   };
 
   const propsNameMap: Record<Target, string> = {
@@ -169,6 +189,7 @@ try {
       propsName,
       usage,
       isAngular: target === "angular",
+      isStencil: target === "stencil",
     };
 
     templateFiles.forEach((templateFilePath) => {

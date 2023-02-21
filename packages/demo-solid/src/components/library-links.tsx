@@ -1,6 +1,6 @@
 import { LibraryLinksProps } from "./library-links.utils";
 
-function LibraryLinks(props) {
+function LibraryLinks(props: any) {
   return (
     <div class="inner-row">
       <div class="widget-wrapper">

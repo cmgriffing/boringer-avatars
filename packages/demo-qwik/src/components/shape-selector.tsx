@@ -7,7 +7,7 @@ import {
   h,
   useClientEffect$,
   useStore,
-  useWatch$,
+  useTask$,
 } from "@builder.io/qwik";
 import type { ShapeSelectorProps } from "./shape-selector.utils";
 export const handleChange = function handleChange(props, state, event: any) {
@@ -31,8 +31,8 @@ export const ShapeSelector = component$((props: any) => {
   useClientEffect$(() => {
     state.selectedShape = props.shape || AvatarShape.Circle;
   });
-  useWatch$(({ track }) => {
-    props && track(props, "shape");
+  useTask$(({ track }) => {
+    track(() => props.shape);
     state.selectedShape = props.shape || AvatarShape.Circle;
   });
   return (

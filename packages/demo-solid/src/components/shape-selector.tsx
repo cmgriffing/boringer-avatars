@@ -1,8 +1,10 @@
 import { onMount, on, createEffect, createSignal } from "solid-js";
 
+import type { ShapeSelectorProps } from "./shape-selector.utils";
+
 import { AvatarShape, shapes } from "../utils/common.utils";
 
-function ShapeSelector(props) {
+function ShapeSelector(props: any) {
   const [selectedShape, setSelectedShape] = createSignal(AvatarShape.Circle);
 
   function handleChange(event) {

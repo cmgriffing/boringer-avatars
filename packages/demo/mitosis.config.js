@@ -5,13 +5,28 @@ const { CustomSveltePlugin } = require("./mitosis/plugins/svelte");
 const { CustomReactPlugin } = require("./mitosis/plugins/react");
 const { CustomSolidPlugin } = require("./mitosis/plugins/solid");
 const { CustomQwikPlugin } = require("./mitosis/plugins/qwik");
+const { CustomStencilPlugin } = require("./mitosis/plugins/stencil");
 const { CustomCommonPlugin } = require("./mitosis/plugins/common");
 
 module.exports = {
   prettier: false,
   files: "src/**/*",
-  targets: ["solid", "vue3", "vue2", "svelte", "react", "angular", "qwik"],
+  targets: [
+    "solid",
+    "vue3",
+    "vue2",
+    "svelte",
+    "react",
+    "angular",
+    "stencil",
+    "qwik",
+  ],
   options: {
+    stencil: {
+      // prettier: false,
+      typescript: true,
+      plugins: [CustomStencilPlugin],
+    },
     solid: {
       typescript: true,
       plugins: [CustomCommonPlugin, CustomSolidPlugin],

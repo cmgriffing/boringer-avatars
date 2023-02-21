@@ -7,7 +7,7 @@ import {
   h,
   useClientEffect$,
   useStore,
-  useWatch$,
+  useTask$,
 } from "@builder.io/qwik";
 import type { VariantSelectorProps } from "./variant-selector.utils";
 export const handleChange = function handleChange(props, state, event: any) {
@@ -38,8 +38,8 @@ export const VariantSelector = component$((props: any) => {
   useClientEffect$(() => {
     state.selectedVariant = coerceVariant(props.variant) || "beam";
   });
-  useWatch$(({ track }) => {
-    props && track(props, "variant");
+  useTask$(({ track }) => {
+    track(() => props.variant);
     state.selectedVariant = coerceVariant(props.variant) || "beam";
   });
   return (

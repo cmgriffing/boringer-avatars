@@ -3,7 +3,7 @@ import { onMount, on, createEffect, createSignal } from "solid-js";
 import { Theme } from "../utils/common.utils";
 import { LightDarkToggleProps } from "./light-dark-toggle.utils";
 
-function LightDarkToggle(props) {
+function LightDarkToggle(props: any) {
   const [selectedTheme, setSelectedTheme] = createSignal(Theme.Light);
 
   function handleChange(event) {

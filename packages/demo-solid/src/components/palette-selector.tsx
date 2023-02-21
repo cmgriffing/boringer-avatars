@@ -1,6 +1,8 @@
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
-function PaletteSelector(props) {
+import type { PaletteSelectorProps } from "./palette-selector.utils";
+
+function PaletteSelector(props: any) {
   const [selectedPalette, setSelectedPalette] = createSignal([
     "#FFAD08",
     "#EDD75A",

@@ -78,8 +78,7 @@ const App: Component = () => {
             {(name) => (
               <div class="avatar-list-item">
                 <Avatar
-                  test={variant() + "foo"}
-                  title={false}
+                  hasTitle={false}
                   size={size()}
                   variant={variant()}
                   name={name}

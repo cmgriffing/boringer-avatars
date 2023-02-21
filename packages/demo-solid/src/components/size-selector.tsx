@@ -1,8 +1,10 @@
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
+import type { SizeSelectorProps } from "./size-selector.utils";
+
 import { AvatarSize, sizes } from "../utils/common.utils";
 
-function SizeSelector(props) {
+function SizeSelector(props: any) {
   const [selectedSize, setSelectedSize] = createSignal(AvatarSize.Medium);
 
   function handleChange(event) {

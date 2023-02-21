@@ -8,7 +8,7 @@ import {
   h,
   useClientEffect$,
   useStore,
-  useWatch$,
+  useTask$,
 } from "@builder.io/qwik";
 export const handleChange = function handleChange(props, state, event: any) {
   const newTheme =
@@ -21,8 +21,8 @@ export const LightDarkToggle = component$((props: any) => {
   useClientEffect$(() => {
     state.selectedTheme = props.theme || Theme.Light;
   });
-  useWatch$(({ track }) => {
-    props && track(props, "theme");
+  useTask$(({ track }) => {
+    track(() => props.theme);
     state.selectedTheme = props.theme || Theme.Light;
   });
   return (

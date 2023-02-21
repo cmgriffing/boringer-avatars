@@ -6,7 +6,7 @@ import {
   h,
   useClientEffect$,
   useStore,
-  useWatch$,
+  useTask$,
 } from "@builder.io/qwik";
 import type { PaletteSelectorProps } from "./palette-selector.utils";
 export const handleChange = function handleChange(
@@ -37,8 +37,8 @@ export const PaletteSelector = component$((props: any) => {
   useClientEffect$(() => {
     state.selectedPalette = props.colors;
   });
-  useWatch$(({ track }) => {
-    props && track(props, "colors");
+  useTask$(({ track }) => {
+    track(() => props.colors);
     state.selectedPalette = props.colors;
   });
   return (

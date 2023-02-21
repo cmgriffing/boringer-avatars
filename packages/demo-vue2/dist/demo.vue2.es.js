@@ -9,11 +9,11 @@ const v = Object.values(c), _ = {
 function f(t) {
   return t ? Object.keys(_).includes(t || "") ? _[t || ""] || c.Marble : t && v.includes(t) ? t : c.Marble : c.Marble;
 }
-var u;
+var h;
 (function(t) {
   t.Small = "40px", t.Medium = "80px", t.Large = "128px";
-})(u || (u = {}));
-const k = Object.entries(u);
+})(h || (h = {}));
+const k = Object.entries(h);
 var i;
 (function(t) {
   t.Square = "square", t.Circle = "circle";
@@ -127,24 +127,24 @@ const Z = Object.values(o), K = [
 function p(t, e, a, r, s, d, C, b) {
   var n = typeof t == "function" ? t.options : t;
   e && (n.render = e, n.staticRenderFns = a, n._compiled = !0), r && (n.functional = !0), d && (n._scopeId = "data-v-" + d);
-  var h;
-  if (C ? (h = function(l) {
+  var u;
+  if (C ? (u = function(l) {
     l = l || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !l && typeof __VUE_SSR_CONTEXT__ < "u" && (l = __VUE_SSR_CONTEXT__), s && s.call(this, l), l && l._registeredComponents && l._registeredComponents.add(C);
-  }, n._ssrRegister = h) : s && (h = b ? function() {
+  }, n._ssrRegister = u) : s && (u = b ? function() {
     s.call(
       this,
       (n.functional ? this.parent : this).$root.$options.shadowRoot
     );
-  } : s), h)
+  } : s), u)
     if (n.functional) {
-      n._injectStyles = h;
+      n._injectStyles = u;
       var w = n.render;
       n.render = function(S, g) {
-        return h.call(g), w(S, g);
+        return u.call(g), w(S, g);
       };
     } else {
       var m = n.beforeCreate;
-      n.beforeCreate = m ? [].concat(m, h) : [h];
+      n.beforeCreate = m ? [].concat(m, u) : [u];
     }
   return {
     exports: t,
@@ -154,7 +154,9 @@ function p(t, e, a, r, s, d, C, b) {
 const M = {
   name: "variant-selector",
   props: ["onChange", "variant"],
-  data: () => ({ selectedVariant: "beam", variants: v }),
+  data() {
+    return { selectedVariant: "beam", variants: v };
+  },
   mounted() {
     this.selectedVariant = f(this.variant) || "beam";
   },
@@ -216,14 +218,16 @@ var y = function() {
 const X = L.exports, z = {
   name: "size-selector",
   props: ["onChange", "size"],
-  data: () => ({ selectedSize: u.Medium, sizes: k }),
+  data() {
+    return { selectedSize: h.Medium, sizes: k };
+  },
   mounted() {
-    this.selectedSize = this.size || u.Medium;
+    this.selectedSize = this.size || h.Medium;
   },
   watch: {
     onUpdateHook0: {
       handler() {
-        this.selectedSize = this.size || u.Medium;
+        this.selectedSize = this.size || h.Medium;
       },
       immediate: !0
     }
@@ -238,7 +242,7 @@ const X = L.exports, z = {
   methods: {
     handleChange(t) {
       var a;
-      const e = ((a = t == null ? void 0 : t.target) == null ? void 0 : a.value) || u.Medium;
+      const e = ((a = t == null ? void 0 : t.target) == null ? void 0 : a.value) || h.Medium;
       this.selectedSize = e, this.onChange(e);
     },
     getLabelClass(t) {
@@ -281,9 +285,11 @@ var H = function() {
 const Q = P.exports, T = {
   name: "palette-selector",
   props: ["onChange", "colors"],
-  data: () => ({
-    selectedPalette: ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]
-  }),
+  data() {
+    return {
+      selectedPalette: ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]
+    };
+  },
   mounted() {
     this.selectedPalette = this.colors;
   },
@@ -338,7 +344,9 @@ var I = function() {
 const Y = F.exports, V = {
   name: "shape-selector",
   props: ["onChange", "shape"],
-  data: () => ({ selectedShape: i.Circle }),
+  data() {
+    return { selectedShape: i.Circle };
+  },
   mounted() {
     this.selectedShape = this.shape || i.Circle;
   },
@@ -399,7 +407,9 @@ var D = function() {
 const ee = E.exports, U = {
   name: "light-dark-toggle",
   props: ["onChange", "theme"],
-  data: () => ({ selectedTheme: o.Light }),
+  data() {
+    return { selectedTheme: o.Light };
+  },
   mounted() {
     this.selectedTheme = this.theme || o.Light;
   },
@@ -460,7 +470,7 @@ var J = function() {
 const ae = q.exports;
 export {
   i as AvatarShape,
-  u as AvatarSize,
+  h as AvatarSize,
   c as AvatarVariant,
   ae as LibraryLinks,
   te as LightDarkToggle,

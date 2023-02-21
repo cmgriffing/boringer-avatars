@@ -12,79 +12,116 @@ try {
     Vue3 = "vue3",
     Vue2 = "vue2",
     Solid = "solid",
+    Stencil = "stencil",
     Qwik = "qwik",
   }
 
+  const status: {
+    succeeded: Target[];
+    failed: Target[];
+  } = {
+    succeeded: [],
+    failed: [],
+  };
+
   Object.values(Target).forEach((target) => {
-    let compiledDir = path.resolve(process.cwd(), `output/${target}/src`);
-    if (target === Target.Vue2 || target === Target.Vue3) {
-      compiledDir = path.resolve(process.cwd(), `output/vue/${target}/src`);
-    }
+    try {
+      let compiledDir = path.resolve(process.cwd(), `output/${target}/src`);
+      if (target === Target.Vue2 || target === Target.Vue3) {
+        compiledDir = path.resolve(process.cwd(), `output/vue/${target}/src`);
+      }
 
-    const outputDir = path.resolve(process.cwd(), "../", `demo-${target}`);
+      if (target === Target.Stencil) {
+        const jsFilesPath = path.resolve(compiledDir, "**/*.js");
+        const jsFiles = glob.sync(jsFilesPath);
+        console.log({ jsFilesPath, jsFiles });
+        jsFiles.forEach((jsFile) => {
+          const tsFile = jsFile.replace(".js", ".tsx");
+          console.log("Moving", { jsFile, tsFile });
+          fs.moveSync(jsFile, tsFile);
+        });
+      }
 
-    if (fs.existsSync(outputDir)) {
-      fs.removeSync(outputDir);
-      fs.ensureDirSync(outputDir);
-    }
+      const outputDir = path.resolve(process.cwd(), "../", `demo-${target}`);
 
-    let srcDir = path.resolve(outputDir, "src");
-    if (target === "svelte") {
-      srcDir = path.resolve(outputDir, "src/lib");
-    } else if (target === "angular") {
-      srcDir = path.resolve(outputDir, "projects/demo/src/lib");
-    }
+      if (fs.existsSync(outputDir)) {
+        fs.removeSync(outputDir);
+        fs.ensureDirSync(outputDir);
+      }
 
-    const boilerplatePath = path.resolve(__dirname, `boilerplate/${target}`);
+      let srcDir = path.resolve(outputDir, "src");
+      if (target === "svelte") {
+        srcDir = path.resolve(outputDir, "src/lib");
+      } else if (target === "angular") {
+        srcDir = path.resolve(outputDir, "projects/demo/src/lib");
+      }
 
-    fs.copySync(boilerplatePath, outputDir);
+      const boilerplatePath = path.resolve(__dirname, `boilerplate/${target}`);
 
-    const readmeTemplatePath = path.resolve(
-      __dirname,
-      "./templates/README.MD.mustache"
-    );
+      fs.copySync(boilerplatePath, outputDir);
 
-    fs.copyFileSync(
-      readmeTemplatePath,
-      path.resolve(outputDir, "README.MD.mustache")
-    );
-
-    const templateFiles = glob.sync(path.resolve(outputDir, "**/*.mustache"));
-
-    const context = {
-      target,
-      version: packageJson.version,
-    };
-
-    templateFiles.forEach((templateFilePath) => {
-      const template = fs.readFileSync(templateFilePath, { encoding: "utf8" });
-
-      const rendered = mustache.render(template, context);
-
-      const relativeTemplateFileName = templateFilePath
-        .replace(outputDir, "")
-        .slice(1);
-
-      const relativeFileName = relativeTemplateFileName.replace(
-        ".mustache",
-        ""
+      const readmeTemplatePath = path.resolve(
+        __dirname,
+        "./templates/README.MD.mustache"
       );
 
-      fs.outputFileSync(path.resolve(outputDir, relativeFileName), rendered);
+      fs.copyFileSync(
+        readmeTemplatePath,
+        path.resolve(outputDir, "README.MD.mustache")
+      );
 
-      fs.removeSync(templateFilePath);
-    });
+      const templateFiles = glob.sync(path.resolve(outputDir, "**/*.mustache"));
 
-    fs.copySync(compiledDir, srcDir);
+      const context = {
+        target,
+        version: packageJson.version,
+      };
 
-    execSync("pnpm install", {
-      cwd: outputDir,
-    });
+      templateFiles.forEach((templateFilePath) => {
+        const template = fs.readFileSync(templateFilePath, {
+          encoding: "utf8",
+        });
 
-    execSync("pnpm build", {
-      cwd: outputDir,
-    });
+        const rendered = mustache.render(template, context);
+
+        const relativeTemplateFileName = templateFilePath
+          .replace(outputDir, "")
+          .slice(1);
+
+        const relativeFileName = relativeTemplateFileName.replace(
+          ".mustache",
+          ""
+        );
+
+        fs.outputFileSync(path.resolve(outputDir, relativeFileName), rendered);
+
+        fs.removeSync(templateFilePath);
+      });
+
+      fs.copySync(compiledDir, srcDir);
+
+      execSync("pnpm install", {
+        cwd: outputDir,
+      });
+
+      execSync("pnpm build", {
+        cwd: outputDir,
+      });
+
+      status.succeeded.push(target);
+    } catch (targetError: any) {
+      status.failed.push(target);
+    }
   });
+
+  console.log(`
+Build status: ${status.succeeded.length}/${
+    status.failed.length + status.succeeded.length
+  }
+${
+  status.failed.length > 0 ? `Failing targets: ${status.failed.join(", ")}` : ""
+}
+`);
 } catch (e: any) {
   if (e?.stdout) {
     console.log("Caught", e?.stdout?.toString());

@@ -29,7 +29,9 @@ export default {
 
   props: ["onChange", "size"],
 
-  data: () => ({ selectedSize: AvatarSize.Medium, sizes }),
+  data() {
+    return { selectedSize: AvatarSize.Medium, sizes };
+  },
 
   mounted() {
     this.selectedSize = this.size || AvatarSize.Medium;

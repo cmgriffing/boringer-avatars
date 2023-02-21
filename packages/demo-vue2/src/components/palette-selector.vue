@@ -31,9 +31,11 @@ export default {
 
   props: ["onChange", "colors"],
 
-  data: () => ({
-    selectedPalette: ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"],
-  }),
+  data() {
+    return {
+      selectedPalette: ["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"],
+    };
+  },
 
   mounted() {
     this.selectedPalette = this.colors;

@@ -1,6 +1,6 @@
 # @boringer-avatars/solid
 
-Procedurally generate Avatars for your applications. Use these avatars as placeholders until your users upload their own images.
+Procedurally generate Avatars for your applications. Use these avatars as placeholders until your users upload their own images. Several variants and styles to choose from.
 
 <div style="background: rgba(255, 0, 0, 0.2); padding:1rem;">
   <h2>Warning: Generated Code</h2>
@@ -23,19 +23,20 @@ pnpm add @boringer-avatars/solid
 ## Usage
 
 
+
 ```
 import { Avatar } from "@boringer-avatars/solid";
 
-    ...
+        ...
 
-    <Avatar
-      title={false}
-      size={400}
-      variant="beam"
-      name="testing"
-      square={false}
-      colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    />
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />
 ```
 
 ## Props
@@ -54,7 +55,7 @@ The options you can pass into the component are listed below.
 
 - **square**: `boolean`. Decides whether Avatar is a Circle or Square. Defaults to: `false`
 
-- **title**: `boolean`. Decides whether Avatar displays a title value. Defaults to: `false`
+- **hasTitle**: `boolean`. Decides whether Avatar displays a title value. Defaults to: `false`
 
 - **size**: `string`. Determines the width and height of the image. You can use any valid css value. eg: "42px", "42%", "42vw", etc. Defaults to: `42px`
 
@@ -64,7 +65,7 @@ MIT License
 
 Copyright (c) 2021 boringdesigners
 
-Copyright (c) 2022 cmgriffing
+Copyright (c) 2022-2023 cmgriffing
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

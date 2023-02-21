@@ -11,15 +11,20 @@
   },
   "dependencies": {
     "@boringer-avatars/stencil": "workspace:*",
+    "@demo/stencil": "workspace:*",
     "ui": "workspace:*"
   },
   "devDependencies": {
-    "@stencil-community/router": "^1.0.2",
-    "@stencil/core": "2.13.0",
+    "@stencil/core": "3.0.0",
+    "@stencil/postcss": "^2.1.0",
+    "@types/autoprefixer": "^10.2.0",
     "@types/jest": "^27.0.3",
+    "autoprefixer": "^10.4.13",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
-    "puppeteer": "^10.0.0"
+    "postcss": "^8.4.19",
+    "puppeteer": "^10.0.0",
+    "workbox-build": "4.3.1"
   },
   "license": "MIT"
 }

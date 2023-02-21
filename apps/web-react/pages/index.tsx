@@ -74,7 +74,7 @@ export default function Web() {
         {exampleNames.map((name: string) => (
           <div className="avatar-list-item" key={name}>
             <Avatar
-              title={false}
+              hasTitle={false}
               size={size}
               variant={variant}
               name={name}

@@ -1,8 +1,10 @@
 import { For, onMount, on, createEffect, createSignal } from "solid-js";
 
+import type { VariantSelectorProps } from "./variant-selector.utils";
+
 import { coerceVariant, AvatarVariant, variants } from "../utils/common.utils";
 
-function VariantSelector(props) {
+function VariantSelector(props: any) {
   const [selectedVariant, setSelectedVariant] = createSignal("beam");
 
   function handleChange(event) {

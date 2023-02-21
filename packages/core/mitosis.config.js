@@ -15,7 +15,7 @@ module.exports = {
     "angular",
     "qwik",
     "stencil",
-    "lit",
+    // "lit",
   ],
   options: {
     stencil: {
@@ -52,34 +52,7 @@ module.exports = {
     angular: {
       typescript: true,
       // prettier: false,
-      plugins: [
-        CustomAngularPlugin({
-          // attributes: [
-          //   "cx",
-          //   "cy",
-          //   "d",
-          //   "fill",
-          //   "floodOpacity",
-          //   "height",
-          //   "offset",
-          //   "r",
-          //   "rx",
-          //   "stdDeviation",
-          //   "stop-color",
-          //   "stroke",
-          //   "strokeWidth",
-          //   "transform",
-          //   "viewBox",
-          //   "width",
-          //   "x",
-          //   "x1",
-          //   "x2",
-          //   "y",
-          //   "y1",
-          //   "y2",
-          // ],
-        }),
-      ],
+      plugins: [CustomAngularPlugin({})],
     },
   },
 };

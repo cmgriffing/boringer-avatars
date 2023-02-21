@@ -56,7 +56,9 @@ export default {
 
   props: ["onChange", "shape"],
 
-  data: () => ({ selectedShape: AvatarShape.Circle }),
+  data() {
+    return { selectedShape: AvatarShape.Circle };
+  },
 
   mounted() {
     this.selectedShape = this.shape || AvatarShape.Circle;
