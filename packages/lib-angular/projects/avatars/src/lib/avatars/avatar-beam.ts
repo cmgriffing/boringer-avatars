@@ -1,26 +1,26 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
-import type { AvatarProps } from "../avatar.utils";
+import type { AvatarProps } from '../avatar.utils';
+import { defaultAvatarProps } from '../avatar.utils';
 
-import { defaultAvatarProps } from "../avatar.utils";
-import { generateData, SIZE } from "./avatar-beam.utils";
+import { generateData, SIZE } from './avatar-beam.utils';
 
 @Component({
-  selector: "avatar-beam, AvatarBeam",
+  selector: 'avatar-beam, AvatarBeam',
   template: `
     <svg
       fill="none"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
-      [attr.viewBox]='"0 0 " + SIZE + " " + SIZE'
+      [attr.viewBox]="'0 0 ' + SIZE + ' ' + SIZE"
       [attr.width]="size"
       [attr.height]="size"
     >
       <ng-container *ngIf="hasTitle">
-        <title>{{name}}</title>
+        <title>{{ name }}</title>
       </ng-container>
 
       <mask
@@ -93,59 +93,64 @@ import { generateData, SIZE } from "./avatar-beam.utils";
 export class AvatarBeam {
   SIZE = SIZE;
 
-  @Input() name: Omit<AvatarProps, 'variant'>['name'] = defaultAvatarProps['name'];
-  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] = defaultAvatarProps['colors'];
-  @Input() size: Omit<AvatarProps, 'variant'>['size'] = defaultAvatarProps['size'];
-  @Input() hasTitle: Omit<AvatarProps, 'variant'>['hasTitle'] = defaultAvatarProps['hasTitle'];
-  @Input() square: Omit<AvatarProps, 'variant'>['square'] = defaultAvatarProps['square'];
+  @Input() name: Omit<AvatarProps, 'variant'>['name'] =
+    defaultAvatarProps['name'];
+  @Input() colors: Omit<AvatarProps, 'variant'>['colors'] =
+    defaultAvatarProps['colors'];
+  @Input() size: Omit<AvatarProps, 'variant'>['size'] =
+    defaultAvatarProps['size'];
+  @Input() hasTitle: Omit<AvatarProps, 'variant'>['hasTitle'] =
+    defaultAvatarProps['hasTitle'];
+  @Input() square: Omit<AvatarProps, 'variant'>['square'] =
+    defaultAvatarProps['square'];
 
   data(name, colors) {
     return generateData(name, colors);
   }
   getRectTransform() {
     return (
-      "translate(" +
+      'translate(' +
       this.data(this.name, this.colors).wrapperTranslateX +
-      " " +
+      ' ' +
       this.data(this.name, this.colors).wrapperTranslateY +
-      ") rotate(" +
+      ') rotate(' +
       this.data(this.name, this.colors).wrapperRotate +
-      " " +
+      ' ' +
       SIZE / 2 +
-      " " +
+      ' ' +
       SIZE / 2 +
-      ") scale(" +
+      ') scale(' +
       this.data(this.name, this.colors).wrapperScale +
-      ")"
+      ')'
     );
   }
   getGroupTransform() {
     return (
-      "translate(" +
+      'translate(' +
       this.data(this.name, this.colors).faceTranslateX +
-      " " +
+      ' ' +
       this.data(this.name, this.colors).faceTranslateY +
-      ") rotate(" +
+      ') rotate(' +
       this.data(this.name, this.colors).faceRotate +
-      " " +
+      ' ' +
       SIZE / 2 +
-      " " +
+      ' ' +
       SIZE / 2 +
-      ")"
+      ')'
     );
   }
   getOpenMouthData() {
     return (
-      "M15 " +
+      'M15 ' +
       (19 + this.data(this.name, this.colors).mouthSpread) +
-      "c2 1 4 1 6 0"
+      'c2 1 4 1 6 0'
     );
   }
   getClosedMouthData() {
     return (
-      "M13," +
+      'M13,' +
       (19 + this.data(this.name, this.colors).mouthSpread) +
-      " a1,0.75 0 0,0 10,0"
+      ' a1,0.75 0 0,0 10,0'
     );
   }
 }

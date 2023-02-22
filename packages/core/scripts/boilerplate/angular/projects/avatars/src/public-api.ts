@@ -3,3 +3,4 @@
  */
 
 export * from './lib/avatar';
+export { defaultAvatarProps } from './lib/avatar.utils';
