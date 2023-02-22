@@ -13,6 +13,7 @@ jobs:
           run_install: |
             - recursive: true
               args: [--frozen-lockfile, --strict-peer-dependencies]
+              cwd: ${GITHUB_WORKSPACE}
             - args: [--global, prettier, typescript]
       - run: pnpm install
       - run: pnpm build
