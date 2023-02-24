@@ -5,7 +5,13 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig(() => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+    plugins: [
+      qwikCity({
+        basePathname: "/boringer-avatars/qwik/",
+      }),
+      qwikVite(),
+      tsconfigPaths(),
+    ],
     base: "/boringer-avatars/qwik/",
     preview: {
       headers: {

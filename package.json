@@ -14,8 +14,7 @@
     "watch:demo": "nodemon --exec \"cd packages/demo && pnpm build:mitosis:plugins && pnpm build:main\" --watch packages/demo/src --watch packages/demo/mitosis --watch packages/demo/scripts --ignore packages/demo/mitosis -e tsx,ts",
     "watch:demo-solid": "nodemon --exec \"cd packages/demo-react && pnpm install && pnpm build\" --watch packages/demo-react --delay 5 --ignore packages/demo-react/dist -e tsx,ts",
     "watch": "npm-run-all -p watch:*",
-    "publish:lib": "pnpm --filter \"@boringer-avatars/*\" publish",
-    "build:docs": "ts-node build-docs.ts"
+    "publish:lib": "pnpm --filter \"@boringer-avatars/*\" publish"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.13",
