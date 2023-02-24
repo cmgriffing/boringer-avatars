@@ -10,8 +10,6 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@boringer-avatars/stencil": "workspace:*",
-    "@demo/stencil": "workspace:*",
     "ui": "workspace:*"
   },
   "devDependencies": {
