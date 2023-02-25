@@ -11,7 +11,7 @@ jobs:
         with:
           version: 7.2.1
           run_install: false
-      - run: pnpm install
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
