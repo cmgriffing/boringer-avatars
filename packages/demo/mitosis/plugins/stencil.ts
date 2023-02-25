@@ -4,7 +4,7 @@ export function CustomStencilPlugin(): MitosisPlugin {
   return {
     json: {
       post: (json) => {
-        console.log(JSON.stringify(json, null, 2));
+        // console.log(JSON.stringify(json, null, 2));
       },
     },
     code: {

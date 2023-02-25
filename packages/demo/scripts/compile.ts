@@ -12,7 +12,7 @@ try {
     Vue3 = "vue3",
     Vue2 = "vue2",
     Solid = "solid",
-    Stencil = "stencil",
+    // Stencil = "stencil",
     Qwik = "qwik",
   }
 
@@ -31,16 +31,16 @@ try {
         compiledDir = path.resolve(process.cwd(), `output/vue/${target}/src`);
       }
 
-      if (target === Target.Stencil) {
-        const jsFilesPath = path.resolve(compiledDir, "**/*.js");
-        const jsFiles = glob.sync(jsFilesPath);
-        console.log({ jsFilesPath, jsFiles });
-        jsFiles.forEach((jsFile) => {
-          const tsFile = jsFile.replace(".js", ".tsx");
-          console.log("Moving", { jsFile, tsFile });
-          fs.moveSync(jsFile, tsFile);
-        });
-      }
+      // if (target === Target.Stencil) {
+      //   const jsFilesPath = path.resolve(compiledDir, "**/*.js");
+      //   const jsFiles = glob.sync(jsFilesPath);
+      //   // console.log({ jsFilesPath, jsFiles });
+      //   jsFiles.forEach((jsFile) => {
+      //     const tsFile = jsFile.replace(".js", ".tsx");
+      //     // console.log("Moving", { jsFile, tsFile });
+      //     fs.moveSync(jsFile, tsFile);
+      //   });
+      // }
 
       const outputDir = path.resolve(process.cwd(), "../", `demo-${target}`);
 
