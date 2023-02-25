@@ -96,7 +96,7 @@ try {
 
     fs.copySync(compiledDir, srcDir);
 
-    execSync("pnpm install", {
+    execSync("pnpm install --no-frozen-lockfile", {
       cwd: outputDir,
     });
 

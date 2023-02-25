@@ -46,7 +46,7 @@ try {
     const outputDir = path.resolve(process.cwd(), `apps/docs/dist/${target}`);
 
     console.log("Installing deps:", target);
-    execSync("pnpm install", {
+    execSync("pnpm install --no-frozen-lockfile", {
       cwd: webDir,
       stdio: "inherit",
     });

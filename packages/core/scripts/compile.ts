@@ -194,7 +194,7 @@ try {
       fs.removeSync(templateFilePath);
     });
 
-    execSync("pnpm install", {
+    execSync("pnpm install --no-frozen-lockfile", {
       cwd: outputDir,
     });
 
