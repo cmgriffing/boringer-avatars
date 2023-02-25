@@ -48,11 +48,13 @@ try {
     console.log("Installing deps:", target);
     execSync("pnpm install", {
       cwd: webDir,
+      stdio: "inherit",
     });
 
     console.log("Building Web:", target);
     execSync("pnpm build", {
       cwd: webDir,
+      stdio: "inherit",
     });
 
     if (fs.existsSync(outputDir)) {
