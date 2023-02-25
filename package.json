@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "ts-node build-docs.ts",
+    "build": "ts-node build-docs.ts && ts-node ./qwik-city-is-not-production-ready.ts",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

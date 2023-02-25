@@ -19,16 +19,19 @@ try {
   console.log("Building Core");
   execSync("pnpm build", {
     cwd: coreDir,
+    stdio: "inherit",
   });
 
   console.log("Build Demo");
   execSync("pnpm build", {
     cwd: demoDir,
+    stdio: "inherit",
   });
 
   console.log("Building Docs");
   execSync("pnpm build", {
     cwd: docsDir,
+    stdio: "inherit",
   });
 
   Object.values(Target).forEach((target) => {
