@@ -12,7 +12,7 @@ try {
     Vue3 = "vue3",
     Solid = "solid",
     Qwik = "qwik",
-    Stencil = "stencil",
+    // Stencil = "stencil",
   }
 
   const instructionsMap: Record<Target, string> = {
@@ -22,7 +22,7 @@ try {
     [Target.Vue3]: ``,
     [Target.Solid]: ``,
     [Target.Qwik]: ``,
-    [Target.Stencil]: ``,
+    // [Target.Stencil]: ``,
   };
 
   const usageMap: Record<Target, string> = {
@@ -96,27 +96,27 @@ try {
           square={false}
           colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
         />`,
-    [Target.Stencil]: `import "@boringer-avatars/stencil";
+    // [Target.Stencil]: `import "@boringer-avatars/stencil";
 
-      ...
+    //   ...
 
-      <boringer-avatar-beam
-        title={false}
-        size={400}
-        name="testing"
-        square={false}
-        colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-      />
+    //   <boringer-avatar-beam
+    //     title={false}
+    //     size={400}
+    //     name="testing"
+    //     square={false}
+    //     colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    //   />
 
-      <boringer-avatar-bauhaus
-        title={false}
-        size={400}
-        name="testing"
-        square={false}
-        colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-      />
+    //   <boringer-avatar-bauhaus
+    //     title={false}
+    //     size={400}
+    //     name="testing"
+    //     square={false}
+    //     colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+    //   />
 
-    `,
+    // `,
   };
 
   const propsNameMap: Record<Target, string> = {
@@ -126,7 +126,7 @@ try {
     [Target.Vue3]: `Props`,
     [Target.Solid]: `Props`,
     [Target.Qwik]: `Props`,
-    [Target.Stencil]: `Props`,
+    // [Target.Stencil]: `Props`,
   };
 
   Object.values(Target).forEach((target) => {
@@ -137,16 +137,16 @@ try {
 
     // temporary until https://github.com/BuilderIO/mitosis/pull/1016 merges
     console.log({ target });
-    if (target === Target.Stencil) {
-      const jsFilesPath = path.resolve(compiledDir, "**/*.js");
-      const jsFiles = glob.sync(jsFilesPath);
-      console.log({ jsFilesPath, jsFiles });
-      jsFiles.forEach((jsFile) => {
-        const tsFile = jsFile.replace(".js", ".tsx");
-        console.log("Moving", { jsFile, tsFile });
-        fs.moveSync(jsFile, tsFile);
-      });
-    }
+    // if (target === Target.Stencil) {
+    //   const jsFilesPath = path.resolve(compiledDir, "**/*.js");
+    //   const jsFiles = glob.sync(jsFilesPath);
+    //   console.log({ jsFilesPath, jsFiles });
+    //   jsFiles.forEach((jsFile) => {
+    //     const tsFile = jsFile.replace(".js", ".tsx");
+    //     console.log("Moving", { jsFile, tsFile });
+    //     fs.moveSync(jsFile, tsFile);
+    //   });
+    // }
 
     const outputDir = path.resolve(process.cwd(), "../", `lib-${target}`);
 
@@ -189,7 +189,7 @@ try {
       propsName,
       usage,
       isAngular: target === "angular",
-      isStencil: target === "stencil",
+      isStencil: false, // target === "stencil",
     };
 
     templateFiles.forEach((templateFilePath) => {
