@@ -18,6 +18,7 @@ const { size, variant, colors, name } = Astro.props;
     {variant.toUpperCase()}
   </h3>
   <Avatar
+    client:only
     size={size}
     variant={variant}
     name={name}

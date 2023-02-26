@@ -98,10 +98,12 @@ try {
 
     execSync("pnpm install --no-frozen-lockfile", {
       cwd: outputDir,
+      stdio: "inherit",
     });
 
     execSync("pnpm build", {
       cwd: outputDir,
+      stdio: "inherit",
     });
   });
 } catch (e: any) {
