@@ -49,8 +49,6 @@ const variants = [
   "beam",
   "sunset",
   "marble",
-  "geometric",
-  "abstract",
   void 0
 ];
 const deprecatedVariants = {

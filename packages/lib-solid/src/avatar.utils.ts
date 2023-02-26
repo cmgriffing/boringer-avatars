@@ -77,8 +77,6 @@ export type Variant =
   | "beam"
   | "sunset"
   | "marble"
-  | "geometric"
-  | "abstract"
   | undefined;
 
 const variants: Variant[] = [
@@ -88,8 +86,6 @@ const variants: Variant[] = [
   "beam",
   "sunset",
   "marble",
-  "geometric",
-  "abstract",
   undefined,
 ];
 const deprecatedVariants: Record<string, Variant> = {

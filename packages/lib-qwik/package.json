@@ -1,6 +1,6 @@
 {
   "name": "@boringer-avatars/qwik",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Create a reusable Qwik component library",
   "main": "./lib/boringer-avatars.qwik.mjs",
   "qwik": "./lib/boringer-avatars.qwik.mjs",
