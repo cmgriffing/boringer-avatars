@@ -138,7 +138,7 @@ try {
         `src/${filePrefix}.lite.tsx`
       );
 
-      const execCommand = `pnpm mitosis compile -t=${target} --out=${outPath} ${inputFile} --force`;
+      const execCommand = `yarn mitosis compile -t=${target} --out=${outPath} ${inputFile} --force`;
 
       console.log({ execCommand });
 
@@ -198,7 +198,7 @@ try {
       cwd: outputDir,
     });
 
-    execSync("pnpm build", {
+    execSync("yarn build", {
       cwd: outputDir,
     });
   });

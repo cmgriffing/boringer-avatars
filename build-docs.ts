@@ -17,19 +17,19 @@ try {
   const demoDir = path.resolve(process.cwd(), "packages/demo");
 
   console.log("Building Core");
-  execSync("pnpm build", {
+  execSync("yarn build", {
     cwd: coreDir,
     stdio: "inherit",
   });
 
   console.log("Build Demo");
-  execSync("pnpm build", {
+  execSync("yarn build", {
     cwd: demoDir,
     stdio: "inherit",
   });
 
   console.log("Building Docs");
-  execSync("pnpm build", {
+  execSync("yarn build", {
     cwd: docsDir,
     stdio: "inherit",
   });
@@ -52,7 +52,7 @@ try {
     });
 
     console.log("Building Web:", target);
-    execSync("pnpm build", {
+    execSync("yarn build", {
       cwd: webDir,
       stdio: "inherit",
     });

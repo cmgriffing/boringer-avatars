@@ -5,9 +5,9 @@
   "scripts": {
     "mitosis": "mitosis",
     "build:mitosis:plugins": "tsc --project tsconfig.plugins.json",
-    "build:mitosis:main": "cp ./scripts/avatar.main.mustache ./src/avatar.lite.tsx && pnpm mitosis build",
+    "build:mitosis:main": "cp ./scripts/avatar.main.mustache ./src/avatar.lite.tsx && yarn mitosis build",
     "build:mitosis:vue2:cp": "cp ./scripts/avatar.vue2.mustache ./src/avatar.lite.tsx",
-    "build:mitosis:vue2:build": "pnpm mitosis build -- --config=mitosis.vue2.config.js",
+    "build:mitosis:vue2:build": "yarn mitosis build -- --config=mitosis.vue2.config.js",
     "build:mitosis:vue2": "npm-run-all -s build:mitosis:vue2:cp build:mitosis:vue2:build",
     "build:mitosis": "npm-run-all -s build:mitosis:main build:mitosis:vue2",
     "build:compile:main": "ts-node --project=tsconfig.json ./scripts/new-compile.ts",
@@ -36,5 +36,5 @@
     "tslib": "^2.4.0",
     "typescript": "^4.8.3"
   },
-  "packageManager": "pnpm@7.2.1"
+  "packageManager": "yarn@7.2.1"
 }

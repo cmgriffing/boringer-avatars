@@ -18,7 +18,7 @@ jobs:
           cmd: install # will run `yarn install` command
 
       - run: yarn install
-      - run: pnpm build
+      - run: yarn build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:

@@ -5,7 +5,7 @@
   "scripts": {
     "mitosis": "mitosis",
     "build:mitosis:plugins": "tsc --project tsconfig.plugins.json",
-    "build:mitosis": "pnpm mitosis build",
+    "build:mitosis": "yarn mitosis build",
     "build:compile": "ts-node --project=tsconfig.json ./scripts/compile.ts",
     "build": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile"
   },

@@ -61,11 +61,11 @@ pnpm preview # or `yarn preview`
 The production build will generate client and server modules by running both client and server build commands. Additionally, the build command will use Typescript to run a type check on the source code.
 
 ```shell
-pnpm build # or `yarn build`
+yarn build # or `yarn build`
 ```
 
 ## Static Site Generator (Node.js)
 
 ```
-pnpm build.server
+yarn build.server
 ```

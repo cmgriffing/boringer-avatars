@@ -101,7 +101,7 @@ try {
       stdio: "inherit",
     });
 
-    execSync("pnpm build", {
+    execSync("yarn build", {
       cwd: outputDir,
       stdio: "inherit",
     });
