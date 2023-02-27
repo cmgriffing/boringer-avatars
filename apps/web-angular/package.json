@@ -19,9 +19,9 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "@boringer-avatars/angular": "workspace:*",
-    "@demo/angular": "workspace:*",
-    "ui": "workspace:*",
+    "@boringer-avatars/angular": "*",
+    "@demo/angular": "*",
+    "ui": "*",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

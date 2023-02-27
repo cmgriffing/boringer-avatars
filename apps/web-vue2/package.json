@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "vue": "^2.7.14",
-    "@boringer-avatars/vue2": "workspace:*",
-    "@demo/vue2": "workspace:*",
-    "ui": "workspace:*"
+    "@boringer-avatars/vue2": "*",
+    "@demo/vue2": "*",
+    "ui": "*"
   },
   "devDependencies": {
     "@types/node": "^18.11.12",

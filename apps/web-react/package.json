@@ -12,16 +12,16 @@
     "next": "12.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ui": "workspace:*",
-    "@boringer-avatars/react": "workspace:*",
-    "@demo/react": "workspace:*"
+    "ui": "*",
+    "@boringer-avatars/react": "*",
+    "@demo/react": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "eslint": "7.32.0",
     "next-transpile-modules": "9.0.0",
-    "tsconfig": "workspace:*",
+    "tsconfig": "*",
     "@types/node": "^17.0.12",
     "@types/react": "18.0.17",
     "typescript": "^4.5.3"

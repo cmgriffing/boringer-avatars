@@ -41,7 +41,7 @@ To develop and run the project locally, you will need:
 Installing the dependencies is done via pnpm:
 
 ```
-pnpm install
+yarn install
 ```
 
 This will install all depencies for the packages and apps within the workspace.

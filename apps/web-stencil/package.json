@@ -10,7 +10,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "ui": "workspace:*"
+    "ui": "*"
   },
   "devDependencies": {
     "@stencil/core": "3.0.0",

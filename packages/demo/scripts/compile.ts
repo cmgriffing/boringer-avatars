@@ -100,7 +100,7 @@ try {
 
       fs.copySync(compiledDir, srcDir);
 
-      execSync("pnpm install --no-frozen-lockfile", {
+      execSync("yarn install", {
         cwd: outputDir,
         stdio: "inherit",
       });

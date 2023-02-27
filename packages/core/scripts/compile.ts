@@ -194,7 +194,7 @@ try {
       fs.removeSync(templateFilePath);
     });
 
-    execSync("pnpm install --no-frozen-lockfile", {
+    execSync("yarn install", {
       cwd: outputDir,
     });
 

@@ -12,9 +12,9 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "eslint": "^7.32.0",
-    "eslint-config-custom": "workspace:*",
+    "eslint-config-custom": "*",
     "react": "^18.2.0",
-    "tsconfig": "workspace:*",
+    "tsconfig": "*",
     "typescript": "^4.5.2"
   }
 }

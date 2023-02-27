@@ -23,9 +23,9 @@
     "qwik": "qwik"
   },
   "dependencies": {
-    "@boringer-avatars/qwik": "workspace:*",
-    "@demo/qwik": "workspace:*",
-    "ui": "workspace:*"
+    "@boringer-avatars/qwik": "*",
+    "@demo/qwik": "*",
+    "ui": "*"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.16.1",
