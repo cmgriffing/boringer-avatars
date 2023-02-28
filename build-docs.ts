@@ -35,8 +35,11 @@ try {
   });
 
   Object.values(Target).forEach((target) => {
+    try {
     const webDir = path.resolve(process.cwd(), `apps/web-${target}`);
     let webDistDir = path.resolve(webDir, "dist");
+
+    console.log({webDir});
 
     if (target === Target.React) {
       webDistDir = path.resolve(webDir, "out");
@@ -63,6 +66,9 @@ try {
     }
 
     fs.copySync(webDistDir, outputDir);
+  } catch(e: any) {
+    console.log(`Error while building web: ${target}`)
+  }
   });
 
   // Angular hack
