@@ -48,12 +48,6 @@ try {
     }
     const outputDir = path.resolve(process.cwd(), `apps/docs/dist/${target}`);
 
-    console.log("Installing deps:", target);
-    execSync("yarn install", {
-      cwd: webDir,
-      stdio: "inherit",
-    });
-
     console.log("Building Web:", target);
     execSync("yarn build", {
       cwd: webDir,

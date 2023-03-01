@@ -213,15 +213,15 @@ try {
 
     fs.copySync(compiledDir, srcDir);
 
-    execSync("yarn install", {
-      cwd: outputDir,
-      stdio: "inherit",
-    });
-
     execSync("yarn build", {
       cwd: outputDir,
       stdio: "inherit",
     });
+  });
+
+  execSync("yarn install", {
+    cwd: process.cwd(),
+    stdio: "inherit",
   });
 } catch (e: any) {
   if (e?.stdout) {
