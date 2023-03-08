@@ -8,7 +8,7 @@ try {
     Svelte = "svelte",
     Vue3 = "vue3",
     Vue2 = "vue2",
-    Solid = "solid",
+    // Solid = "solid",
     Qwik = "qwik",
   }
 
@@ -36,33 +36,33 @@ try {
 
   Object.values(Target).forEach((target) => {
     try {
-    const webDir = path.resolve(process.cwd(), `apps/web-${target}`);
-    let webDistDir = path.resolve(webDir, "dist");
+      const webDir = path.resolve(process.cwd(), `apps/web-${target}`);
+      let webDistDir = path.resolve(webDir, "dist");
 
-    console.log({webDir});
+      console.log({ webDir });
 
-    if (target === Target.React) {
-      webDistDir = path.resolve(webDir, "out");
-    } else if (target === Target.Angular) {
-      webDistDir = path.resolve(webDir, "dist/web-angular");
+      if (target === Target.React) {
+        webDistDir = path.resolve(webDir, "out");
+      } else if (target === Target.Angular) {
+        webDistDir = path.resolve(webDir, "dist/web-angular");
+      }
+      const outputDir = path.resolve(process.cwd(), `apps/docs/dist/${target}`);
+
+      console.log("Building Web:", target);
+      execSync("yarn build", {
+        cwd: webDir,
+        stdio: "inherit",
+      });
+
+      if (fs.existsSync(outputDir)) {
+        fs.removeSync(outputDir);
+        fs.ensureDirSync(outputDir);
+      }
+
+      fs.copySync(webDistDir, outputDir);
+    } catch (e: any) {
+      console.log(`Error while building web: ${target}`);
     }
-    const outputDir = path.resolve(process.cwd(), `apps/docs/dist/${target}`);
-
-    console.log("Building Web:", target);
-    execSync("yarn build", {
-      cwd: webDir,
-      stdio: "inherit",
-    });
-
-    if (fs.existsSync(outputDir)) {
-      fs.removeSync(outputDir);
-      fs.ensureDirSync(outputDir);
-    }
-
-    fs.copySync(webDistDir, outputDir);
-  } catch(e: any) {
-    console.log(`Error while building web: ${target}`)
-  }
   });
 
   // Angular hack

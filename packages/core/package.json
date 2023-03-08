@@ -13,7 +13,7 @@
     "build:compile:main": "ts-node --project=tsconfig.json ./scripts/new-compile.ts",
     "build:compile:vue2": "ts-node --project=tsconfig.json ./scripts/compile-vue2.ts",
     "build:compile": "npm-run-all -s build:compile:main build:compile:vue2",
-    "build": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile",
+    "build": "npm-run-all -s build:mitosis:plugins build:mitosis build:compile:main",
     "build:main-only": "npm-run-all -s build:mitosis:plugins build:mitosis:main build:compile:main"
   },
   "devDependencies": {
