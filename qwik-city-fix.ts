@@ -14,7 +14,7 @@ const indexFileContents = fs.readFileSync(indexFilePath, { encoding: "utf8" });
 
 const fixedIndexFileContents = indexFileContents.replace(
   `q:base="/build/"`,
-  `q:base="/boringer-avatars/qwik/build"`
+  `q:base="/boringer-avatars/qwik/build/"`
 );
 
 fs.writeFileSync(indexFilePath, fixedIndexFileContents);
