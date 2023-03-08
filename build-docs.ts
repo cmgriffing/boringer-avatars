@@ -8,7 +8,7 @@ try {
     Svelte = "svelte",
     Vue3 = "vue3",
     Vue2 = "vue2",
-    // Solid = "solid",
+    Solid = "solid",
     Qwik = "qwik",
   }
 

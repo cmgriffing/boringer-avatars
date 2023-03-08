@@ -10,7 +10,7 @@ try {
     React = "react",
     Svelte = "svelte",
     Vue3 = "vue3",
-    // Solid = "solid",
+    Solid = "solid",
     Qwik = "qwik",
     // Stencil = "stencil",
   }
@@ -20,7 +20,7 @@ try {
     [Target.React]: ``,
     [Target.Svelte]: ``,
     [Target.Vue3]: ``,
-    // [Target.Solid]: ``,
+    [Target.Solid]: ``,
     [Target.Qwik]: ``,
     // [Target.Stencil]: ``,
   };
@@ -46,18 +46,18 @@ try {
           square={false}
           colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
         />`,
-    // [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
+    [Target.Solid]: `import { Avatar } from "@boringer-avatars/solid";
 
-    //     ...
+        ...
 
-    //     <Avatar
-    //       title={false}
-    //       size={400}
-    //       variant="beam"
-    //       name="testing"
-    //       square={false}
-    //       colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
-    //     />`,
+        <Avatar
+          title={false}
+          size={400}
+          variant="beam"
+          name="testing"
+          square={false}
+          colors={["#FFAD08", "#EDD75A", "#73B06F", "#0C8F8F", "#405059"]}
+        />`,
     [Target.Svelte]: `<script lang="ts">
           import { Avatar } from "@boringer-avatars/svelte/package";
         </script>
@@ -124,7 +124,7 @@ try {
     [Target.React]: `Props`,
     [Target.Svelte]: `Props`,
     [Target.Vue3]: `Props`,
-    // [Target.Solid]: `Props`,
+    [Target.Solid]: `Props`,
     [Target.Qwik]: `Props`,
     // [Target.Stencil]: `Props`,
   };
