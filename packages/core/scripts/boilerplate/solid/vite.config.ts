@@ -5,7 +5,7 @@ import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [
-    solidPlugin({ solid: { generate: "ssr", hydratable: true } }),
+    solidPlugin(),
     dts({
       insertTypesEntry: true,
     }),
